@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
-
 import './App.css';
+import CandidatesBar from '../../Containers/CandidatesBar/CandidatesBar'
 
-class App extends Component {
-  state = {
-    response: ''
-  };
-
-
-  render() {
-    return (
-      <div className="App">
-        <header>
-          Colorado Governer Tracker
-        </header>
-        <div className="candidates">
-
-        </div>
-      </div>
-    );
-  }
+const App = () => {
+  return (
+    <div className="App">
+      <header>
+        Colorado Governer Tracker
+      </header>
+      <CandidatesBar/>
+    </div>
+  );
 }
 
 export default App;
