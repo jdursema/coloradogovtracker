@@ -16,7 +16,7 @@ deployment:
   production:
     branch: master
     heroku:
-      appname: coloradogovtrackerg
+      appname: governortrackerco
 
 test:
   override:
