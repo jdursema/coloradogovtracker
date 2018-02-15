@@ -45,7 +45,7 @@ const checkAdmin = (request, response, next) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/', express.static(`${__dirname}/client/public`));
+app.use('/', express.static(`${__dirname}/client/build`));
 
 
 app.set('secretKey', process.env.BYOB_SECRET_KEY);
