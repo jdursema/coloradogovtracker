@@ -48,7 +48,7 @@ describe('authentication', () => {
     });
 });
 
-  it('should have an error if the email does not end with turing.io', () => {
+  it.skip('should have an error if the email does not end with turing.io', () => {
     return chai.request(server)
     .post('/api/v1/tokens')
     .send({
