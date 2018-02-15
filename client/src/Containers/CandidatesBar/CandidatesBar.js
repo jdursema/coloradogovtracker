@@ -9,17 +9,19 @@ export class CandidatesBar extends Component {
     this.props.handleCandidates();
   }
 
-    
-
   
 
   render() {
-    const mappedCardidates = this.props.candidates.map((candidate) => {
-      return <div className='candidate-img' style={{backgroundImage: `url(${candidate.image})`}}></div>
+    const mappedCandidates = this.props.candidates.map((candidate) => {
+      return <div 
+        className='candidate-img' 
+        style={{backgroundImage: `url(${candidate.image})`}}
+        onClick={(event) => {console.log(event.target)}}>
+        </div>
     })
     return (
       <div className='candidate-bar'>
-        {mappedCardidates}
+        {mappedCandidates}
       </div>
     )
   }
