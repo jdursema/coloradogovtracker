@@ -7,21 +7,25 @@ export class CandidatesBar extends Component {
 
   async componentDidMount () {
     this.props.handleCandidates();
+    console.log(this.props.candidates.candidates)
   }
 
-  
+  selectCandidate = (candidate) => {
+  console.log(candidate)
+  }
 
   render() {
-    const mappedCandidates = this.props.candidates.map((candidate) => {
+    const mappedCandidates = this.props.candidates.candidates.map((candidate) => {
       return <div 
         className='candidate-img' 
         style={{backgroundImage: `url(${candidate.image})`}}
-        onClick={(event) => {console.log(event.target)}}>
+        onClick={() => this.selectCandidate(candidate)}>
         </div>
     })
+        
     return (
       <div className='candidate-bar'>
-        {mappedCandidates}
+      {mappedCandidates}
       </div>
     )
   }

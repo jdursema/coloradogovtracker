@@ -1,7 +1,19 @@
-const candidatesReducer = (state =[], action) => {
+
+const defaultState = 
+  {
+    candidates: [],
+    selectedCandidate: []
+  };
+
+
+const candidatesReducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_CANDIDATES':
-      return action.candidatesArray
+      return { ...state,
+      candidates: action.candidatesArray,
+      selectedCandidate:''
+    };  
+  
     default:
     return state
   }
