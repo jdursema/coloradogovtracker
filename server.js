@@ -84,6 +84,23 @@ app.get('/api/v1/candidates', (request, response) => {
     });
 });
 
+//get all expenditures
+
+app.get('/api/v1/expenditures', (request, response) => {
+  database('expenditures').select()
+
+  .then(expenditures => {
+    return response.status(200).json({
+      expenditures
+    })
+  })
+  .catch(error => {
+    return response.status(500).json({
+      error
+    })
+  })
+})
+
 
 // get all contributions or contributions with a query paramater of zip
 
@@ -123,32 +140,104 @@ app.get('/api/v1/contributions', (request, response) => {
   }
 });
 
+//get all contributions for a specific candidate at a certain area code
 
+app.get('/api/v1/candidates/:committeeId/contributions', (request, response) => {
+  const zip = (request.query.zip);
 
-
-app.get('/api/v1/candidates/:committeeId/contributors', (request, response) => {
-
-  database('contributors').where('committee_id', request.params.committeeId).select()
-
+  if (zip){
+    database('contributors').where({
+      committe_id: request.params.committeId,
+      donor_zip: zip}).select()
+    
+      .then(contributions => {
+        if(contributions.length){
+          return response.status(200).json({
+            contribution
+          })
+        } else {
+          return response.status(404).json({
+            error: `Could not find contributions in zip ${zip} for candidate with committe id ${request.params.committeeId}`
+          })
+        }
+      })
+      .catch(error => {
+        return response(500).json({
+          error
+        })
+      })
+  } else {
+    database('contributors').where('committee_id', request.params.committeeId)
     .then(contributors => {
-      if (contributors.length){
+      if(contributors.length){
         return response.status(200).json({
           contributors
-        });
+        })
       } else {
         return response.status(404).json({
-          error:
-          `Could not find contributors for candadite with commmitte id of 
-          ${request.params.committeeId}`
-        });
+          error: `Could not find contributions for candidate with committe id ${request.params.committeeId}`
+        })
       }
     })
     .catch(error => {
-      return response.status(500).json({
+      return response(500).json({
         error
-      });
-    });
-});
+      })
+    })
+  }
+  
+})
+
+//get all expenditures for specific candidates
+
+app.get('/api/v1/candidates/:committeeId/expenditures', (request, response) => {
+  database('expenditures').where('committee_id', request.params.committeeId).select()
+
+  .then(expenditures => {
+    if(expenditures.length){
+      return response.status(200).json({
+        expenditures
+      })
+    } else {
+      return response.status(404).json({
+        error: `Could not find expenditures for candadite with commmitte id of 
+        ${request.params.committeeId}`
+      })
+    }
+  })
+  .catch(error => {
+    return response.status(500).json({
+      error
+    })
+  })
+})
+
+
+
+
+// app.get('/api/v1/candidates/:committeeId/contributors', (request, response) => {
+
+//   database('contributors').where('committee_id', request.params.committeeId).select()
+
+//     .then(contributors => {
+//       if (contributors.length){
+//         return response.status(200).json({
+//           contributors
+//         });
+//       } else {
+//         return response.status(404).json({
+//           error:
+//           `Could not find contributors for candadite with commmitte id of 
+//           ${request.params.committeeId}`
+//         });
+//       }
+//     })
+//     .catch(error => {
+//       return response.status(500).json({
+//         error
+//       });
+//     });
+// });
 
 app.get('/api/v1/contributions/:contributionId', (request, response) => {
   database('contributors').where('record_id', request.params.contributionId).select()
