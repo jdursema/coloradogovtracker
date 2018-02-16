@@ -12,7 +12,12 @@ const candidatesReducer = (state = defaultState, action) => {
       return { ...state,
       candidates: action.candidatesArray,
       selectedCandidate:''
-    };  
+    };
+
+    case'SELECT_CANDIDATE':
+    return { ...state,
+      selectedCandidate:action.candidateObject
+    }
   
     default:
     return state

@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { initialCandidatesFetch } from '../../Actions';
-import './CandidatesBar.css'
+// import { initialCandidatesFetch } from '../../h';
+import { getSelectedCandidate, initialCandidatesFetch }from '../../Helper/helper';
+import './CandidatesBar.css';
+import * as actions from '../../Actions/';
+
 
 export class CandidatesBar extends Component {
 
-  async componentDidMount () {
-    this.props.handleCandidates();
-    console.log(this.props.candidates.candidates)
+  componentDidMount = async () => {
+    const candidateData = await initialCandidatesFetch();
+    this.props.handleCandidates(candidateData);
   }
 
-  selectCandidate = (candidate) => {
-  console.log(candidate)
+  selectCandidate = async (candidateId) => {
+    const candidateData = await getSelectedCandidate(candidateId)
+    this.props.setCandidate(candidateData)
   }
 
   render() {
@@ -19,7 +23,7 @@ export class CandidatesBar extends Component {
       return <div 
         className='candidate-img' 
         style={{backgroundImage: `url(${candidate.image})`}}
-        onClick={() => this.selectCandidate(candidate)}>
+        onClick={() => this.selectCandidate(candidate.committee_id)}>
         </div>
     })
         
@@ -35,8 +39,15 @@ const mapStateToProps = state => ({
   candidates: state.candidates
 })
 
-const mapDispatchToProps = dispatch => ({
-  handleCandidates: () => dispatch(initialCandidatesFetch())
-})
+const mapDispatchToProps = dispatch => {
+  return {
+    handleCandidates: candidates => {
+      dispatch(actions.addCandidatesToStore(candidates))
+    },
+    setCandidate: candidate => {
+      dispatch(actions.setSelectedCandidate(candidate))
+    }
+  }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(CandidatesBar);
