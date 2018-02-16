@@ -65,7 +65,7 @@ describe('authentication', () => {
 
 describe('API Routes', () => {
 
-  before((done) => {
+  beforeEach((done) => {
     knex.seed.run()
       .then(() => {
         done();
@@ -104,6 +104,16 @@ describe('API Routes', () => {
       })
       .catch(error => {
         throw error
+      })
+    })
+  })
+
+  describe('GET /api/v1/expenditures', () => {
+    it('should return all expenditures', () => {
+      return chai.request(server)
+      .get('/api/v1/expenditures')
+      .then(response => {
+        response.should.have.status(200)
       })
     })
   })

@@ -102,7 +102,7 @@ app.get('/api/v1/expenditures', (request, response) => {
 })
 
 
-// get all contributions or contributions with a query paramater of zip
+// get all contributions or all contributions in a specific zip code (query parameter)
 
 app.get('/api/v1/contributions', (request, response) => {
   const zip = (request.query.zip);
@@ -140,7 +140,7 @@ app.get('/api/v1/contributions', (request, response) => {
   }
 });
 
-//get all contributions for a specific candidate at a certain area code
+//get all contributions for a specific candidate or all contributions for a specific candidate in a specific zip code (query parameter)
 
 app.get('/api/v1/candidates/:committeeId/contributions', (request, response) => {
   const zip = (request.query.zip);
@@ -212,32 +212,7 @@ app.get('/api/v1/candidates/:committeeId/expenditures', (request, response) => {
   })
 })
 
-
-
-
-// app.get('/api/v1/candidates/:committeeId/contributors', (request, response) => {
-
-//   database('contributors').where('committee_id', request.params.committeeId).select()
-
-//     .then(contributors => {
-//       if (contributors.length){
-//         return response.status(200).json({
-//           contributors
-//         });
-//       } else {
-//         return response.status(404).json({
-//           error:
-//           `Could not find contributors for candadite with commmitte id of 
-//           ${request.params.committeeId}`
-//         });
-//       }
-//     })
-//     .catch(error => {
-//       return response.status(500).json({
-//         error
-//       });
-//     });
-// });
+//get a specific contribution by it's contributionId
 
 app.get('/api/v1/contributions/:contributionId', (request, response) => {
   database('contributors').where('record_id', request.params.contributionId).select()
@@ -254,6 +229,7 @@ app.get('/api/v1/contributions/:contributionId', (request, response) => {
     });
 });
 
+//post a candidate
 
 app.post('/api/v1/candidates', authCheck, (request, response) => {
   
@@ -290,7 +266,8 @@ app.post('/api/v1/candidates', authCheck, (request, response) => {
 });
 
 
-// post contributions
+// post a contributor
+
 app.post('/api/v1/contributions', authCheck, (request, response) => {
   const contribution = request.body;
   for (let requiredParameter of ['committee_id', 
@@ -325,7 +302,7 @@ app.post('/api/v1/contributions', authCheck, (request, response) => {
     });
 });
 
-// 20165031889
+// patch a candidate
 
 app.patch('/api/v1/candidate/:committeeId', authCheck, (request, response) => {
   database('candidates').where('committee_id', request.params.committeeId).update(request.body, '')
@@ -335,7 +312,7 @@ app.patch('/api/v1/candidate/:committeeId', authCheck, (request, response) => {
           error: 'Could not update candidate'
         });
       } else {
-        response.sendStatus(202);
+        return response.sendStatus(202);
       }
     })
     .catch(error => {
@@ -343,6 +320,7 @@ app.patch('/api/v1/candidate/:committeeId', authCheck, (request, response) => {
     });
 });
 
+//patch a contribution
 
 app.patch('/api/v1/contributions/:contributionId', authCheck, (request, response) => {
   database('contributors')
@@ -354,16 +332,16 @@ app.patch('/api/v1/contributions/:contributionId', authCheck, (request, response
           error: 'Could not update contribution'
         });
       } else {
-        response.sendStatus(202);
+        return response.sendStatus(202);
       }
     })
     .catch(error => {
-      response.status(500).json({error});
+      return response.status(500).json({error});
     });
 });
 
 
-
+//delete a candidate (and all of candidates contributions)
 
 app.delete('/api/v1/candidates/:committeId', authCheck, (request, response) => {
   database('contributors').where('committee_id', request.params.committeId).delete()
@@ -381,6 +359,7 @@ app.delete('/api/v1/candidates/:committeId', authCheck, (request, response) => {
     });
 });
 
+//delete a contributor
 
 app.delete('/api/v1/contributions/:contributionId', authCheck, (request, response) => {
   database('contributors').where('id', request.params.contributionId).delete()
