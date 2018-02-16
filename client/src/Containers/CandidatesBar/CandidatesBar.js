@@ -8,10 +8,6 @@ import * as actions from '../../Actions/';
 
 export class CandidatesBar extends Component {
 
-  componentDidMount = async () => {
-    const candidateData = await initialCandidatesFetch();
-    this.props.handleCandidates(candidateData);
-  }
 
   selectCandidate = async (candidateId) => {
     const candidateData = await getSelectedCandidate(candidateId)
@@ -41,9 +37,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleCandidates: candidates => {
-      dispatch(actions.addCandidatesToStore(candidates))
-    },
     setCandidate: candidate => {
       dispatch(actions.setSelectedCandidate(candidate))
     }

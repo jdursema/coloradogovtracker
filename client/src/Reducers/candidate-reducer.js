@@ -10,11 +10,11 @@ const candidatesReducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_CANDIDATES':
       return { ...state,
-      candidates: action.candidatesArray,
-      selectedCandidate:''
+      candidates: action.candidatesArray
     };
 
     case'SELECT_CANDIDATE':
+    console.log(action.candidateObject)
     return { ...state,
       selectedCandidate:action.candidateObject
     }
