@@ -84,6 +84,23 @@ app.get('/api/v1/candidates', (request, response) => {
     });
 });
 
+// get candidates by id
+
+
+app.get('/api/v1/candidates/:id', (request, response) => {
+  database('candidates').where('committee_id', request.params.id).select()
+  .then(candidates => {
+    if(candidates.length) {
+      return response.status(200).json({candidates})
+    } else {
+      return response.status(404).json({error: `Could not find candidate for id ${request.params.id}`})
+    }
+  })
+  .catch(error => {
+    return response.status(500).json({error})
+  })
+})
+
 //get all expenditures
 
 app.get('/api/v1/expenditures', (request, response) => {
