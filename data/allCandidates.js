@@ -22,6 +22,17 @@ module.exports = [
      "image":"http://msantray.fatcow.com/governor_photos/veronique_bellamy.jpg"
   },
   {  
+     "committee_id":null,
+     "candidate_id":20185033497,
+     "last_name":"Blanchard",
+     "full_name":"Renee Blanchard",
+     "committee_name":"",
+     "party":"Democrat",
+     "active":"TRUE",
+     "website":"",
+     "image":""
+  },
+  {  
      "committee_id":20175032022,
      "candidate_id":20175032030,
      "last_name":"Brauchler",
@@ -33,6 +44,17 @@ module.exports = [
      "image":"http://msantray.fatcow.com/governor_photos/george_brauchler.jpg"
   },
   {  
+     "committee_id":null,
+     "candidate_id":20185033629,
+     "last_name":"Braun",
+     "full_name":"Erich Braun",
+     "committee_name":"",
+     "party":"Republican",
+     "active":"TRUE",
+     "website":"",
+     "image":""
+  },
+  {  
      "committee_id":20175031933,
      "candidate_id":20175031910,
      "last_name":"Cantrell",
@@ -41,7 +63,7 @@ module.exports = [
      "party":"American Constitution",
      "active":"TRUE",
      "website":"http://www.cantrellforcolorado.com/",
-     "image":"http://msantray.fatcow.com/governor_photos/no_avatar.jpg"
+     "image":""
   },
   {  
      "committee_id":20175033290,
@@ -52,7 +74,7 @@ module.exports = [
      "party":"Republican",
      "active":"TRUE",
      "website":"http://cynthia2018.com/",
-     "image":"http://msantray.fatcow.com/governor_photos/no_avatar.jpg"
+     "image":""
   },
   {  
      "committee_id":20175032085,
@@ -63,7 +85,18 @@ module.exports = [
      "party":"Unaffiliated",
      "active":"TRUE",
      "website":"",
-     "image":"http://msantray.fatcow.com/governor_photos/no_avatar.jpg"
+     "image":""
+  },
+  {  
+     "committee_id":null,
+     "candidate_id":20175033320,
+     "last_name":"French",
+     "full_name":"John",
+     "committee_name":"",
+     "party":"",
+     "active":"TRUE",
+     "website":"",
+     "image":""
   },
   {  
      "committee_id":20175031962,
@@ -75,6 +108,17 @@ module.exports = [
      "active":"TRUE",
      "website":"https://lewgaiter.com/",
      "image":"http://msantray.fatcow.com/governor_photos/lew_gaiter.jpg"
+  },
+  {  
+     "committee_id":null,
+     "candidate_id":20165030242,
+     "last_name":"Garrity",
+     "full_name":"Adam Garrity",
+     "committee_name":"",
+     "party":"Democrat",
+     "active":"TRUE",
+     "website":"",
+     "image":""
   },
   {  
      "committee_id":20165031883,
@@ -99,6 +143,28 @@ module.exports = [
      "image":"http://msantray.fatcow.com/governor_photos/bill_hammons.jpg"
   },
   {  
+     "committee_id":null,
+     "candidate_id":20175033398,
+     "last_name":"Helker",
+     "full_name":"Scott",
+     "committee_name":"",
+     "party":"Libertarian",
+     "active":"TRUE",
+     "website":"",
+     "image":"http://msantray.fatcow.com/governor_photos/scott_helker.jpg"
+  },
+  {  
+     "committee_id":null,
+     "candidate_id":20165031262,
+     "last_name":"Humes",
+     "full_name":"Moses Humes",
+     "committee_name":"",
+     "party":"Democrat",
+     "active":"TRUE",
+     "website":"https://www.facebook.com/mosescarmenhumesforgovernor/",
+     "image":""
+  },
+  {  
      "committee_id":20175031889,
      "candidate_id":20175031896,
      "last_name":"Johnston",
@@ -108,6 +174,17 @@ module.exports = [
      "active":"TRUE",
      "website":"https://mikejohnstonforcolorado.com/",
      "image":"http://msantray.fatcow.com/governor_photos/michael_johnston.jpg"
+  },
+  {  
+     "committee_id":null,
+     "candidate_id":20185033495,
+     "last_name":"Kear",
+     "full_name":"Teri",
+     "committee_name":"",
+     "party":"Republican",
+     "active":"TRUE",
+     "website":"",
+     "image":""
   },
   {  
      "committee_id":20175032028,
@@ -154,6 +231,17 @@ module.exports = [
      "image":"http://msantray.fatcow.com/governor_photos/victor_mitchell_.jpg"
   },
   {  
+     "committee_id":null,
+     "candidate_id":20175032145,
+     "last_name":"Osada",
+     "full_name":"Richard Osada",
+     "committee_name":"",
+     "party":"Unaffiliated",
+     "active":"TRUE",
+     "website":"",
+     "image":""
+  },
+  {  
      "committee_id":20185033589,
      "candidate_id":20185033522,
      "last_name":"Perkins",
@@ -162,7 +250,7 @@ module.exports = [
      "party":"Unaffiliated",
      "active":"TRUE",
      "website":"",
-     "image":"http://msantray.fatcow.com/governor_photos/no_avatar.jpg"
+     "image":""
   },
   {  
      "committee_id":20175032027,
@@ -172,7 +260,7 @@ module.exports = [
      "committee_name":"Perlmutter For Colorado",
      "party":"Democrat",
      "active":"FALSE",
-     "website":"",
+     "website":"http://msantray.fatcow.com/governor_photos/ed_perlmutter.jpg",
      "image":"http://msantray.fatcow.com/governor_photos/ed_perlmutter.jpg"
   },
   {  
@@ -209,6 +297,17 @@ module.exports = [
      "image":"http://msantray.fatcow.com/governor_photos/jim_rundberg.jpg"
   },
   {  
+     "committee_id":null,
+     "candidate_id":20175031968,
+     "last_name":"Schroeder",
+     "full_name":"Michael Schroeder",
+     "committee_name":"",
+     "party":"Democrat",
+     "active":"TRUE",
+     "website":"",
+     "image":""
+  },
+  {  
      "committee_id":20175033116,
      "candidate_id":20175033125,
      "last_name":"Stapleton",
@@ -218,6 +317,17 @@ module.exports = [
      "active":"TRUE",
      "website":"https://www.stapletonforcolorado.com/",
      "image":"http://msantray.fatcow.com/governor_photos/walker_stapleton.png"
+  },
+  {  
+     "committee_id":null,
+     "candidate_id":20175032000,
+     "last_name":"Starkey",
+     "full_name":"Korey Starkey",
+     "committee_name":"",
+     "party":"Unaffiliated",
+     "active":"TRUE",
+     "website":"",
+     "image":""
   },
   {  
      "committee_id":20175033254,
@@ -250,6 +360,17 @@ module.exports = [
      "party":"Unaffiliated",
      "active":"TRUE",
      "website":"",
-     "image":"http://msantray.fatcow.com/governor_photos/no_avatar.jpg"
+     "image":""
+  },
+  {  
+     "committee_id":null,
+     "candidate_id":20175031940,
+     "last_name":"Wood",
+     "full_name":"Matthew Wood",
+     "committee_name":"",
+     "party":"Unaffiliated",
+     "active":"TRUE",
+     "website":"https://www.woodforcolorado.com/",
+     "image":"http://msantray.fatcow.com/governor_photos/matthew_wood.jpg"
   }
 ]

@@ -1,17 +1,14 @@
 .candidate-bar{
-  padding: 1%;
-  background-color: #283044;
   display: flex;
-  /* align-items: center; */
   flex-wrap: nowrap;
   overflow-x: scroll;
+  padding: 1%;
 }
 
-.candidate-img{
-  background-color: lightgray;
-  min-width: 150px;
-  height: 200px;
-  background-size: cover;
+.candidate-img {
   background-position: center;
-  margin: 0 10px;
+  background-size: cover;
+  height: 150px;
+  margin: 0 2px;
+  min-width: 150px;
 }

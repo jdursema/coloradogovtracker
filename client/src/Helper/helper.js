@@ -10,3 +10,4 @@ export const getSelectedCandidate = async (id) => {
   const candidateResponse = await candidateFetch.json()
   return candidateResponse.candidates
 }
+
