@@ -13,28 +13,18 @@ export class CandidatesBar extends Component {
     this.props.setCandidate(candidateData)
   }
 
-  // mappedCandidates = () => {
-  //   this.props.candidates.candidates.map((candidate) => {
-    
-  //       return (
-  //         <div className='candidate-img' onClick={() => this.selectCandidate(candidate.committee_id)}>
-  //           <Link to = {`/candidates/${candidate.committee_id}`}>
-  //             <img className="candidate-img" src={`${candidate.image}`} alt= {`${candidate.name}`} />
-  //           </Link>
-  //         </div>
-  //       )
-      
-  //   })
-  // }
-
   render() {
     const mappedCandidates = this.props.candidates.candidates.map((candidate) => {
       if (candidate.active === true) {
         return (
-          <div className='candidate-img' onClick={() => this.selectCandidate(candidate.committee_id)}>
+          <div className='candidate-img-div grow' onClick={() => this.selectCandidate(candidate.committee_id)}>
             <Link to = {`/candidates/${candidate.committee_id}`}>
               <img className="candidate-img" src={`${candidate.image}`} alt= {`${candidate.name}`} />
             </Link>
+              <div className = "dropdown-content">
+                <p> {candidate.full_name} </p>
+                <p> {candidate.party} </p>
+              </div>
           </div>
         )
       }
