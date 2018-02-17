@@ -52,13 +52,13 @@ module.exports = [
      "party":"Republican",
      "active":"TRUE",
      "website":"http://cynthia2018.com/",
-     "image":"http://msantray.fatcow.com/governor_photos/no_avatar.jpg"
+     "image":"http://msantray.fatcow.com/governor_photos/cynthia_coffmann.jpg"
   },
   {  
      "committee_id":20175032085,
      "candidate_id":20105017470,
      "last_name":"Cunningham",
-     "full_name":"Kathleen",
+     "full_name":"Kathleen Cunningham",
      "committee_name":"Committee To Elect Kathleen Cunningham",
      "party":"Unaffiliated",
      "active":"TRUE",
