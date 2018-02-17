@@ -19,14 +19,16 @@ export class App extends Component {
     this.props.handleCandidates(candidateData);
   }
 
+   // <header>
+        //   Colorado Governor Tracker
+        // </header>
+        //  <CandidatesBar/>
 
-   // { this.props.candidates.candidates > 0 &&
-   //    
-   //      }
   render () {
     return (
 
       <div className="App">
+      <Route exact path = '/' component = {CandidatesBar} />
       <Route path = '/candidates/:id' render = {({match}) => {
         const candidateObject = this.props.candidates.candidates;
         const {id} = match.params;
@@ -37,10 +39,7 @@ export class App extends Component {
         return <CandidateDetails />;
           }} />
    
-        <header>
-          Colorado Governor Tracker
-        </header>
-         <CandidatesBar/>
+     
       </div>
     )
   }

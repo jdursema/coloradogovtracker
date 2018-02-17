@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { initialCandidatesFetch } from '../../h';
 import { getSelectedCandidate, initialCandidatesFetch }from '../../Helper/helper';
 import './CandidatesBar.css';
 import * as actions from '../../Actions/';
+import { Link, withRouter} from 'react-router-dom';
 
 
 export class CandidatesBar extends Component {
@@ -16,18 +16,24 @@ export class CandidatesBar extends Component {
 
   render() {
     const mappedCandidates = this.props.candidates.candidates.map((candidate) => {
-      return <div 
-        className='candidate-img' 
-        style={{backgroundImage: `url(${candidate.image})`}}
-        onClick={() => this.selectCandidate(candidate.committee_id)}>
+      return <div className='candidate-img' onClick={() => this.selectCandidate(candidate.committee_id)}>
+        <Link to = {`/candidates/${candidate.committee_id}`}>
+          <img className="candidate-img" src={`${candidate.image}`} alt= {`${candidate.name}`} />
+        </Link>
         </div>
+        
     })
         
-    return (
+  return (
+    <div> 
+        <header>
+          <h1> Colorado Governor Tracker </h1>
+        </header>
       <div className='candidate-bar'>
-      {mappedCandidates}
+        {mappedCandidates}
       </div>
-    )
+    </div>
+  )
   }
 }
 
@@ -43,4 +49,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CandidatesBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CandidatesBar));
