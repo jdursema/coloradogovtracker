@@ -12,15 +12,12 @@ class CandidateDetails extends Component {
     super(props);
   }
 
-
-
-
 setCandidateRoute = (async() => {
     const idArray = Object.values(this.props.match.params);
     const candidateId = idArray[0];
     const candidateData = await getSelectedCandidate(candidateId);
     this.props.setCandidate(candidateData);
-  });
+});
 
 getCandidateInfo = () => {
   if (this.props.candidates.selectedCandidate[0]) {
