@@ -5,7 +5,7 @@
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha --exit"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
