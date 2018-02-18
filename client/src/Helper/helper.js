@@ -32,3 +32,8 @@ const cleanCandidateInfo = (candidate) => {
 }
 
 
+export const getAllContributions = async () => {
+  const initialFetch = await fetch ('/api/v1/contributions')
+  const fetchResponse = await initialFetch.json();
+  return fetchResponse.contributors;
+}

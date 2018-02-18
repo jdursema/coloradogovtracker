@@ -14,7 +14,7 @@ export class CandidatesBar extends Component {
   }
 
   render() {
-    const mappedCandidates = this.props.candidates.candidates.map((candidate) => {
+    const mappedCandidates = this.props.candidates.map((candidate) => {
       if (candidate.active === true) {
         return (
           <div className='candidate-img-div grow' onClick={() => this.selectCandidate(candidate.committee_id)}>
