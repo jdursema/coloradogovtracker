@@ -112,6 +112,7 @@ describe('API Routes', () => {
   describe('GET /api/v1/expenditures', () => {
     it('should return all expenditures', () => {
       return chai.request(server)
+
         .get('/api/v1/expenditures')
         .then(response => {
           response.should.have.status(200);
@@ -151,6 +152,7 @@ describe('API Routes', () => {
         });
     });
   });
+
 
   describe('GET /api/v1/contributions', () => {
     it('should return all of the contributions', () => {
@@ -229,6 +231,35 @@ describe('API Routes', () => {
   });
 
 
+ 
+
+  describe('GET /api/v1/candidates/:committeeId/expenditures', () => {
+    it('should return all of the expenditures with a record id', () => {
+      return chai.request(server)
+      .get('/api/v1/candidates/20165031883/expenditures')
+      .then(response => {
+        response.should.have.status(200)
+        response.body.expenditures[0].committee_id.should.equal('20165031883')
+        response.body.expenditures.length.should.equal(3)
+        
+      })
+      .catch(error => {
+        throw error
+      })
+    })
+    it('should return a 404 error if their is no expenditures under the candidate id', () => {
+      return chai.request(server)
+      .get('/api/v1/candidates/20165031888/expenditures')
+      .then(response => {
+    
+      })
+      .catch(error => {
+        error.should.have.status(404)
+      })
+    })
+  })
+
+
   describe('GET /api/v1/contributions/:contributionID', () => {
     it('should return all of the contibutors with a record id', () => {
       return chai.request(server)
@@ -254,6 +285,7 @@ describe('API Routes', () => {
   describe('GET /api/v1/candidates/:committeeId/contributions', () => {
     it('should return all of the contributors to a specific candidate', () => {
       return chai.request(server)
+
         .get('/api/v1/candidates/20165031883/contributions')
         .then(response => {
           response.should.have.status(200);
@@ -298,6 +330,7 @@ describe('API Routes', () => {
         });
     });
   });
+
 
   describe('POST /api/v1/candidates', () => {
     it('should create a new candidate', () => {

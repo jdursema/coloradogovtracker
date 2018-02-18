@@ -3,6 +3,7 @@ const contributionsData = require('../../../data/test_data/contributionTestData'
 const candidatesData = require('../../../data/test_data/candidateTestData');
 const expendituresData = require('../../../data/test_data/expenditureTestData');
 
+
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('contributors').del()
@@ -21,6 +22,7 @@ exports.seed = function(knex, Promise) {
       });
       expendituresData.forEach((expenditure) => {
         expenditurePromises.push(createExpenditure(knex, expenditure));
+
       });
       return Promise.all([...candidatePromises, ...contributionPromises, ...expenditurePromises]);
     });
@@ -39,3 +41,4 @@ const createContributor = (knex, contributor) => {
 const createExpenditure = (knex, expenditure) => {
   return knex('expenditures').insert(expenditure);
 };
+

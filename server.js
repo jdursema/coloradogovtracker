@@ -172,11 +172,13 @@ app.get('/api/v1/candidates/:committeeId/contributions', (request, response) => 
         if (contributions.length){
           return response.status(200).json({
             contributions
+
           });
         } else {
           return response.status(404).json({
             error: `Could not find contributions in zip ${zip} for candidate with committee id ${request.params.committeeId}`
           });
+
         }
       })
       .catch(error => {
@@ -186,6 +188,7 @@ app.get('/api/v1/candidates/:committeeId/contributions', (request, response) => 
       });
   } else {
     database('contributors').where('committee_id', request.params.committeeId)
+
       .then(contributors => {
         if (contributors.length){
           return response.status(200).json({
@@ -196,6 +199,7 @@ app.get('/api/v1/candidates/:committeeId/contributions', (request, response) => 
             error: `Could not find contributions for candidate with committe id ${request.params.committeeId}`
           });
         }
+
       })
       .catch(error => {
         return response.status(500).json({

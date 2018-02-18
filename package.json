@@ -7,6 +7,7 @@
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "test": "./node_modules/.bin/mocha --exit",
     "eslint": "./node_modules/eslint/bin/eslint.js ./*.js ./db/*.js ./db/*/*.js ./db/*/*/*.js ./test/*.js --fix"
+
   },
   "dependencies": {
     "babel-eslint": "^8.2.1",
