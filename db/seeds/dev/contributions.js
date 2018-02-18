@@ -37,4 +37,4 @@ const createContributor = (knex, contributor) => {
 
 const createExpenditure = (knex, expenditure) => {
   return knex('expenditures').insert(expenditure);
-}
+};
