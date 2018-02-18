@@ -114,6 +114,39 @@ describe('API Routes', () => {
       .get('/api/v1/expenditures')
       .then(response => {
         response.should.have.status(200)
+        response.body.expenditures[0].should.have.property('id')
+        response.body.expenditures[0].should.have.property('expenditure_amt')
+        response.body.expenditures[0].should.have.property('expenditure_date')
+        response.body.expenditures[0].should.have.property('expenditure_recipient')
+        response.body.expenditures[0].should.have.property('address')
+        response.body.expenditures[0].should.have.property('city')
+        response.body.expenditures[0].should.have.property('state')
+        response.body.expenditures[0].should.have.property('zip')
+        response.body.expenditures[0].should.have.property('explanation')
+        response.body.expenditures[0].should.have.property('payment_type')
+        response.body.expenditures[0].should.have.property('disbursement_type')
+        response.body.expenditures[0].should.have.property('committee_type')
+        response.body.expenditures[0].should.have.property('committee_name')
+        response.body.expenditures[0].should.have.property('candidate_name')
+        response.body.expenditures[0].should.have.property('jurisdiction')
+
+        const foundExpenditure= response.body.expenditures.find( candidate => candidate.expenditure_date === '2017-04-27T06:00:00.000Z');
+
+        foundExpenditure.committee_id.should.equal('20165031883')
+        foundExpenditure.expenditure_amt.should.equal('0.06')
+        foundExpenditure.expenditure_date.should.equal('2017-04-27T06:00:00.000Z')
+        foundExpenditure.explanation.should.equal('CREDIT CARD PROCESSING FEE')
+        foundExpenditure.record_id.should.equal('1060282')
+        foundExpenditure.expenditure_type.should.equal('Miscellaneous')
+        foundExpenditure.payment_type.should.equal('Other')
+        foundExpenditure.disbursement_type.should.equal('Monetary (Non-Itemized)')
+        foundExpenditure.committee_type.should.equal('Candidate Committee')
+        foundExpenditure.committee_name.should.equal('NOEL FOR COLORADO')
+        foundExpenditure.candidate_name.should.equal('NOEL GINSBURG')
+        foundExpenditure.jurisdiction.should.equal('STATEWIDE')
+      })
+      .catch(error => {
+        throw error
       })
     })
   })
@@ -167,6 +200,35 @@ describe('API Routes', () => {
   })
 
 
+ 
+
+  describe('GET /api/v1/candidates/:committeeId/expenditures', () => {
+    it('should return all of the expenditures with a record id', () => {
+      return chai.request(server)
+      .get('/api/v1/candidates/20165031883/expenditures')
+      .then(response => {
+        response.should.have.status(200)
+        response.body.expenditures[0].committee_id.should.equal('20165031883')
+        response.body.expenditures.length.should.equal(3)
+        
+      })
+      .catch(error => {
+        throw error
+      })
+    })
+    it('should return a 404 error if their is no expenditures under the candidate id', () => {
+      return chai.request(server)
+      .get('/api/v1/candidates/20165031888/expenditures')
+      .then(response => {
+    
+      })
+      .catch(error => {
+        error.should.have.status(404)
+      })
+    })
+  })
+
+
   describe('GET /api/v1/contributions/:contributionID', () => {
     it('should return all of the contibutors with a record id', () => {
       return chai.request(server)
@@ -189,28 +251,50 @@ describe('API Routes', () => {
     })
   })
 
-  describe('GET /api/v1/candidates/:committeeId/contributors', () => {
+  describe('GET /api/v1/candidates/:committeeId/contributions', () => {
     it('should return all of the contributors to a specific candidate', () => {
       return chai.request(server)
-      .get('/api/v1/candidates/20165031883/contributors')
+      .get('/api/v1/candidates/20165031883/contributions')
       .then(response => {
         response.should.have.status(200)
         response.body.contributors.should.be.a('array');
-        response.body.contributors.length.should.equal(6)
+        response.body.contributors.length.should.equal(3)
 
       })
       .catch(error => {
         throw error
       })
     })
-    it('should return an error if the candidate does not exist', () => {
+    it('should return an error if their are no contributions for that candidate', () => {
       return chai.request(server)
-      .get('/api/v1/candidates/20165031888/contributors')
-      .then(response => {
-
+      .get('/api/v1/candidates/20165031888/contributions')
+      .then(() => {
       })
       .catch(error => {
         error.should.have.status(404)
+      })
+    })
+    it('should return all the contributors for a candidate in a specific area code', () => {
+      return chai.request(server)
+      .get('/api/v1/candidates/20165031883/contributions?zip=80220')
+      .then(response => {
+        response.should.have.status(200)
+        response.body.contributions.length.should.equal(2)
+        response.body.contributions[0].committee_id.should.equal('20165031883')
+        response.body.contributions[0].donor_zip.should.equal('80220')
+      })
+      .catch(error => {
+        throw error
+      })
+    })
+    it('should return a 404 error if there are not contributors for that candidate in that area code', () => {
+      return chai.request(server)
+      .get('/api/v1/candidates/20165031888/contributions?zip=04096')
+      .then(response => {
+      })
+      .catch(error => {
+        error.should.have.status(404)
+        error.response.body.error.should.equal('Could not find contributions in zip 04096 for candidate with committee id 20165031888')
       })
     })
   })
