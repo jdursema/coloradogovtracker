@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import CandidatesBar from '../../Containers/CandidatesBar/CandidatesBar'
-import CandidateDetails from '../../Containers/CandidateDetails/CandidateDetails'
+import CandidatesBar from '../../Containers/CandidatesBar/CandidatesBar';
+import CandidateDetails from '../../Containers/CandidateDetails/CandidateDetails';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {initialCandidatesFetch, getAllContributions }from '../../Helper/helper';
+import {initialCandidatesFetch, getAllContributions } from '../../Helper/helper';
 import * as actions from '../../Actions/';
-
+import { VictoryBar } from 'victory';
 
 
 export class App extends Component {
@@ -18,7 +18,7 @@ export class App extends Component {
     const contributionData = await getAllContributions();
     const candidateData = await initialCandidatesFetch();
     this.props.handleCandidates(candidateData);
-    this.props.handleContributions(contributionData)
+    this.props.handleContributions(contributionData);
   }
 
 
@@ -26,20 +26,22 @@ export class App extends Component {
     return (
 
       <div className="App">
-      <Route exact path = '/' component = {CandidatesBar} />
-      <Route path = '/candidates/:id' render = {({match}) => {
-        const candidateObject = this.props.candidates.candidates;
-        const {id} = match.params;
+        <Route exact path = '/' component = {CandidatesBar} />
+        <Route exact path = '/' component = {VictoryBar} />
+        <Route path = '/candidates/:id' render = {({match}) => {
+          const candidateObject = this.props.candidates.candidates;
+          const {id} = match.params;
 
-        const candidateDetail = 
+          const candidateDetail = 
           Object.keys(candidateObject).find(candidate => candidateObject[candidate].committee_id === id);
         
-        return <CandidateDetails />;
-          }} />
+          return <CandidateDetails />;
+          
+        }} />
    
      
       </div>
-    )
+    );
   }
 
 }
