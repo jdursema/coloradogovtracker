@@ -4,7 +4,7 @@ import CandidatesBar from '../../Containers/CandidatesBar/CandidatesBar'
 import CandidateDetails from '../../Containers/CandidateDetails/CandidateDetails'
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {initialCandidatesFetch }from '../../Helper/helper';
+import {initialCandidatesFetch, getAllContributions }from '../../Helper/helper';
 import * as actions from '../../Actions/';
 
 
@@ -15,14 +15,12 @@ export class App extends Component {
   }
 
   componentDidMount = async () => {
+    const contributionData = await getAllContributions();
     const candidateData = await initialCandidatesFetch();
     this.props.handleCandidates(candidateData);
+    this.props.handleContributions(contributionData)
   }
 
-   // <header>
-        //   Colorado Governor Tracker
-        // </header>
-        //  <CandidatesBar/>
 
   render () {
     return (
@@ -54,6 +52,9 @@ const mapDispatchToProps = dispatch => {
   return {
     handleCandidates: candidates => {
       dispatch(actions.addCandidatesToStore(candidates))
+    },
+    handleContributions: contributions => {
+      dispatch(actions.addContributionsToStore(contributions))
     }
   }
 }

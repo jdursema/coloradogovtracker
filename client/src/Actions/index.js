@@ -7,3 +7,8 @@ export const setSelectedCandidate = (candidateObject) => ({
   type: 'SELECT_CANDIDATE',
   candidateObject
 })
+
+export const addContributionsToStore = (contributions) => ({
+  type: 'ADD_CONTRIBUTIONS',
+  contributions
+})
