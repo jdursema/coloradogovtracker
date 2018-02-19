@@ -20,8 +20,8 @@ setCandidateRoute = (async() => {
 });
 
 getCandidateInfo = () => {
-  if (this.props.candidates.selectedCandidate[0]) {
-  let candidate = this.props.candidates.selectedCandidate[0]
+  if (this.props.selectedCandidate[0]) {
+  let candidate = this.props.selectedCandidate[0]
   return (
     <div>
       <h1> {candidate.full_name} </h1>
@@ -46,6 +46,7 @@ render () {
 }
 
 const mapStateToProps = state => ({
+  selectedCandidate: state.selectedCandidate,
   candidates: state.candidates
 })
 

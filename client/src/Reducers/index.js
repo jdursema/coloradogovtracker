@@ -7,7 +7,7 @@ import contributionsReducer from './contribution-reducer.js';
 const rootReducer = combineReducers({
   candidates: candidateReducer,
   contributions: contributionsReducer,
-  selctedCandidate: selectedCandidateReducer
+  selectedCandidate: selectedCandidateReducer
 });
 
 export default rootReducer;

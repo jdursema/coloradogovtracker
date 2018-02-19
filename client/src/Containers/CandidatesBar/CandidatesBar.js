@@ -13,14 +13,20 @@ export class CandidatesBar extends Component {
     this.props.setCandidate(candidateData)
   }
 
+
+  
+             
+    //       
   render() {
+
+
     const mappedCandidates = this.props.candidates.map((candidate) => {
       if (candidate.active === true) {
         return (
           <div className='candidate-img-div grow' onClick={() => this.selectCandidate(candidate.committee_id)}>
             <Link to = {`/candidates/${candidate.committee_id}`}>
               <img className="candidate-img" src={`${candidate.image}`} alt= {`${candidate.name}`} />
-            </Link>
+             </Link>
               <div className = "dropdown-content">
                 <p> {candidate.full_name} </p>
                 <p> {candidate.party} </p>
@@ -44,7 +50,8 @@ export class CandidatesBar extends Component {
 }
 
 const mapStateToProps = state => ({
-  candidates: state.candidates
+  candidates: state.candidates,
+  selectedCandidate: state.selectedCandidate
 })
 
 const mapDispatchToProps = dispatch => {

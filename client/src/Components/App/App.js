@@ -29,7 +29,7 @@ export class App extends Component {
         <Route exact path = '/' component = {CandidatesBar} />
         <Route exact path = '/' component = {VictoryBar} />
         <Route path = '/candidates/:id' render = {({match}) => {
-          const candidateObject = this.props.candidates.candidates;
+          const candidateObject = this.props.candidates;
           const {id} = match.params;
 
           const candidateDetail = 
