@@ -8,13 +8,13 @@ export const initialCandidatesFetch = async () => {
 export const getSelectedCandidate = async (id) => {
   const candidateFetch = await fetch(`/api/v1/candidates/${id}`)
   const candidateResponse = await candidateFetch.json()
-  cleanCandidateInfo(candidateResponse.candidates)
-  return candidateResponse.candidates
+  return cleanCandidateInfo(candidateResponse.candidates)
+  // return candidateResponse.candidates
   // return cleanCandidateInfo(candidateResponse.candidates)
 }
 
-const cleanCandidateInfo = (candidate) => {
-
+const cleanCandidateInfo = (async(candidate) => {
+  const contributionPromises = await getCandidateContributions(candidate[0].committee_id)
 
   // const contributionPromises = await getContributions(candidateObject.committee_id)
   return {
@@ -27,9 +27,17 @@ const cleanCandidateInfo = (candidate) => {
       website:candidate[0].website,
       active:candidate[0].active,
       committee: candidate[0].committee_name
-    }
+    },
+    contributions: contributionPromises
   }
-}
+})
+
+
+const getCandidateContributions = (async(candidateId) => {
+  const contributionFetch = await fetch (`/api/v1/candidates/${candidateId}/contributions`)
+  const contributionResponse = await contributionFetch.json()
+  return contributionResponse.contributors
+})
 
 
 export const getAllContributions = async () => {

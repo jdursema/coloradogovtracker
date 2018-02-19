@@ -20,11 +20,11 @@ setCandidateRoute = (async() => {
 });
 
 getCandidateInfo = () => {
-  if (this.props.selectedCandidate[0]) {
-  let candidate = this.props.selectedCandidate[0]
+  if (this.props.selectedCandidate) {
+  let candidate = this.props.selectedCandidate.info
   return (
     <div>
-      <h1> {candidate.full_name} </h1>
+      <h1> {candidate.name} </h1>
       <img src={candidate.image} /> 
     </div>
   )
