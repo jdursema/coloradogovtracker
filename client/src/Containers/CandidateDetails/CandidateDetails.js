@@ -9,7 +9,10 @@ import './CandidateDetails.css'
 
 class CandidateDetails extends Component {
     constructor(props) {
-    super(props);
+    super(props)
+    this.state = {
+      candidate: {}
+    }
   }
 
 setCandidateRoute = (async() => {
@@ -19,33 +22,37 @@ setCandidateRoute = (async() => {
     this.props.setCandidate(candidateData);
 });
 
-getCandidateInfo = () => {
-  if (this.props.candidates.selectedCandidate[0]) {
-  let candidate = this.props.candidates.selectedCandidate[0]
+getCandidateInfo = (candidate) => {
   return (
     <div>
-      <h1> {candidate.full_name} </h1>
+      <h1> {candidate.name} </h1>
       <img src={candidate.image} /> 
     </div>
   )
-  } else {
-    this.setCandidateRoute()
-  }
+  
 }
 
+ componentWillReceiveProps(nextProps) {
+ 
+    this.setState({candidate:nextProps.info})
+    console.log(this.state.candidate)
+  
+    
+  }
 
 
 render () {
   return (
 
     <div className = "candidate-details">  
-     {this.getCandidateInfo()}
+    <p> hi </p>
     </div>
   )
 }
 }
 
 const mapStateToProps = state => ({
+  selectedCandidate: state.selectedCandidate,
   candidates: state.candidates
 })
 

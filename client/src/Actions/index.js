@@ -13,6 +13,11 @@ export const addContributionsToStore = (contributions) => ({
   contributions
 })
 
+
+export const addStateTotalsToStore = (stateTotals) => ({
+  type: 'ADD_STATE_TOTALS',
+  stateTotals
+
 export const addExpendituresToStore = (expenditures) => ({
   type: 'ADD_EXPENDITURES',
   expenditures

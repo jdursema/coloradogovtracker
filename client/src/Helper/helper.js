@@ -8,13 +8,13 @@ export const initialCandidatesFetch = async () => {
 export const getSelectedCandidate = async (id) => {
   const candidateFetch = await fetch(`/api/v1/candidates/${id}`)
   const candidateResponse = await candidateFetch.json()
-  cleanCandidateInfo(candidateResponse.candidates)
-  return candidateResponse.candidates
+  return cleanCandidateInfo(candidateResponse.candidates)
+  // return candidateResponse.candidates
   // return cleanCandidateInfo(candidateResponse.candidates)
 }
 
-const cleanCandidateInfo = (candidate) => {
-
+const cleanCandidateInfo = (async(candidate) => {
+  const contributionPromises = await getCandidateContributions(candidate[0].committee_id)
 
   // const contributionPromises = await getContributions(candidateObject.committee_id)
   return {
@@ -27,9 +27,17 @@ const cleanCandidateInfo = (candidate) => {
       website:candidate[0].website,
       active:candidate[0].active,
       committee: candidate[0].committee_name
-    }
+    },
+    contributions: contributionPromises
   }
-}
+})
+
+
+const getCandidateContributions = (async(candidateId) => {
+  const contributionFetch = await fetch (`/api/v1/candidates/${candidateId}/contributions`)
+  const contributionResponse = await contributionFetch.json()
+  return contributionResponse.contributors
+})
 
 
 export const getAllContributions = async () => {
@@ -66,6 +74,52 @@ const cleanContribution = async (contribtionsArray) => {
 
 }
 
+export const getStateTotals = async() => {
+  const initialFetch = await fetch ('/api/v1/contributions')
+  const fetchResponse = await initialFetch.json();
+  const cleanResponse = await cleanStateContributions(fetchResponse.contributors)
+  return cleanResponse
+}
+
+const cleanStateContributions = async (contributions) => {
+   const organizedContributions = contributions.reduce((acc, contribution) => {
+    if(!acc[contribution.donor_state]){
+      acc[contribution.donor_state] = []
+    }
+    
+    acc[contribution.donor_state].push(contribution)
+    return acc
+  }, {})
+
+  const stateIds = Object.keys(organizedContributions)
+
+
+
+    const stateObject = stateIds.map((state) => {
+    const stateCash = organizedContributions[state].reduce((acc, contribution) => {
+      acc+= Math.floor(contribution.contribution_amount*100) /100
+      return acc
+    }, 0)
+    return {abbr: state, total: stateCash}
+    
+  })
+  console.log(stateObject)
+  return stateObject
+}
+
+
+
+
+ // let stateClean = stateInfo.filter(function(state) {
+ //    debugger;
+ //        return state.abbreviation === stateTotals[state];
+ //      })
+
+ // console.log(stateClean)
+ //  return stateClean
+// }
+
+
 export const initialExpenditureFetch = async () => {
   const initialFetch = await fetch('/api/v1/expenditures');
   const fetchResponse = await initialFetch.json();
@@ -98,4 +152,5 @@ const cleanExpenditures = async (expendituresArray) => {
   return object
 
 }
+
 

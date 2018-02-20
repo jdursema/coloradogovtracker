@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:6000/",
   "dependencies": {
+    "d3": "^3.5.13",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1"

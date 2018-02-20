@@ -4,9 +4,12 @@ import CandidatesBar from '../../Containers/CandidatesBar/CandidatesBar';
 import CandidateDetails from '../../Containers/CandidateDetails/CandidateDetails';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {initialCandidatesFetch, getAllContributions, initialExpenditureFetch } from '../../Helper/helper';
+import {initialCandidatesFetch, getAllContributions, getStateTotals} from '../../Helper/helper';
 import * as actions from '../../Actions/';
-import BarGraph from '../../Containers/BarGraph/BarGraph'
+import DataMap from '../../Containers/Map/Map'
+
+
+// import { VictoryBar } from 'victory';
 
 
 export class App extends Component {
@@ -15,6 +18,9 @@ export class App extends Component {
   }
 
   componentDidMount = async () => {
+ 
+    const contributionData = await getAllContributions();
+
     if(!localStorage.contributions){
       const contributionData = await getAllContributions();
       localStorage.setItem('contributions', JSON.stringify(contributionData))
@@ -34,6 +40,9 @@ export class App extends Component {
     }
     // const contributionData = await getAllContributions();
     const candidateData = await initialCandidatesFetch();
+    const stateTotalData = await getStateTotals();
+
+    this.props.handleStateTotals(stateTotalData)
     this.props.handleCandidates(candidateData);
     // this.props.handleContributions(contributionData);
     // localStorage.setItem('contributions', contributionData)
@@ -45,9 +54,12 @@ export class App extends Component {
 
       <div className="App">
         <Route exact path = '/' component = {CandidatesBar} />
+
+        <Route exaxt path = '/' component = {DataMap} />
         <Route exact path = '/' component = { BarGraph } />
+
         <Route path = '/candidates/:id' render = {({match}) => {
-          const candidateObject = this.props.candidates.candidates;
+          const candidateObject = this.props.candidates;
           const {id} = match.params;
 
           const candidateDetail = 
@@ -56,8 +68,7 @@ export class App extends Component {
           return <CandidateDetails />;
           
         }} />
-   
-     
+    
       </div>
     );
   }
@@ -65,7 +76,8 @@ export class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  candidates: state.candidates
+  candidates: state.candidates,
+  stateTotals: state.stateTotals
 })
 
 const mapDispatchToProps = dispatch => {
@@ -76,8 +88,12 @@ const mapDispatchToProps = dispatch => {
     handleContributions: contributions => {
       dispatch(actions.addContributionsToStore(contributions))
     },
+    handleStateTotals: stateTotals => {
+      dispatch(actions.addStateTotalsToStore(stateTotals))
+    },
     handleExpenditures: expenditures => {
       dispatch(actions.addExpendituresToStore(expenditures))
+
     }
   }
 }
