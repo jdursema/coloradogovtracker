@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
   candidates: candidateReducer,
   contributions: contributionsReducer,
   selectedCandidate: selectedCandidateReducer,
-  stateTotals: stateTotalReducer
+  stateTotals: stateTotalReducer,
   expenditures: expendituresReducer
 
 });
