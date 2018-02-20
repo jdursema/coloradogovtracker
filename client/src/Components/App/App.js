@@ -6,7 +6,11 @@ import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {initialCandidatesFetch, getAllContributions } from '../../Helper/helper';
 import * as actions from '../../Actions/';
-import { VictoryBar } from 'victory';
+import DataMap from '../../Containers/Map/Map'
+
+
+// import { VictoryBar } from 'victory';
+
 
 
 export class App extends Component {
@@ -27,7 +31,7 @@ export class App extends Component {
 
       <div className="App">
         <Route exact path = '/' component = {CandidatesBar} />
-        <Route exact path = '/' component = {VictoryBar} />
+    
         <Route path = '/candidates/:id' render = {({match}) => {
           const candidateObject = this.props.candidates;
           const {id} = match.params;
@@ -39,7 +43,9 @@ export class App extends Component {
           
         }} />
    
-     
+     <div className="datamap-outer-container">
+      <DataMap />
+      </div>
       </div>
     );
   }
