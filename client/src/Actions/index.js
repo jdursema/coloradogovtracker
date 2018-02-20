@@ -12,3 +12,8 @@ export const addContributionsToStore = (contributions) => ({
   type: 'ADD_CONTRIBUTIONS',
   contributions
 })
+
+export const addExpendituresToStore = (expenditures) => ({
+  type: 'ADD_EXPENDITURES',
+  expenditures
+})
