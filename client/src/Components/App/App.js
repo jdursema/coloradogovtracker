@@ -4,9 +4,10 @@ import CandidatesBar from '../../Containers/CandidatesBar/CandidatesBar';
 import CandidateDetails from '../../Containers/CandidateDetails/CandidateDetails';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {initialCandidatesFetch, getAllContributions, getStateTotals} from '../../Helper/helper';
+import {initialCandidatesFetch, getAllContributions, getStateTotals, initialExpenditureFetch} from '../../Helper/helper';
 import * as actions from '../../Actions/';
-import DataMap from '../../Containers/Map/Map'
+import DataMap from '../../Containers/Map/Map';
+import BarGraph from '../../Containers/BarGraph/BarGraph';
 
 
 // import { VictoryBar } from 'victory';

@@ -39,7 +39,7 @@ class DataMap extends React.Component {
       medianVal = (sortedArray[half-1] + sortedArray[half])/2
     }
 
-    return d3.scaleLinear().domain([minVal, medianVal, maxVal]).range(["#deebf7","#9ecae1", "#4292c6"])(value);
+    return d3.scale.linear().domain([minVal, medianVal, maxVal]).range(["#deebf7","#9ecae1", "#4292c6"])(value);
   }
   redducedData(){
     const stateTotals = this.state.totals
