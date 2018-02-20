@@ -9,6 +9,7 @@ export const BarGraph = props => {
   let contributionData = [];
   let candidateName = [];
   let cashData = []
+  let expenditureData = []
 
 
   if (props.contributions.length){
@@ -35,6 +36,13 @@ export const BarGraph = props => {
 
     candidateName = props.contributions.map(contribution => ((contribution.candidate_name).split(' '))[1])
   }
+  if(props.expenditures.length){
+    expenditureData = props.expenditures.map(expenditure => {
+      return {candidate: expenditure.candidate_name, totalExpences: expenditure.candidate_expences}
+    })
+  }
+
+  console.log(expenditureData)
   return (
     <div>
       <div>
@@ -93,13 +101,45 @@ export const BarGraph = props => {
             y = 'totalContributions'/>
         </VictoryChart>
       </div>
+
+
+      <div>
+        <VictoryChart
+          domainPadding={20}
+          height = {200}
+          width = {400}
+          style = {{
+            labels: {fontSize: 6}
+          }}>
+          <VictoryAxis
+            tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]}
+            tickFormat={candidateName}
+            style = {{
+              labels: {fontSize: 6}
+            }}
+          />
+          <VictoryAxis
+            dependentAxis
+            tickFormat={(x) => (`$${x / 1000}k`)}
+            style = {{
+              labels: {fontSize: 6}
+            }}
+          />
+          <VictoryBar 
+            data = {expenditureData}
+            x = 'candidate'
+            y = 'totalExpences'/>
+        </VictoryChart>
+      </div>
+      
     </div>
     
-  )
-}
+  );
+};
 
 const mapStateToProps = state => ({
-  contributions: state.contributions
-})
+  contributions: state.contributions,
+  expenditures: state.expenditures
+});
 
 export default connect(mapStateToProps, null)(BarGraph);
