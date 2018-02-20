@@ -26,11 +26,21 @@ export default class DataMap extends React.Component {
     const dataValues = stateTotals.map(function(data) { return data.total });
     const minVal = Math.min(...dataValues);
     const maxVal = Math.max(...dataValues);
-    return d3.scaleLinear().domain([minVal, maxVal]).range(["#EFEFFF","#02386F"])(value);
+    
+    let sortedArray = dataValues.sort((a, b) => a - b);
+    let half = Math.floor(sortedArray.length/2)
+    let medianVal;
+
+    if(sortedArray.length % 2) {
+      medianVal = sortedArray[half]
+    } else {
+      medianVal = (sortedArray[half-1] + sortedArray[half])/2
+    }
+
+    return d3.scaleLinear().domain([minVal, medianVal, maxVal]).range(["#deebf7","#9ecae1", "#4292c6"])(value);
   }
   redducedData(){
     const stateTotals = this.state.totals
-    console.log(stateTotals)
 
     const newData = stateTotals.reduce((object, data) => {
       object[data.abbr] = { value: data.total, fillColor: this.linearPalleteScale(data.total) };
