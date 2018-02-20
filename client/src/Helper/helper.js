@@ -49,7 +49,6 @@ const cleanContribution = async (contribtionsArray) => {
     return acc
   }, {})
   const candidateIds = Object.keys(organizedContributions)
-  console.log(88.01)
   const object = candidateIds.map((candidate) => {
     const candidateCash = organizedContributions[candidate].reduce((acc, contribution, index) => {
       // acc += parseFloat(contribution.contribution_amount).toFixed(2)
@@ -61,6 +60,39 @@ const cleanContribution = async (contribtionsArray) => {
     candidate_name: organizedContributions[candidate][0].candidate_name,
     candidate_contributions: organizedContributions[candidate].length,
     candidate_cash: candidateCash}
+  })
+
+  return object
+
+}
+
+export const initialExpenditureFetch = async () => {
+  const initialFetch = await fetch('/api/v1/expenditures');
+  const fetchResponse = await initialFetch.json();
+  const cleanResponse = await cleanExpenditures(fetchResponse.expenditures)
+  return cleanResponse
+}
+
+const cleanExpenditures = async (expendituresArray) => {
+  const organizedExpenditures = expendituresArray.reduce((acc, expenditure) => {
+    if (!acc[expenditure.committee_id]){
+      acc[expenditure.committee_id] = []
+    }
+    
+    acc[expenditure.committee_id].push(expenditure)
+    return acc
+  }, {})
+  const candidateIds = Object.keys(organizedExpenditures)
+  const object = candidateIds.map((candidate) => {
+    const candidateExpence = organizedExpenditures[candidate].reduce((acc, expenditure, index) => {
+      // acc += parseFloat(contribution.contribution_amount).toFixed(2)
+      acc += Math.floor(expenditure.expenditure_amt* 100) / 100
+      return acc
+    }, 0)
+  
+    return { committee_id: candidate,
+    candidate_name: organizedExpenditures[candidate][0].candidate_name,
+    candidate_expences: candidateExpence}
   })
 
   return object
