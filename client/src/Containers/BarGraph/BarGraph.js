@@ -42,7 +42,6 @@ export const BarGraph = props => {
     })
   }
 
-  console.log(expenditureData)
   return (
     <div>
       <div>
@@ -56,15 +55,15 @@ export const BarGraph = props => {
           <VictoryAxis
             tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]}
             tickFormat={candidateName}
-            style = {{
-              labels: {fontSize: 6}
+            style={{
+              tickLabels: {fontSize: '6px'}
             }}
           />
           <VictoryAxis
             dependentAxis
             tickFormat={(x) => (`${x / 1000}k`)}
-            style = {{
-              labels: {fontSize: 6}
+            style={{
+              tickLabels: {fontSize: '6px'}
             }}
           />
           <VictoryBar 
@@ -78,21 +77,21 @@ export const BarGraph = props => {
           domainPadding={20}
           height = {200}
           width = {400}
-          style = {{
-            labels: {fontSize: 6}
+          style={{
+            tickLabels: {fontSize: '6px'}
           }}>
           <VictoryAxis
             tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]}
             tickFormat={candidateName}
-            style = {{
-              labels: {fontSize: 6}
+            style={{
+              tickLabels: {fontSize: '6px'}
             }}
           />
           <VictoryAxis
             dependentAxis
             tickFormat={(x) => (`$${x / 1000000}m`)}
-            style = {{
-              labels: {fontSize: 6}
+            style={{
+              tickLabels: {fontSize: '6px'}
             }}
           />
           <VictoryBar 
@@ -114,15 +113,15 @@ export const BarGraph = props => {
           <VictoryAxis
             tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]}
             tickFormat={candidateName}
-            style = {{
-              labels: {fontSize: 6}
+            style={{
+              tickLabels: {fontSize: '6px'}
             }}
           />
           <VictoryAxis
             dependentAxis
             tickFormat={(x) => (`$${x / 1000}k`)}
-            style = {{
-              labels: {fontSize: 6}
+            style={{
+              tickLabels: {fontSize: '6px'}
             }}
           />
           <VictoryBar 
