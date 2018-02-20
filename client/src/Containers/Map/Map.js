@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import statesData from '../../data/states-data'
 import statesDefaults from '../../data/states-defaults';
+import {getStateTotals} from '../../Helper/helper'
 import * as d3 from "d3";
 import './Map.css'
 // import * as scale from "d3-scale"
@@ -14,17 +15,25 @@ import './Map.css'
 export default class DataMap extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      totals: []
+    }
     this.datamap = null;
   }
   linearPalleteScale(value){
-    const dataValues = statesData.map(function(data) { return data.value });
+     const stateTotals = this.state.totals
+
+    const dataValues = stateTotals.map(function(data) { return data.total });
     const minVal = Math.min(...dataValues);
     const maxVal = Math.max(...dataValues);
     return d3.scaleLinear().domain([minVal, maxVal]).range(["#EFEFFF","#02386F"])(value);
   }
   redducedData(){
-    const newData = statesData.reduce((object, data) => {
-      object[data.code] = { value: data.value, fillColor: this.linearPalleteScale(data.value) };
+    const stateTotals = this.state.totals
+    console.log(stateTotals)
+
+    const newData = stateTotals.reduce((object, data) => {
+      object[data.abbr] = { value: data.total, fillColor: this.linearPalleteScale(data.total) };
       return object;
     }, {});
     return Object.assign({}, statesDefaults, newData);
@@ -52,7 +61,11 @@ renderMap(){
         document.documentElement.clientWidth ||
         document.body.clientWidth;
   }
-  componentDidMount(){
+  componentDidMount = async () => {
+   let stateTotals = await getStateTotals()
+   this.setState({totals: stateTotals})
+   
+
    d3.select('#datamap-container')
     this.datamap = this.renderMap();
     window.addEventListener('resize', () => {
@@ -67,9 +80,9 @@ renderMap(){
       }
     });
   }
-  componentDidUpdate(){
-    this.datamap.updateChoropleth(this.redducedData());
-  }
+  // componentDidUpdate(){
+  //   this.datamap.updateChoropleth(this.redducedData());
+  // }
   componentWillUnmount(){
     d3.select('svg').remove();
   }

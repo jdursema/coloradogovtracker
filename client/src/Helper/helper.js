@@ -57,7 +57,6 @@ const cleanContribution = async (contribtionsArray) => {
     return acc
   }, {})
   const candidateIds = Object.keys(organizedContributions)
-  console.log(88.01)
   const object = candidateIds.map((candidate) => {
     const candidateCash = organizedContributions[candidate].reduce((acc, contribution, index) => {
       // acc += parseFloat(contribution.contribution_amount).toFixed(2)
@@ -74,4 +73,51 @@ const cleanContribution = async (contribtionsArray) => {
   return object
 
 }
+
+export const getStateTotals = async() => {
+  const initialFetch = await fetch ('/api/v1/contributions')
+  const fetchResponse = await initialFetch.json();
+  const cleanResponse = await cleanStateContributions(fetchResponse.contributors)
+  return cleanResponse
+}
+
+const cleanStateContributions = async (contributions) => {
+   const organizedContributions = contributions.reduce((acc, contribution) => {
+    if(!acc[contribution.donor_state]){
+      acc[contribution.donor_state] = []
+    }
+    
+    acc[contribution.donor_state].push(contribution)
+    return acc
+  }, {})
+
+  const stateIds = Object.keys(organizedContributions)
+
+
+
+    const stateObject = stateIds.map((state) => {
+    const stateCash = organizedContributions[state].reduce((acc, contribution) => {
+      acc+= Math.floor(contribution.contribution_amount*100) /100
+      return acc
+    }, 0)
+    return {abbr: state, total: stateCash}
+    
+  })
+  console.log(stateObject)
+  return stateObject
+}
+
+
+
+
+ // let stateClean = stateInfo.filter(function(state) {
+ //    debugger;
+ //        return state.abbreviation === stateTotals[state];
+ //      })
+
+ // console.log(stateClean)
+ //  return stateClean
+// }
+
+
 
