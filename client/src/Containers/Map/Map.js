@@ -58,7 +58,7 @@ renderMap(){
         highlightFillColor: '#FFCC80',
         popupTemplate: function(geography, data) {
           if (data && data.value) {
-            return '<div class="hoverinfo"><strong>' + geography.properties.name + ', ' + data.value + '</strong></div>';
+            return '<div class="hoverinfo">' + geography.properties.name + ': ' +'<strong>' + '$' + data.value + '</strong></div>';
           } else {
             return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
           }
