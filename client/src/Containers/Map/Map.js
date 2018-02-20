@@ -7,12 +7,14 @@ import statesData from '../../data/states-data'
 import statesDefaults from '../../data/states-defaults';
 import {getStateTotals} from '../../Helper/helper'
 import * as d3 from "d3";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import './Map.css'
 // import * as scale from "d3-scale"
 // let d3 = require('d3');
 // import objectAssign from 'object-assign';
 
-export default class DataMap extends React.Component {
+class DataMap extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -58,7 +60,7 @@ renderMap(){
         highlightFillColor: '#FFCC80',
         popupTemplate: function(geography, data) {
           if (data && data.value) {
-            return '<div class="hoverinfo">' + geography.properties.name + ': ' +'<strong>' + '$' + data.value + '</strong></div>';
+            return '<div class="hoverinfo">' + geography.properties.name + ': ' +'<strong>' + '$' + data.value.toLocaleString() + '</strong></div>';
           } else {
             return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
           }
@@ -74,6 +76,7 @@ renderMap(){
   componentDidMount = async () => {
    let stateTotals = await getStateTotals()
    this.setState({totals: stateTotals})
+   console.log('totals', this.props.stateTotals)
    
 
    d3.select('#datamap-container')
@@ -98,11 +101,18 @@ renderMap(){
   }
   render() {
     return (
+      // <div className="datamap-outer-container">
       <div id="datamap-container"></div>
+      // </div>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  stateTotals: state.stateTotals
+})
+
+export default withRouter(connect(mapStateToProps, null)(DataMap));
 
 // DataMap.propTypes = {
 //     regionData: React.PropTypes.array.isRequired

@@ -4,7 +4,7 @@ import CandidatesBar from '../../Containers/CandidatesBar/CandidatesBar';
 import CandidateDetails from '../../Containers/CandidateDetails/CandidateDetails';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {initialCandidatesFetch, getAllContributions} from '../../Helper/helper';
+import {initialCandidatesFetch, getAllContributions, getStateTotals} from '../../Helper/helper';
 import * as actions from '../../Actions/';
 import DataMap from '../../Containers/Map/Map'
 
@@ -22,8 +22,9 @@ export class App extends Component {
   
     const contributionData = await getAllContributions();
     const candidateData = await initialCandidatesFetch();
+    const stateTotalData = await getStateTotals();
 
-
+    this.props.handleStateTotals(stateTotalData)
     this.props.handleCandidates(candidateData);
     this.props.handleContributions(contributionData);
   }
@@ -34,6 +35,7 @@ export class App extends Component {
 
       <div className="App">
         <Route exact path = '/' component = {CandidatesBar} />
+        <Route exaxt path = '/' component = {DataMap} />
     
         <Route path = '/candidates/:id' render = {({match}) => {
           const candidateObject = this.props.candidates;
@@ -45,10 +47,7 @@ export class App extends Component {
           return <CandidateDetails />;
           
         }} />
-   
-     <div className="datamap-outer-container">
-      <DataMap />
-      </div>
+    
       </div>
     );
   }
@@ -56,7 +55,8 @@ export class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  candidates: state.candidates
+  candidates: state.candidates,
+  stateTotals: state.stateTotals
 })
 
 const mapDispatchToProps = dispatch => {
@@ -66,6 +66,9 @@ const mapDispatchToProps = dispatch => {
     },
     handleContributions: contributions => {
       dispatch(actions.addContributionsToStore(contributions))
+    },
+    handleStateTotals: stateTotals => {
+      dispatch(actions.addStateTotalsToStore(stateTotals))
     }
   }
 }
