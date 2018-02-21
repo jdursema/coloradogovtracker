@@ -3,49 +3,47 @@ import { connect } from 'react-redux';
 import { withRouter} from 'react-router-dom';
 import * as actions from '../../Actions/';
 import { getSelectedCandidate } from '../../Helper/helper';
-// import { connect } from 'react-redux';
-// import { initialCandidatesFetch } from '../../Actions';
 import './CandidateDetails.css'
 
 class CandidateDetails extends Component {
     constructor(props) {
     super(props)
-    this.state = {
-      candidate: {}
-    }
   }
 
+
+  componentDidMount = async () => {
+    if (!this.props.selectedCandidate.length) {
+      console.log('no selected candidate')
+      this.setCandidateRoute()
+    } else {
+      console.log('something else')
+    }
+ 
+
+  }
+
+
+
 setCandidateRoute = (async() => {
+  console.log('set candidate route hitting')
     const idArray = Object.values(this.props.match.params);
     const candidateId = idArray[0];
     const candidateData = await getSelectedCandidate(candidateId);
     this.props.setCandidate(candidateData);
 });
 
-getCandidateInfo = (candidate) => {
+
+
+getCandidateInfo = () => {
   return (
-    <div>
-      <h1> {candidate.name} </h1>
-      <img src={candidate.image} /> 
-    </div>
+  <div> {this.props.selectedCandidate.name} </div>
   )
-  
 }
-
- componentWillReceiveProps(nextProps) {
- 
-    this.setState({candidate:nextProps.info})
-    console.log(this.state.candidate)
-  
-    
-  }
-
 
 render () {
   return (
-
     <div className = "candidate-details">  
-    <p> hi </p>
+     {this.getCandidateInfo()}
     </div>
   )
 }
