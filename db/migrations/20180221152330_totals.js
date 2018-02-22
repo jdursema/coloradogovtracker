@@ -1,26 +1,26 @@
 exports.up = function(knex, Promise) {
   return Promise.all([
-    knex.schema.createTable('candidateTotals', function (table) {
+    knex.schema.createTable('candidatetotals', function (table) {
       table.increments('id').primary();
       table.string('candidateId');
       table.string('name');
       table.string('party');
-      table.decimal('expenditureTotal');
-      table.decimal('contributionTotal');
-      table.integer('contributionNum');
-      table.decimal('avgContribution');
+      table.decimal('expenditureTotal', 11, 2);
+      table.decimal('contributionTotal', 11, 2);
+      table.decimal('contributionNum', 11, 2);
+      table.decimal('avgContribution', 11, 2);
     }),
-    knex.schema.createTable('stateTotals', function(table) {
+    knex.schema.createTable('statetotals', function(table) {
       table.increments('id').primary();
       table.string('state');
-      table.decimal('total');
+      table.decimal('total', 11, 2);
     })
   ]);
 };
 
 exports.down = function(knex, Promise) {
   return Promise.all([
-    knex.schema.dropTable('candidateTotals'),
-    knex.schema.dropTable('stateTotals')
+    knex.schema.dropTable('candidatetotals'),
+    knex.schema.dropTable('statetotals')
   ]);
 };

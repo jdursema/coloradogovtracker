@@ -84,6 +84,8 @@ app.get('/api/v1/candidates', (request, response) => {
     });
 });
 
+
+
 // get candidates by id
 
 
@@ -117,6 +119,36 @@ app.get('/api/v1/expenditures', (request, response) => {
       });
     });
 });
+
+
+// get candidate totals
+
+app.get('/api/v1/totals', (request, response) => {
+  database('candidatetotals').select()
+  .then(candidate => {
+    return response.status(200).json({
+      candidate
+    })
+  })
+  .catch(error => {
+    return response.status(500).json({error})
+  })
+})
+
+//get state totals
+
+app.get('/api/v1/state', (request, response) => {
+  database('statetotals').select()
+  .then(state => {
+    return response.status(200).json({
+      state
+    })
+  })
+  .catch(error => {
+    return response.status(500).json({error})
+  })
+})
+
 
 
 // get all contributions or all contributions in a specific zip code (query parameter)
