@@ -4,13 +4,12 @@ import CandidatesBar from '../../Containers/CandidatesBar/CandidatesBar';
 import CandidateDetails from '../../Containers/CandidateDetails/CandidateDetails';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {initialCandidatesFetch, getAllContributions, getStateTotals, initialExpenditureFetch} from '../../Helper/helper';
+import {initialCandidatesFetch, getAllContributions, initialExpenditureFetch} from '../../Helper/helper';
 import * as actions from '../../Actions/';
 import DataMap from '../../Containers/Map/Map';
 import BarGraph from '../../Containers/BarGraph/BarGraph';
 
 
-// import { VictoryBar } from 'victory';
 
 
 export class App extends Component {
@@ -41,9 +40,9 @@ export class App extends Component {
     }
     // const contributionData = await getAllContributions();
     const candidateData = await initialCandidatesFetch();
-    const stateTotalData = await getStateTotals();
+  
 
-    this.props.handleStateTotals(stateTotalData)
+ 
     this.props.handleCandidates(candidateData);
     // this.props.handleContributions(contributionData);
     // localStorage.setItem('contributions', contributionData)
@@ -78,7 +77,6 @@ export class App extends Component {
 
 const mapStateToProps = state => ({
   candidates: state.candidates,
-  stateTotals: state.stateTotals
 })
 
 const mapDispatchToProps = dispatch => {
@@ -88,9 +86,6 @@ const mapDispatchToProps = dispatch => {
     },
     handleContributions: contributions => {
       dispatch(actions.addContributionsToStore(contributions))
-    },
-    handleStateTotals: stateTotals => {
-      dispatch(actions.addStateTotalsToStore(stateTotals))
     },
     handleExpenditures: expenditures => {
       dispatch(actions.addExpendituresToStore(expenditures))
