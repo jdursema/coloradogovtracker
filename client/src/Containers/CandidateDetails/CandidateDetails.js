@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter} from 'react-router-dom';
 import * as actions from '../../Actions/';
 import { getSelectedCandidate } from '../../Helper/helper';
+import ContributionContainer from '../../Components/ContributionContainer/ContributionContainer.js'
 import './CandidateDetails.css'
 
 class CandidateDetails extends Component {
@@ -11,39 +12,41 @@ class CandidateDetails extends Component {
   }
 
 
-  componentDidMount = async () => {
-    if (!this.props.selectedCandidate.length) {
-      console.log('no selected candidate')
-      this.setCandidateRoute()
-    } else {
-      console.log('something else')
-    }
- 
-
-  }
+  // componentDidMount = async () => {
+  //   if (!this.props.selectedCandidate.length) {
+  //     this.setCandidateRoute()
+  //   } 
+  // }
 
 
 
 setCandidateRoute = (async() => {
-  console.log('set candidate route hitting')
     const idArray = Object.values(this.props.match.params);
     const candidateId = idArray[0];
     const candidateData = await getSelectedCandidate(candidateId);
-    this.props.setCandidate(candidateData);
+    if(candidateData) {
+      this.props.setCandidate(candidateData);
+    }
+    
 });
 
 
-
 getCandidateInfo = () => {
+  if(this.props.selectedCandidate.length) {
   return (
   <div> {this.props.selectedCandidate.name} </div>
   )
+  } else {
+    this.setCandidateRoute()
+  }
 }
 
 render () {
   return (
     <div className = "candidate-details">  
-     {this.getCandidateInfo()}
+        {this.getCandidateInfo()}
+      <ContributionContainer
+        contributions = {this.props.selectedCandidate.contributions} />
     </div>
   )
 }

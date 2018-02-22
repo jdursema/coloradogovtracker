@@ -6,11 +6,13 @@ export const initialCandidatesFetch = async () => {
 }
 
 export const getSelectedCandidate = async (id) => {
-  const candidateFetch = await fetch(`/api/v1/candidates/${id}`)
-  const candidateResponse = await candidateFetch.json()
-  return cleanCandidateInfo(candidateResponse.candidates)
-  // return candidateResponse.candidates
-  // return cleanCandidateInfo(candidateResponse.candidates)
+  try {
+    const candidateFetch = await fetch(`/api/v1/candidates/${id}`)
+    const candidateResponse = await candidateFetch.json()
+      return cleanCandidateInfo(candidateResponse.candidates)
+  } catch (error) {
+      console.log(error)
+  }
 }
 
 const cleanCandidateInfo = (async(candidate) => {
