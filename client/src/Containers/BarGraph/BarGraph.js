@@ -84,7 +84,6 @@ export class BarGraph extends Component {
     })
 
     this.setState({ contributions: sortedByAverage })
-    console.log(sortedByAverage)
   }
 
 
