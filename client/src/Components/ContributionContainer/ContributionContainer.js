@@ -18,7 +18,6 @@ class ContributionContainer extends Component {
 
 componentWillReceiveProps(nextProps) {
   this.setState({currentlyDisplayed: this.props.contributions})
-  console.log(this.state.currentlyDisplayed)
 
 }
 
@@ -27,13 +26,22 @@ componentWillReceiveProps(nextProps) {
       const contributionMap = contributions.map((contribution, index) => {
         return (
           <Card 
-            key = {index}
             id = {contribution.id}
             amount = {contribution.contribution_amount}
             firstName = {contribution.donor_first}
             lastName = {contribution.donor_last}
             amount = {contribution.contribution_amount}
+            city = {contribution.donor_city}
+            state = {contribution.donor_state}
+            zip = {contribution.donor_zip}
+            date = {contribution.contribution_date}
+            employer = {contribution.donor_employer}
+            
              />
+           
+            
+            
+            
             
             
             

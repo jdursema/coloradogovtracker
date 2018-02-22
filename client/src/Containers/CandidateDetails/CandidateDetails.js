@@ -12,11 +12,11 @@ class CandidateDetails extends Component {
   }
 
 
-  componentDidMount = async () => {
-    if (!this.props.selectedCandidate.length) {
-      this.setCandidateRoute()
-    } 
-  }
+  // componentDidMount = async () => {
+  //   if (!this.props.selectedCandidate.length) {
+  //     this.setCandidateRoute()
+  //   } 
+  // }
 
 
 
@@ -24,14 +24,21 @@ setCandidateRoute = (async() => {
     const idArray = Object.values(this.props.match.params);
     const candidateId = idArray[0];
     const candidateData = await getSelectedCandidate(candidateId);
-    this.props.setCandidate(candidateData);
+    if(candidateData) {
+      this.props.setCandidate(candidateData);
+    }
+    
 });
 
 
 getCandidateInfo = () => {
+  if(this.props.selectedCandidate.length) {
   return (
   <div> {this.props.selectedCandidate.name} </div>
   )
+  } else {
+    this.setCandidateRoute()
+  }
 }
 
 render () {
