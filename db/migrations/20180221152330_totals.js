@@ -7,7 +7,7 @@ exports.up = function(knex, Promise) {
       table.string('party');
       table.decimal('expenditureTotal', 11, 2);
       table.decimal('contributionTotal', 11, 2);
-      table.decimal('contributionNum', 11, 2);
+      table.integer('contributionNum', 11, 2);
       table.decimal('avgContribution', 11, 2);
     }),
     knex.schema.createTable('statetotals', function(table) {

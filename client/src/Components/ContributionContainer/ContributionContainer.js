@@ -18,8 +18,11 @@ class ContributionContainer extends Component {
 
 componentWillReceiveProps(nextProps) {
   this.setState({currentlyDisplayed: this.props.contributions})
-
 }
+
+  searchContributors = (event) => {
+    console.log(event)
+  }
 
   mapContributions = (contributions, index) => {
     if(contributions) {
@@ -36,15 +39,8 @@ componentWillReceiveProps(nextProps) {
             zip = {contribution.donor_zip}
             date = {contribution.contribution_date}
             employer = {contribution.donor_employer}
-            
-             />
-           
-            
-            
-            
-            
-            
-            
+            occupation = {contribution.donor_occupation}
+            contributionType = {contribution.contribution_type} />
         )
       })
         return contributionMap;
@@ -55,6 +51,14 @@ componentWillReceiveProps(nextProps) {
 
     return (
       <div className = "contribution-container">
+
+         <div className = "search-bar">
+          <input 
+            className = "search-field"
+            onChange = {event => this.searchContributors(event.target.value)}
+            type = "text"
+            placeholder = "Search Contributors" />
+        </div>
          <div> {this.mapContributions(this.state.currentlyDisplayed)}</div> 
       </div>
     )
