@@ -24,3 +24,8 @@ export const addExpendituresToStore = (expenditures) => ({
   type: 'ADD_EXPENDITURES',
   expenditures
 })
+
+export const addCandidateTotalsToStore = (totals) => ({
+  type: 'ADD_CANDIDATE_TOTALS',
+  totals
+})
