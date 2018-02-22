@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Card = ({key, id, firstName, lastName, amount, city, state, zip, date, employer}) => {
+export const Card = ({id, firstName, lastName, amount, city, state, zip, date, employer, occupation, contributionType}) => {
   
 
  const checkEmpty = (name) => {
@@ -15,11 +15,11 @@ export const Card = ({key, id, firstName, lastName, amount, city, state, zip, da
   };
 
   const titleCase = (string) => {
-  str = string.toLowerCase().split(' ');
-  for (var i = 0; i < str.length; i++) {
-    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+  string = string.toLowerCase().split(' ');
+  for (var i = 0; i < string.length; i++) {
+    string[i] = string[i].charAt(0).toUpperCase() + string[i].slice(1); 
   }
-  return str.join(' ');
+  return string.join(' ');
   }
 
  const formatDate = ( date) => {
@@ -31,9 +31,7 @@ export const Card = ({key, id, firstName, lastName, amount, city, state, zip, da
     return month + '/' + day + '/' + year
   };
 
-
 const label = (field, label) => {
-  console.log(field)
   return field.length ? label : null;
 };
 
@@ -42,9 +40,9 @@ const label = (field, label) => {
      <p><strong>{firstName} {checkEmpty(lastName)}</strong></p> 
      <p> ${amount} </p>
      <p> {formatDate(date)} </p>
-     <p> {city} {state} {zip} </p>
-     <p> <span className = "label"> {label(employer, 'Employer:')} </span>{titleCase(employer)}</p>
-
+     <p> {titleCase(city)}, {state} {zip} </p>
+     <p> <span className = "label"> {label(employer, 'Employer: ')} </span>{employer}</p>
+     <p> <span className = "label"> {label(occupation, 'Occupation: ')}</span>{occupation} </p>
 
     </div>
   )
