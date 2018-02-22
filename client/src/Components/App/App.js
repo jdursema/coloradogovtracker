@@ -56,8 +56,8 @@ export class App extends Component {
       <div className="App">
         <Route exact path = '/' component = {CandidatesBar} />
 
-        <Route exaxt path = '/' component = {DataMap} />
-        <Route exact path = '/' component = { BarGraph } />
+        <Route exact path = '/' component = {DataMap} />
+        <Route exact path = '/' component = {BarGraph} />
 
         <Route path = '/candidates/:id' render = {({match}) => {
           const candidateObject = this.props.candidates;
