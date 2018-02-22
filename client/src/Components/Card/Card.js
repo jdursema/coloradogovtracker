@@ -1,9 +1,10 @@
 import React from 'react';
 
-export const Card = ({key, id, firstName, lastName}) => {
+export const Card = ({key, id, firstName, lastName, amount}) => {
   return (
     <div className = "contribution-card"> 
-     {firstName}
+     <h3>{firstName} {lastName} </h3> 
+     <p> {amount} </p>
     </div>
   )
 }

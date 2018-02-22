@@ -31,7 +31,10 @@ componentWillReceiveProps(nextProps) {
             id = {contribution.id}
             amount = {contribution.contribution_amount}
             firstName = {contribution.donor_first}
-            lastName = {contribution.donor_last} />
+            lastName = {contribution.donor_last}
+            amount = {contribution.contribution_amount}
+             />
+            
             
             
         )
@@ -44,7 +47,7 @@ componentWillReceiveProps(nextProps) {
 
     return (
       <div className = "contribution-container">
-         <p> {this.mapContributions(this.state.currentlyDisplayed)}</p> 
+         <div> {this.mapContributions(this.state.currentlyDisplayed)}</div> 
       </div>
     )
   }
