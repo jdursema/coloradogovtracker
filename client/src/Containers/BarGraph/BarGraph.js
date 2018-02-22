@@ -13,7 +13,7 @@ export class BarGraph extends Component {
     this.state = {
       contributions: [],
       expenditures: []
-    }
+    };
   }
   
   componentDidMount = async () => {
@@ -21,7 +21,7 @@ export class BarGraph extends Component {
     let expenditureData;
     if(!localStorage.contributions){
       contributionData = await getAllContributions();
-      localStorage.setItem('contributions', JSON.stringify(contributionData))
+      localStorage.setItem('contributions', JSON.stringify(contributionData));
     } else {
       contributionData = JSON.parse(localStorage.getItem('contributions')); 
     }
@@ -41,10 +41,10 @@ export class BarGraph extends Component {
 
     if(!localStorage.expenditures){
       expenditureData = await initialExpenditureFetch();
-      localStorage.setItem('expenditures', JSON.stringify(expenditureData))
+      localStorage.setItem('expenditures', JSON.stringify(expenditureData));
       
     } else {
-      expenditureData = JSON.parse(localStorage.getItem('expenditures'))
+      expenditureData = JSON.parse(localStorage.getItem('expenditures'));
       this.props.handleExpenditures(expenditureData);
     }
     this.props.handleExpenditures(expenditureData);
@@ -60,30 +60,30 @@ export class BarGraph extends Component {
       if (a.candidate > b.candidate) return 1;
       return 0;
     });
-    this.setState({candidates: alphabetizedContibutions})
+    this.setState({candidates: alphabetizedContibutions});
 
     const alphabetizedExpenditures = this.state.expenditures.sort((a, b) => {
       if (a.candidate < b.candidate) return -1;
       if (a.candidate > b.candidate) return 1;
       return 0;
     });
-    this.setState({candidates: alphabetizedExpenditures})
+    this.setState({candidates: alphabetizedExpenditures});
   }
 
   sortData = () => {
     const sortedContributions = this.state.contributions.sort((a, b) => {
-      return b.totalCashContributions - a.totalCashContributions
-    })
+      return b.totalCashContributions - a.totalCashContributions;
+    });
 
-    this.setState({contributions: sortedContributions})
+    this.setState({contributions: sortedContributions});
   }
 
   sortAverage = () => {
     const sortedByAverage = this.state.contributions.sort((a,b) => {
       return b.averageContribution - a.averageContribution;
-    })
+    });
 
-    this.setState({ contributions: sortedByAverage })
+    this.setState({ contributions: sortedByAverage });
   }
 
 
@@ -112,6 +112,7 @@ export class BarGraph extends Component {
             />
             <VictoryAxis
               dependentAxis
+              label = "Total Contributions ($)"
               tickFormat={(x) => (`${x / 1000}k`)}
               style={{
                 tickLabels: {fontSize: '6px'}
@@ -120,7 +121,45 @@ export class BarGraph extends Component {
             <VictoryBar 
               data = {this.state.contributions}
               x = 'candidate'
-              y = 'totalNumberContributions'/>
+              y = 'totalNumberContributions'
+              events={[{
+                target: "data",
+                eventHandlers: {
+                  onMouseOver: () => {
+                    return [
+                      {
+                        target: "data",
+                        mutation: (props) => {
+                          const fill = props.style && props.style.fill;
+                          return fill === "red" ? null : { style: { fill: "red" } };
+                        }
+                      },
+                      {
+                        target: 'labels',
+                        mutation: (props) => {
+                          return props.text === props.datum.totalNumberContributions ? null : {text: props.datum.totalNumberContributions };
+                        }
+                      }
+
+                      
+                    ];
+                  },
+                  onMouseOut: () => {
+                    return [
+                      { target: "data",
+                        mutation: () => {
+                          return null;
+                        }
+                      },
+                      { target: 'labels',
+                        mutation: () => {
+                          return null;
+                        }}
+
+                    ];
+                  }
+                }
+              }]}/>
           </VictoryChart>
         </div>
         <div>
@@ -166,9 +205,10 @@ export class BarGraph extends Component {
               tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]}
               tickFormat={this.state.expenditures.map(expenditure => expenditure.candidate)}
               style={{
-                tickLabels: {fontSize: '6px'}
+                ticks: {stroke: "grey", size: 5},
+                tickLabels: {fontSize: '6px', padding: 5}
               }}
-              tickLabelComponent= {<VictoryLabel angle={45}/>}
+              tickLabelComponent= {<VictoryLabel angle={45} verticalAnchor={'middle'}/>}
             />
             <VictoryAxis
               dependentAxis
@@ -199,13 +239,13 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     handleContributions: contributions => {
-      dispatch(actions.addContributionsToStore(contributions))
+      dispatch(actions.addContributionsToStore(contributions));
     },
     handleExpenditures: expenditures => {
-      dispatch(actions.addExpendituresToStore(expenditures))
+      dispatch(actions.addExpendituresToStore(expenditures));
 
     }
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(BarGraph);
