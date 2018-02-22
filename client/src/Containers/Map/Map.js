@@ -45,13 +45,14 @@ class DataMap extends React.Component {
     return d3.scale.linear().domain([minVal, medianVal, maxVal]).range(["#deebf7","#9ecae1", "#4292c6"])(value);
   }
   redducedData(){
+    if (this.state.totals) {
     const stateTotals = this.state.totals
-
     const newData = stateTotals.reduce((object, data) => {
-      object[data.abbr] = { value: data.total, fillColor: this.linearPalleteScale(data.total) };
+      object[data.state] = { value: data.total, fillColor: this.linearPalleteScale(data.total) };
       return object;
     }, {});
     return Object.assign({}, statesDefaults, newData);
+    }
   }
 renderMap(){
     return new Datamap({
@@ -62,8 +63,11 @@ renderMap(){
         borderWidth: 0.5,
         highlightFillColor: '#FFCC80',
         popupTemplate: function(geography, data) {
+          let formattedNumber = (data.value + "").replace(/\b(\d+)((\.\d+)*)\b/g, function(a, b, c) {
+            return (b.charAt(0) > 0 && !(c || ".").lastIndexOf(".") ? b.replace(/(\d)(?=(\d{3})+$)/g, "$1,") : b) + c;
+          });
           if (data && data.value) {
-            return '<div class="hoverinfo">' + geography.properties.name + ': ' +'<strong>' + '$' + data.value.toLocaleString() + '</strong></div>';
+            return '<div class="hoverinfo">' + geography.properties.name + ': ' +'<strong>' + '$' + formattedNumber + '</strong></div>';
           } else {
             return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
           }
@@ -79,7 +83,6 @@ renderMap(){
   componentDidMount = async () => {
    let stateTotals = await getStateTotals()
    this.setState({totals: stateTotals})
-   console.log('totals', this.props.stateTotals)
    
 
    d3.select('#datamap-container')
@@ -96,17 +99,14 @@ renderMap(){
       }
     });
   }
-  // componentDidUpdate(){
-  //   this.datamap.updateChoropleth(this.redducedData());
-  // }
+
   componentWillUnmount(){
     d3.select('svg').remove();
   }
   render() {
     return (
-      // <div className="datamap-outer-container">
+
       <div id="datamap-container"></div>
-      // </div>
     );
   }
 }
