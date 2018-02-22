@@ -112,7 +112,7 @@ export class BarGraph extends Component {
                       {
                         target: 'labels',
                         mutation: (props) => {
-                          return props.text === props.datum.contributionTotal ? null : {text: props.datum.contributionTotal };
+                          return props.text === props.datum.contributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) ? null : {text: props.datum.contributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) };
                         }
                       }
 
