@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import CandidatesBar from '../../Containers/CandidatesBar/CandidatesBar';
 import CandidateDetails from '../../Containers/CandidateDetails/CandidateDetails';
+import CompareCandidate from '../../Containers/CompareCandidate/CompareCandidate'
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {initialCandidatesFetch, getAllContributions, initialExpenditureFetch} from '../../Helper/helper';
@@ -57,7 +58,7 @@ export class App extends Component {
 
         <Route exact path = '/' component = {DataMap} />
         <Route exact path = '/' component = {BarGraph} />
-        <Route exact path = '/' component = {CompareCandidate}/>
+        <Route exact path = '/' component = {CompareCandidate} candidates = {this.props.candidates}/>
 
         <Route path = '/candidates/:id' render = {({match}) => {
           const candidateObject = this.props.candidates;
