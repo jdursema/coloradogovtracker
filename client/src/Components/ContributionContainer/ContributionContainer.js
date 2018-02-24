@@ -10,22 +10,46 @@ class ContributionContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm:'',
       currentlyDisplayed: []
     }
   }
 
 
+componentWillMount() {
+  if(this.props.contributions){
+    this.setState({currentlyDisplayed:this.props.contributions})
+  }
+}
+
 componentWillReceiveProps(nextProps) {
-  this.setState({currentlyDisplayed: this.props.contributions})
+  if(this.props != nextProps) {
+    this.setState({currentlyDisplayed: nextProps.contributions})
+  }
 }
 
   searchContributors = (event) => {
-    console.log(event)
+    let contributions = this.props.contributions;
+    let searchValue = event.toUpperCase();
+    let contributionFilter = contributions.filter(contribution => contribution.donor_last.toUpperCase().includes(searchValue))
+    console.log('filter', contributionFilter)
+    this.setState({currentlyDisplayed: contributionFilter})
+    console.log('state', this.state.currentlyDisplayed)
   }
+
+
+// searchBills = (search) => {
+//   let bills = this.props.lawmakers.bills;
+
+//   let searchValue = search.toUpperCase();
+
+//   let billFilter = bills.filter(bill => bill.billTitle.toUpperCase().includes(searchValue) || bill.action.signAction.toUpperCase().includes(searchValue) || bill.billTitleId.toUpperCase().includes(searchValue));
+//   this.setState({currentlyDisplayed: billFilter});
+// }
 
   mapContributions = (contributions, index) => {
     if(contributions) {
+      
+
       const contributionMap = contributions.map((contribution, index) => {
         return (
           <Card 
@@ -48,7 +72,6 @@ componentWillReceiveProps(nextProps) {
   }
 
   render () {
-
     return (
       <div className = "contribution-container">
 

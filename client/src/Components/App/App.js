@@ -76,7 +76,7 @@ export class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  candidates: state.candidates,
+  candidates: state.candidates
 })
 
 const mapDispatchToProps = dispatch => {

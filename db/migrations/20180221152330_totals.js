@@ -9,6 +9,7 @@ exports.up = function(knex, Promise) {
       table.decimal('contributionTotal', 11, 2);
       table.integer('contributionNum', 11, 2);
       table.decimal('avgContribution', 11, 2);
+      table.string('active')
     }),
     knex.schema.createTable('statetotals', function(table) {
       table.increments('id').primary();
