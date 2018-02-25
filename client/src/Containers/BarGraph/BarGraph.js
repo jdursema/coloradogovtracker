@@ -112,7 +112,7 @@ export class BarGraph extends Component {
                       {
                         target: 'labels',
                         mutation: (props) => {
-                          return props.text === props.datum.contributionTotal ? null : {text: props.datum.contributionTotal };
+                          return props.text === props.datum.contributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) ? null : {text: props.datum.contributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) };
                         }
                       }
 
@@ -183,7 +183,7 @@ export class BarGraph extends Component {
                       {
                         target: 'labels',
                         mutation: (props) => {
-                          return props.text === props.datum.contributionTotal ? null : {text: props.datum.contributionTotal };
+                          return props.text === props.datum.contributionNum ? null : {text: props.datum.contributionNum };
                         }
                       }
 
@@ -256,7 +256,7 @@ export class BarGraph extends Component {
                       {
                         target: 'labels',
                         mutation: (props) => {
-                          return props.text === props.datum.contributionTotal ? null : {text: props.datum.contributionTotal };
+                          return props.text === props.datum.expenditureTotal ? null : {text: props.datum.expenditureTotal };
                         }
                       }
 
