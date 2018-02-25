@@ -49,6 +49,12 @@ componentWillReceiveProps(nextProps) {
     this.setState({currentlyDisplayed: sortedContributions});
   }
 
+  sortLowContributions = () => {
+     const sortedContributions = this.state.currentlyDisplayed.sort((a, b) => {
+      return a.contribution_amount - b.contribution_amount;
+    });
+    this.setState({currentlyDisplayed: sortedContributions});
+  }
 
 
   mapContributions = (contributions, index) => {
@@ -81,6 +87,7 @@ componentWillReceiveProps(nextProps) {
     return (
       <div className = "contribution-container">
         <button onClick = {this.sortHighContributions}>Highest Contributions</button>
+        <button onClick = {this.sortLowContributions}>Lowest Contributions</button>
          <div className = "search-bar">
           <input 
             className = "search-field"

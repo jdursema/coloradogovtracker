@@ -6,7 +6,7 @@ export const Card = ({id, firstName, lastName, amount, date, occupation}) => {
  const checkEmpty = (name) => {
     let lowercase = name.toLowerCase();
     let correctCase = lowercase.charAt(0).toUpperCase() + lowercase.slice(1);
-    return name === '' ? 'NON-ITEMIZED CONTRBUTION' : name;
+    return name === '' ? 'NON-ITEMIZED CONTRIBUTION' : name;
   };
 
   const capitalize = (string) =>{
@@ -35,19 +35,19 @@ const label = (field, label) => {
   return field.length ? label : null;
 };
 
-  //    <p> <span className = "label"> {label(employer, 'Employer: ')} </span>{employer}</p>
-    //  <p> <span className = "label"> {label(occupation, 'Occupation: ')}</span>{occupation} </p>
-  //    <p> {formatDate(date)} </p>
-    // <p> {titleCase(city)}, {state} {zip} </p>
-       // <p> {formatDate(date)} </p>
+const formatAmount = (amount) => {
+  let formattedNumber = (amount + "").replace(/\b(\d+)((\.\d+)*)\b/g, function(a, b, c) {
+    return (b.charAt(0) > 0 && !(c || ".").lastIndexOf(".") ? b.replace(/(\d)(?=(\d{3})+$)/g, "$1,") : b) + c;
+  });
+   return formattedNumber;
+ 
+}
 
-    // <p> {date} </p>
-     //<p> {occupation} </p>
 
   return (
     <div className = "contribution-card"> 
      <p><strong>{firstName} {checkEmpty(lastName)}</strong></p> 
-     <p> ${amount} </p>
+     <p> ${formatAmount(amount)} </p>
 
    
 
