@@ -42,6 +42,12 @@ const getCandidateContributions = (async(candidateId) => {
   return contributionResponse.contributors
 })
 
+// const cleanCandidateContributions = (contributions) => {
+//   return {
+    
+//   }
+// }
+
 
 export const getAllContributions = async () => {
   const initialFetch = await fetch ('/api/v1/contributions')

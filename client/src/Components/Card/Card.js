@@ -19,7 +19,6 @@ class Card extends Component {
     // this.setContributionState(cardDetails)
     this.setState({contributionDetails: cardDetails})
     this.setState({showDetails: !this.state.showDetails})
-    console.log(this.state.showDetails)
   })
 
   setContributionState = (cardDetails) => {
@@ -68,6 +67,7 @@ class Card extends Component {
 
   render () {
   const {id, firstName, lastName, amount, date, occupation, recordId} = this.props
+
   // const {donor_city} = this.state.contributionDetails[0]
   return (
     <div className = "contribution-card" onClick = {() => {this.toggleDetails(recordId)}}> 
@@ -81,7 +81,9 @@ class Card extends Component {
      {
       this.state.showDetails &&
       <div>
-      <p> {this.state.contributionDetails[0].donor_city} </p>
+      <p> {this.formatDate(this.state.contributionDetails[0].contribution_date)} </p>
+      <p> {this.state.contributionDetails[0].donor_city}, {this.state.contributionDetails[0].donor_state} {this.state.contributionDetails[0].donor_zip}</p>
+      <p> <span className = "label-span"> {this.label(this.state.contributionDetails[0].donor_employer, 'Employer:')}</span> {this.titleCase(this.state.contributionDetails[0].donor_employer)} </p>
       </div>
      }
 

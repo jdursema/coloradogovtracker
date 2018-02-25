@@ -41,8 +41,13 @@ render () {
   return (
     <div className = "candidate-details">  
         {this.getCandidateInfo()}
+      { this.props.selectedCandidate.contributions &&
       <ContributionContainer
         contributions = {this.props.selectedCandidate.contributions} />
+      }
+      {
+        <p> This candidate has no recorded contributions </p>
+      }
     </div>
   )
 }

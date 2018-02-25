@@ -26,6 +26,7 @@ componentWillMount() {
 
 componentWillReceiveProps(nextProps) {
   if(this.props != nextProps) {
+ 
      const sortedContributions = nextProps.contributions.sort((a, b) => {
       return b.contribution_amount - a.contribution_amount;
     });
