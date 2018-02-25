@@ -56,6 +56,32 @@ componentWillReceiveProps(nextProps) {
     this.setState({currentlyDisplayed: sortedContributions});
   }
 
+  alphabetizContributors = () => {
+
+    const alphabetizedContributors = this.state.currentlyDisplayed.sort((a, b) => {
+      if(a.donor_last.split(' ')[0] === null) return 0;
+      if (a.donor_last.split(' ')[0] < b.donor_last.split(' ')[0]) return -1;
+      if (a.donor_last.split(' ')[0] > b.donor_last.split(' ')[0]) return 1;
+      return 0;
+    });
+
+    this.setState({currentlyDisplayed: alphabetizedContributors});
+    
+  }
+
+    deAlphabetizContributors = () => {
+
+    const alphabetizedContributors = this.state.currentlyDisplayed.sort((a, b) => {
+    
+      if (a.donor_last.split(' ')[0] > b.donor_last.split(' ')[0]) return -1;
+      if (a.donor_last.split(' ')[0] < b.donor_last.split(' ')[0]) return 1;
+      return 0;
+    });
+
+    this.setState({currentlyDisplayed: alphabetizedContributors});
+    
+  }
+
 
   mapContributions = (contributions, index) => {
     if(contributions) {
@@ -88,6 +114,8 @@ componentWillReceiveProps(nextProps) {
       <div className = "contribution-container">
         <button onClick = {this.sortHighContributions}>Highest Contributions</button>
         <button onClick = {this.sortLowContributions}>Lowest Contributions</button>
+        <button onClick = {this.alphabetizContributors}> Donors A to Z </button>
+        <button onClick = {this.deAlphabetizContributors}> Donors Z to A </button> 
          <div className = "search-bar">
           <input 
             className = "search-field"
