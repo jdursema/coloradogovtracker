@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Card = ({id, firstName, lastName, amount, city, state, zip, date, employer, occupation, contributionType}) => {
+export const Card = ({id, firstName, lastName, amount, date, occupation}) => {
   
 
  const checkEmpty = (name) => {
@@ -35,14 +35,22 @@ const label = (field, label) => {
   return field.length ? label : null;
 };
 
+  //    <p> <span className = "label"> {label(employer, 'Employer: ')} </span>{employer}</p>
+    //  <p> <span className = "label"> {label(occupation, 'Occupation: ')}</span>{occupation} </p>
+  //    <p> {formatDate(date)} </p>
+    // <p> {titleCase(city)}, {state} {zip} </p>
+       // <p> {formatDate(date)} </p>
+
+    // <p> {date} </p>
+     //<p> {occupation} </p>
+
   return (
     <div className = "contribution-card"> 
      <p><strong>{firstName} {checkEmpty(lastName)}</strong></p> 
      <p> ${amount} </p>
-     <p> {formatDate(date)} </p>
-     <p> {titleCase(city)}, {state} {zip} </p>
-     <p> <span className = "label"> {label(employer, 'Employer: ')} </span>{employer}</p>
-     <p> <span className = "label"> {label(occupation, 'Occupation: ')}</span>{occupation} </p>
+
+   
+
 
     </div>
   )
