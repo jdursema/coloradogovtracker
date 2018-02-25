@@ -44,6 +44,7 @@ class DataMap extends React.Component {
 
     return d3.scale.linear().domain([minVal, medianVal, maxVal]).range(["#deebf7","#9ecae1", "#4292c6"])(value);
   }
+  
   redducedData(){
     if (this.state.totals) {
     const stateTotals = this.state.totals

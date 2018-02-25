@@ -17,12 +17,19 @@ class ContributionContainer extends Component {
 
 componentWillMount() {
   if(this.props.contributions){
+     const sortedContributions = this.props.contributions.sort((a, b) => {
+      return b.contribution_amount - a.contribution_amount;
+    });
     this.setState({currentlyDisplayed:this.props.contributions})
   }
 }
 
 componentWillReceiveProps(nextProps) {
   if(this.props != nextProps) {
+ 
+     const sortedContributions = nextProps.contributions.sort((a, b) => {
+      return b.contribution_amount - a.contribution_amount;
+    });
     this.setState({currentlyDisplayed: nextProps.contributions})
   }
 }
@@ -31,20 +38,49 @@ componentWillReceiveProps(nextProps) {
     let contributions = this.props.contributions;
     let searchValue = event.toUpperCase();
     let contributionFilter = contributions.filter(contribution => contribution.donor_last.toUpperCase().includes(searchValue))
-    console.log('filter', contributionFilter)
+  
     this.setState({currentlyDisplayed: contributionFilter})
-    console.log('state', this.state.currentlyDisplayed)
+  
   }
 
+    sortHighContributions = () => {
+    const sortedContributions = this.state.currentlyDisplayed.sort((a, b) => {
+      return b.contribution_amount - a.contribution_amount;
+    });
+    this.setState({currentlyDisplayed: sortedContributions});
+  }
 
-// searchBills = (search) => {
-//   let bills = this.props.lawmakers.bills;
+  sortLowContributions = () => {
+     const sortedContributions = this.state.currentlyDisplayed.sort((a, b) => {
+      return a.contribution_amount - b.contribution_amount;
+    });
+    this.setState({currentlyDisplayed: sortedContributions});
+  }
 
-//   let searchValue = search.toUpperCase();
+  alphabetizContributors = () => {
 
-//   let billFilter = bills.filter(bill => bill.billTitle.toUpperCase().includes(searchValue) || bill.action.signAction.toUpperCase().includes(searchValue) || bill.billTitleId.toUpperCase().includes(searchValue));
-//   this.setState({currentlyDisplayed: billFilter});
-// }
+    const alphabetizedContributors = this.state.currentlyDisplayed.sort((a, b) => {
+      if(a.donor_last.split(' ')[0] === null) return 0;
+      if (a.donor_last.split(' ')[0] < b.donor_last.split(' ')[0]) return -1;
+      if (a.donor_last.split(' ')[0] > b.donor_last.split(' ')[0]) return 1;
+      return 0;
+    });
+
+    this.setState({currentlyDisplayed: alphabetizedContributors});
+    
+  }
+
+    deAlphabetizContributors = () => {
+      const alphabetizedContributors = this.state.currentlyDisplayed.sort((a, b) => {
+      
+        if (a.donor_last.split(' ')[0] > b.donor_last.split(' ')[0]) return -1;
+        if (a.donor_last.split(' ')[0] < b.donor_last.split(' ')[0]) return 1;
+          return 0;
+      });
+
+      this.setState({currentlyDisplayed: alphabetizedContributors});
+    }
+
 
   mapContributions = (contributions, index) => {
     if(contributions) {
@@ -58,13 +94,15 @@ componentWillReceiveProps(nextProps) {
             firstName = {contribution.donor_first}
             lastName = {contribution.donor_last}
             amount = {contribution.contribution_amount}
-            city = {contribution.donor_city}
-            state = {contribution.donor_state}
-            zip = {contribution.donor_zip}
+            recordId = {contribution.record_id}
+            // city = {contribution.donor_city}
+            // state = {contribution.donor_state}
+            // zip = {contribution.donor_zip}
             date = {contribution.contribution_date}
-            employer = {contribution.donor_employer}
+            // employer = {contribution.donor_employer}
             occupation = {contribution.donor_occupation}
-            contributionType = {contribution.contribution_type} />
+            // contributionType = {contribution.contribution_type} 
+            />
         )
       })
         return contributionMap;
@@ -74,7 +112,10 @@ componentWillReceiveProps(nextProps) {
   render () {
     return (
       <div className = "contribution-container">
-
+        <button onClick = {this.sortHighContributions}>Highest Contributions</button>
+        <button onClick = {this.sortLowContributions}>Lowest Contributions</button>
+        <button onClick = {this.alphabetizContributors}> Donors A to Z </button>
+        <button onClick = {this.deAlphabetizContributors}> Donors Z to A </button> 
          <div className = "search-bar">
           <input 
             className = "search-field"

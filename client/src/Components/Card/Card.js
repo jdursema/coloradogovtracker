@@ -1,20 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { fetchIndividualContribution } from '../../Helper/helper';
 
-export const Card = ({id, firstName, lastName, amount, city, state, zip, date, employer, occupation, contributionType}) => {
+
+class Card extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showDetails: false,
+      contributionDetails:{}
+    }
+  }
   
 
- const checkEmpty = (name) => {
+  
+  toggleDetails = (async(recordId) => {
+
+    const cardDetails = await fetchIndividualContribution(recordId)
+    // this.setContributionState(cardDetails)
+    this.setState({contributionDetails: cardDetails})
+    this.setState({showDetails: !this.state.showDetails})
+  })
+
+  setContributionState = (cardDetails) => {
+   
+  }
+
+  checkEmpty = (name) => {
     let lowercase = name.toLowerCase();
     let correctCase = lowercase.charAt(0).toUpperCase() + lowercase.slice(1);
-    return name === '' ? 'NON-ITEMIZED CONTRBUTION' : name;
+    return name === '' ? 'NON-ITEMIZED CONTRIBUTION' : name;
   };
 
-  const capitalize = (string) =>{
+   capitalize = (string) =>{
     let lowercase = string.toLowerCase()
     return lowercase.charAt(0).toUpperCase() + lowercase.slice(1);
   };
 
-  const titleCase = (string) => {
+   titleCase = (string) => {
   string = string.toLowerCase().split(' ');
   for (var i = 0; i < string.length; i++) {
     string[i] = string[i].charAt(0).toUpperCase() + string[i].slice(1); 
@@ -22,7 +44,7 @@ export const Card = ({id, firstName, lastName, amount, city, state, zip, date, e
   return string.join(' ');
   }
 
- const formatDate = ( date) => {
+  formatDate = ( date) => {
     const newDate = new Date(date);
     const day = newDate.getDate();
     const month = newDate.getUTCMonth()+1;
@@ -31,21 +53,44 @@ export const Card = ({id, firstName, lastName, amount, city, state, zip, date, e
     return month + '/' + day + '/' + year
   };
 
-const label = (field, label) => {
+ label = (field, label) => {
   return field.length ? label : null;
 };
 
-  return (
-    <div className = "contribution-card"> 
-     <p><strong>{firstName} {checkEmpty(lastName)}</strong></p> 
-     <p> ${amount} </p>
-     <p> {formatDate(date)} </p>
-     <p> {titleCase(city)}, {state} {zip} </p>
-     <p> <span className = "label"> {label(employer, 'Employer: ')} </span>{employer}</p>
-     <p> <span className = "label"> {label(occupation, 'Occupation: ')}</span>{occupation} </p>
+ formatAmount = (amount) => {
+  let formattedNumber = (amount + "").replace(/\b(\d+)((\.\d+)*)\b/g, function(a, b, c) {
+    return (b.charAt(0) > 0 && !(c || ".").lastIndexOf(".") ? b.replace(/(\d)(?=(\d{3})+$)/g, "$1,") : b) + c;
+  });
+   return formattedNumber;
+ 
+}
 
+  render () {
+  const {id, firstName, lastName, amount, date, occupation, recordId} = this.props
+
+  // const {donor_city} = this.state.contributionDetails[0]
+  return (
+    <div className = "contribution-card" onClick = {() => {this.toggleDetails(recordId)}}> 
+     { 
+      !this.state.showDetails &&
+      <div>
+       <p><strong>{firstName} {this.checkEmpty(lastName)}</strong></p> 
+      <p> ${this.formatAmount(amount)} </p>
+      </div>
+     }
+     {
+      this.state.showDetails &&
+      <div>
+      <p> {this.formatDate(this.state.contributionDetails[0].contribution_date)} </p>
+      <p> {this.state.contributionDetails[0].donor_city}, {this.state.contributionDetails[0].donor_state} {this.state.contributionDetails[0].donor_zip}</p>
+      <p> <span className = "label-span"> {this.label(this.state.contributionDetails[0].donor_employer, 'Employer:')}</span> {this.titleCase(this.state.contributionDetails[0].donor_employer)} </p>
+      </div>
+     }
+
+    
     </div>
   )
+  }
 }
 
 export default Card
