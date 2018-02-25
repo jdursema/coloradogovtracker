@@ -93,7 +93,7 @@ componentWillReceiveProps(nextProps) {
             firstName = {contribution.donor_first}
             lastName = {contribution.donor_last}
             amount = {contribution.contribution_amount}
-        
+            recordId = {contribution.record_id}
             // city = {contribution.donor_city}
             // state = {contribution.donor_state}
             // zip = {contribution.donor_zip}

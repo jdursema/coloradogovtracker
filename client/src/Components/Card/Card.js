@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
+import { fetchIndividualContribution } from '../../Helper/helper';
 
 
 class Card extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      contributionDetails:{}
+    }
   }
   
+  toggleDetails = (async(recordId) => {
+
+    const cardDetails = await fetchIndividualContribution(recordId)
+    this.setContributionState(cardDetails)
+    
+  })
+
+  setContributionState = (cardDetails) => {
+   this.setState({contributionDetails: cardDetails})
+  }
 
   checkEmpty = (name) => {
     let lowercase = name.toLowerCase();
@@ -48,9 +62,9 @@ class Card extends Component {
 }
 
   render () {
-  const {id, firstName, lastName, amount, date, occupation} = this.props
+  const {id, firstName, lastName, amount, date, occupation, recordId} = this.props
   return (
-    <div className = "contribution-card" onClick = {this.toggleDetails}> 
+    <div className = "contribution-card" onClick = {() => {this.toggleDetails(recordId)}}> 
      <p><strong>{firstName} {this.checkEmpty(lastName)}</strong></p> 
      <p> ${this.formatAmount(amount)} </p>
     </div>
