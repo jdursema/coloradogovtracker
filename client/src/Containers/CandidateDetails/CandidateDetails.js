@@ -45,7 +45,7 @@ render () {
       <ContributionContainer
         contributions = {this.props.selectedCandidate.contributions} />
       }
-      {
+      { ! this.props.selectedCandidate.contributions &&
         <p> This candidate has no recorded contributions </p>
       }
     </div>
