@@ -6,19 +6,24 @@ class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      showDetails: false,
       contributionDetails:{}
     }
   }
   
+
+  
   toggleDetails = (async(recordId) => {
 
     const cardDetails = await fetchIndividualContribution(recordId)
-    this.setContributionState(cardDetails)
-    
+    // this.setContributionState(cardDetails)
+    this.setState({contributionDetails: cardDetails})
+    this.setState({showDetails: !this.state.showDetails})
+    console.log(this.state.showDetails)
   })
 
   setContributionState = (cardDetails) => {
-   this.setState({contributionDetails: cardDetails})
+   
   }
 
   checkEmpty = (name) => {
@@ -63,10 +68,24 @@ class Card extends Component {
 
   render () {
   const {id, firstName, lastName, amount, date, occupation, recordId} = this.props
+  // const {donor_city} = this.state.contributionDetails[0]
   return (
     <div className = "contribution-card" onClick = {() => {this.toggleDetails(recordId)}}> 
-     <p><strong>{firstName} {this.checkEmpty(lastName)}</strong></p> 
-     <p> ${this.formatAmount(amount)} </p>
+     { 
+      !this.state.showDetails &&
+      <div>
+       <p><strong>{firstName} {this.checkEmpty(lastName)}</strong></p> 
+      <p> ${this.formatAmount(amount)} </p>
+      </div>
+     }
+     {
+      this.state.showDetails &&
+      <div>
+      <p> {this.state.contributionDetails[0].donor_city} </p>
+      </div>
+     }
+
+    
     </div>
   )
   }
