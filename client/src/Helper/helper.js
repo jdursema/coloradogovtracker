@@ -134,3 +134,10 @@ export const initialTotalsFetch = async () => {
 }
 
 
+export const fetchIndividualContribution = async(contributionId) => {
+  const initialFetch = await fetch (`/api/v1/contributions/${contributionId}`)
+  const fetchResponse = await initialFetch.json
+  debugger;
+  return fetchResponse
+}
+

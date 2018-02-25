@@ -70,17 +70,15 @@ componentWillReceiveProps(nextProps) {
   }
 
     deAlphabetizContributors = () => {
+      const alphabetizedContributors = this.state.currentlyDisplayed.sort((a, b) => {
+      
+        if (a.donor_last.split(' ')[0] > b.donor_last.split(' ')[0]) return -1;
+        if (a.donor_last.split(' ')[0] < b.donor_last.split(' ')[0]) return 1;
+          return 0;
+      });
 
-    const alphabetizedContributors = this.state.currentlyDisplayed.sort((a, b) => {
-    
-      if (a.donor_last.split(' ')[0] > b.donor_last.split(' ')[0]) return -1;
-      if (a.donor_last.split(' ')[0] < b.donor_last.split(' ')[0]) return 1;
-      return 0;
-    });
-
-    this.setState({currentlyDisplayed: alphabetizedContributors});
-    
-  }
+      this.setState({currentlyDisplayed: alphabetizedContributors});
+    }
 
 
   mapContributions = (contributions, index) => {
@@ -95,6 +93,7 @@ componentWillReceiveProps(nextProps) {
             firstName = {contribution.donor_first}
             lastName = {contribution.donor_last}
             amount = {contribution.contribution_amount}
+        
             // city = {contribution.donor_city}
             // state = {contribution.donor_state}
             // zip = {contribution.donor_zip}
