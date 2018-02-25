@@ -4,8 +4,12 @@
   "private": true,
   "proxy": "http://localhost:6000/",
   "dependencies": {
+    "babel": "^6.23.0",
+    "bubble-chart": "^0.1.0",
     "d3": "^3.5.13",
     "react": "^16.2.0",
+    "react-bubble-chart": "^0.4.0",
+    "react-bubble-chart-wi": "^0.3.10",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1"
   },
