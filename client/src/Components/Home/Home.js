@@ -10,7 +10,7 @@ const Home = () => {
     <div className = "home">
     <div className = "header">
       <div className = "header-top">
-        <img src = {trackerLogo} class = "tracker-logo" alt = 'logo' />
+        <img src = {trackerLogo} className = "tracker-logo" alt = 'logo' />
       </div>
       <div className = "header-main">
         <div className = "header-text">
