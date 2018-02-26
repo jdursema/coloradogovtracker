@@ -9,19 +9,29 @@
   flex-direction: column; }
 
   .card-head {
-    display:flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -ms-flex-pack: justify;
     justify-content: space-between;
-    margin: 5px;
-  }
+    align-items: center;
+    padding: 5px;
+    height: 60px;
+    border-bottom: 1px solid gray;
+}
 
   .candidate-card-img {
     width: 60px;
     height: 60px;
-    border-radius: 50%
+    border-radius: 50%;
+    margin-right: 11px;
   }
 
-  .card-head-text {
-    display:flex;
-    flex-direction:column;
+.center {
+  text-align: center;
+}
+
+  .card-head-text h3 {
+    text-align: right;
   }

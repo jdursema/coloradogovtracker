@@ -18,18 +18,17 @@ export const CandidateCard = (props) => {
      <img className="candidate-card-img" src={`${props.info.image}`} alt= {`${props.info.name}`} />
      <div className = "card-head-text">
         <h3>{props.info.name}</h3>
-        <p>{props.info.party}</p>
       </div>
     </div>
 
-   
+    <p className = "center"> <em>{props.info.party}</em></p>
     <p>{props.info.contributionTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</p>
     <p>{props.info.expenditureTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</p>
     <p>{props.info.contributionNum}</p>
      <button className = "get-candidate-button" 
         onClick = {() => selectCandidate(props.info.candidateId)}>
        <Link className = 'candidate-link' to = {`/candidates/${props.info.candidateId}`}> 
-      Learn more
+      See Contributors
        </Link>
     </button> 
 
