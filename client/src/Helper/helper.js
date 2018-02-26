@@ -1,8 +1,12 @@
 
 export const initialCandidatesFetch = async () => {
-  const initialFetch = await fetch('/api/v1/candidates')
-  const fetchResponse = await initialFetch.json();
-  return fetchResponse.candidates
+  try {
+    const initialFetch = await fetch('/api/v1/candidates')
+    const fetchResponse = await initialFetch.json();
+    return fetchResponse.candidates
+  } catch(error) {
+    console.log(error)
+  }
 }
 
 export const getSelectedCandidate = async (id) => {
@@ -44,7 +48,7 @@ const getCandidateContributions = (async(candidateId) => {
 
 // const cleanCandidateContributions = (contributions) => {
 //   return {
-    
+
 //   }
 // }
 

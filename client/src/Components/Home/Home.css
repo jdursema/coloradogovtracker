@@ -61,3 +61,48 @@
 .nav-item {
   padding: 2px;
 }
+
+
+.stat-bar {
+  display: flex;
+  flex-direction: row;
+  height: 70px;
+  justify-content: space-between;
+  margin: 15px 10px;
+
+}
+
+.stat {
+  background: #ecebeb;
+  width: 33%;
+  font-size: 20px;
+  display:flex;
+  flex-direction:row;
+}
+
+.numbers {
+  display:flex;
+  flex-direction: column;
+  margin-left: 5%;
+}
+
+
+.big-number {
+  font-size: 30px;
+  font-weight: 700;
+}
+.number-description {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.icon-box {
+  align-items: center;
+  background-color: #a2000b;
+  color: #fff;
+  display: flex;
+  font-size: 30px;
+  height: 100%;
+  justify-content: center;
+  width: 20%;
+}
