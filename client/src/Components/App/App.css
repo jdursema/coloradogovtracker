@@ -5,7 +5,7 @@ font-family: 'Open Sans', sans-serif;
 color: #7b807b;
 }
 
-h1, h3, ul {
+h1, h3, ul, p {
   display: block;
   -webkit-margin-before: 0em;
   -webkit-margin-after: 0em;

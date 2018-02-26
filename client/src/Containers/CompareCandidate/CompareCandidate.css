@@ -1,0 +1,24 @@
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px; }
+
+.card-holder {
+  display: flex;
+  flex-wrap: wrap; }
+
+
+@media screen and (max-width: 1000px) {
+  .card-container {
+    width: 750px; } }
+
+@media screen and (max-width: 750px) {
+  .card-container {
+    width: 500px; } }
+
+@media screen and (max-width: 520px) {
+  .card-container {
+    width: 250px; } }
