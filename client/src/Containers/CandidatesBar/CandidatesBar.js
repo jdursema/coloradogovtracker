@@ -39,7 +39,6 @@ export class CandidatesBar extends Component {
   return (
     <div> 
         <header>
-          <h1> Colorado Governor Tracker </h1>
         </header>
       <div className='candidate-bar'>
         {mappedCandidates}
