@@ -38,21 +38,12 @@ getCandidateInfo = () => {
 }
 
 candidateTotal = () => { 
-
-  console.log(this.props.selectedCandidate.id)
   const foundCandidate = this.props.candidateTotals.find((candidate) => {
-    console.log(candidate.candidateId)
     return this.props.selectedCandidate.id === candidate.candidateId
-  }) 
-  
+  }); 
 }
 
-calculateAbsoluteTotals = () => {
-  return this.props.candidateTotals.reduce((acc, candidate) => {
-    acc += candidate.contributionTotal
-    return acc
-  }, 0)
-}
+
 
 
 
@@ -64,7 +55,7 @@ render () {
           <VictoryPie
           data={[
           { x: this.props.selectedCandidate.name, y: this.candidateTotal() },
-          { x: 'total', y: this.calculateAbsoluteTotals()}
+          { x: 'total', y: 7401324.15999997}
           ]}
           />
 
