@@ -29,11 +29,23 @@
   display:flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 60px;
+  margin-top: 10%;
 }
 
 ul.top-states {
   list-style-type: none;
+}
+
+.top-states li {
+  margin: 5px;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.small {
+  font-size: 12px;
 }
 
 @media screen and (max-width: 730px) {
