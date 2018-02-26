@@ -72,7 +72,7 @@ export class CompareCandidate extends Component {
     
     return (
       <div>
-        <h3>Gubernatorial Candidates</h3>
+        <h1>Compare Candidates</h1>
         <input placeholder = 'Search Candidates' onChange = {(event) => this.searchCandidates(event)}/>
         <button onClick = {(event) => this.filterByParty(event)} name = 'Democrat' >Democrats</button>
         <button onClick = {(event) => this.filterByParty(event)} name= 'Republican'>Republicans</button>

@@ -1,0 +1,63 @@
+.main-container {
+  max-width: 1200px;
+}
+
+.map-container-content {
+  display:flex;
+  flex-direction: row;
+}
+
+.map-container h1 {
+  text-align: center;
+}
+
+.map-container h3 {
+  text-align: center;
+  font-weight: 300;
+}
+
+.fund-head {
+  border-bottom: 1px solid gray;
+}
+
+.map {
+  width: 70%;
+}
+
+.map-totals {
+  width: 30%;
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10%;
+}
+
+ul.top-states {
+  list-style-type: none;
+}
+
+.top-states li {
+  margin: 5px;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.small {
+  font-size: 12px;
+}
+
+@media screen and (max-width: 730px) {
+    .map-container-content {
+      flex-direction: column;
+    }
+
+  .map {
+    width: 100%;
+  }
+
+  .map-totals {
+    width: 100%;
+  }
+}

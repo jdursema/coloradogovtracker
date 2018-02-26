@@ -6,6 +6,7 @@ import { getSelectedCandidate } from '../../Helper/helper';
 import Card from '../Card/Card.js'
 
 
+
 class ContributionContainer extends Component {
   constructor(props) {
     super(props);

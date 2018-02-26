@@ -1,5 +1,6 @@
 .datamap-outer-container {
   padding: 0;
+
 }
 
   #datamap-container {
@@ -7,25 +8,23 @@
     margin: 0 auto;
     height: 450px;
     width: 900px;
+    overflow: hidden;
   }
 
-/*  
-.svg-container {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  padding-bottom: 100%;
-  vertical-align:top;
-  overflow:hidden;
+
+@media screen and (max-width: 1060px) {
+  #datamap-container {
+    height: 400px;
+    width: 800px;
+  }
 }
 
-.svg-content-responsive {
-  display: inline-block;
-  position: absolute;
-  top: 10px;
-  left: 0;
-}*/
-
+@media screen and (max-width: 940px) {
+  #datamap-container {
+    height: 350px;
+    width: 700px;
+  }
+}
 
 @media screen and (max-width: 820px) {
   #datamap-container {
@@ -33,6 +32,14 @@
     width: 600px;
   }
 }
+
+@media screen and (max-width: 730px) {
+  #datamap-container {
+    height: 250px;
+    width: 500px;
+  }
+}
+
 
 @media screen and (max-width: 620px) {
   #datamap-container {

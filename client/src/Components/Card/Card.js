@@ -70,7 +70,7 @@ class Card extends Component {
 
   // const {donor_city} = this.state.contributionDetails[0]
   return (
-    <div className = "contribution-card" onClick = {() => {this.toggleDetails(recordId)}}> 
+    <div className = "card" onClick = {() => {this.toggleDetails(recordId)}}> 
      { 
       !this.state.showDetails &&
       <div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import CandidatesBar from '../../Containers/CandidatesBar/CandidatesBar';
 import CandidateDetails from '../../Containers/CandidateDetails/CandidateDetails';
 import CompareCandidate from '../../Containers/CompareCandidate/CompareCandidate'
 import { Route, withRouter } from 'react-router-dom';
@@ -10,6 +9,10 @@ import * as actions from '../../Actions/';
 import DataMap from '../../Containers/Map/Map';
 import BarGraph from '../../Containers/BarGraph/BarGraph';
 import BubbleChart from '../BubbleChart/BubbleChart';
+import Home from '../Home/Home';
+import MapContainer from '../../Containers/MapContainer/MapContainer.js'
+
+
 
 
 
@@ -48,16 +51,19 @@ export class App extends Component {
     this.props.handleCandidates(candidateData);
     // this.props.handleContributions(contributionData);
     // localStorage.setItem('contributions', contributionData)
+  
   }
 
-
+    //<Route exact path = '/' component = {DataMap} />
+           
   render () {
     return (
 
       <div className="App">
-        <Route exact path = '/' component = {CandidatesBar} />
-        <Route exact path = '/' component = {DataMap} />
-        <Route exact path = '/' component = {BubbleChart}/>
+        <Route exact path = '/' component = {Home} />
+        <Route exact path = '/' component = {MapContainer} />
+       
+
         <Route exact path = '/' component = {BarGraph} />
         <Route exact path = '/' component = {CompareCandidate} />
 

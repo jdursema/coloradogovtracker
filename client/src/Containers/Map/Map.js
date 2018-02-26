@@ -13,9 +13,7 @@ import scale from 'd3';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './Map.css'
-// import * as scale from "d3-scale"
-// let d3 = require('d3');
-// import objectAssign from 'object-assign';
+
 
 class DataMap extends React.Component {
   constructor(props){
@@ -106,8 +104,9 @@ renderMap(){
   }
   render() {
     return (
-
+  
       <div id="datamap-container"></div>
+  
     );
   }
 }
@@ -118,6 +117,4 @@ const mapStateToProps = state => ({
 
 export default withRouter(connect(mapStateToProps, null)(DataMap));
 
-// DataMap.propTypes = {
-//     regionData: React.PropTypes.array.isRequired
-// };
+
