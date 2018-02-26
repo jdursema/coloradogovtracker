@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CandidateCard from '../../Components/CandidateCard/CandidateCard';
+import './CompareCandidate.css'
 
 export class CompareCandidate extends Component {
   constructor (props) {
@@ -13,7 +14,6 @@ export class CompareCandidate extends Component {
 
 
   componentWillReceiveProps (nextProps) {
-    console.log(nextProps.candidates)
     if(nextProps.candidateTotals.length){
       const activeCandidates = nextProps.candidateTotals.filter(candidate => candidate.active === 'true')
       activeCandidates.map(candidate => {
@@ -21,7 +21,6 @@ export class CompareCandidate extends Component {
           candidateObj.committee_id
           === candidate.candidateId
         })
-        console.log(foundCandidate)
 
       })
 
@@ -78,8 +77,10 @@ export class CompareCandidate extends Component {
         <button onClick = {(event) => this.filterByParty(event)} name= 'Republican'>Republicans</button>
         <button onClick = {() => this.sortByHighestEarners()}>Highest Earnings</button>
         <button onClick = {() => this.viewAllCandidates()}>View All</button>
-        <div class='candidate-container'>
-        {mappedCandidates}
+        <div className='card-container'>
+          <div className  = 'card-holder'>
+            {mappedCandidates}
+          </div>
         </div>
       </div>
     )
