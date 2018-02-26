@@ -37,7 +37,9 @@ getCandidateInfo = () => {
   }
 }
 
+
 render () {
+  window.scrollTo(0, 0);
   return (
     <div className = "candidate-details">  
         {this.getCandidateInfo()}
