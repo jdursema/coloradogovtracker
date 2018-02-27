@@ -110,14 +110,7 @@ render () {
         <p> This candidate has no recorded contributions </p>
       }
 
-
-
-
     </div>
-
-    
-      
-      
     
     </div>
   )

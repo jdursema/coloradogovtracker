@@ -96,13 +96,9 @@ componentWillReceiveProps(nextProps) {
             lastName = {contribution.donor_last}
             amount = {contribution.contribution_amount}
             recordId = {contribution.record_id}
-            // city = {contribution.donor_city}
-            // state = {contribution.donor_state}
-            // zip = {contribution.donor_zip}
             date = {contribution.contribution_date}
-            // employer = {contribution.donor_employer}
+          
             occupation = {contribution.donor_occupation}
-            // contributionType = {contribution.contribution_type} 
             />
         )
       })
@@ -124,7 +120,11 @@ componentWillReceiveProps(nextProps) {
             type = "text"
             placeholder = "Search Contributors" />
         </div>
-         <div> {this.mapContributions(this.state.currentlyDisplayed)}</div> 
+        <div className = 'card-container'>
+         <div className = 'card-holder'>
+        {this.mapContributions(this.state.currentlyDisplayed)}
+        </div> 
+        </div>
       </div>
     )
   }
