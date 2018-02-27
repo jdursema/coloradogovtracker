@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import CandidatesBar from '../../Containers/CandidatesBar/CandidatesBar'
 import CandidateDetails from '../../Containers/CandidateDetails/CandidateDetails';
 import CompareCandidate from '../../Containers/CompareCandidate/CompareCandidate'
 import { Route, withRouter } from 'react-router-dom';
@@ -26,6 +25,7 @@ export class App extends Component {
   componentDidMount = async () => {
     const candidateData = await initialCandidatesFetch();
     this.props.handleCandidates(candidateData);
+
   };
 
            
@@ -33,7 +33,6 @@ export class App extends Component {
     return (
 
       <div className="App">
-        <Route exact path = '/' component = {CandidatesBar}/>
         <Route exact path = '/' component = {Home} />
         <Route exact path = '/' component = {MapContainer} />
        

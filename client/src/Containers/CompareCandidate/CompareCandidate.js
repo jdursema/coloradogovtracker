@@ -9,7 +9,7 @@ export class CompareCandidate extends Component {
     this.state = {
       candidateTotals: [],
       searchResults: [],
-      active:false
+      active: 3
     }
   }
 
@@ -24,10 +24,13 @@ export class CompareCandidate extends Component {
         })
 
       })
-
       this.setState({candidateTotals: activeCandidates}) 
+      this.sortByHighestEarners()
     }
+    this.setState({active:3})
   }
+
+
 
   searchCandidates (event) {
     const searchRequest = (event.target.value).toUpperCase()
@@ -35,23 +38,40 @@ export class CompareCandidate extends Component {
     this.setState({searchResults: results})
   }
 
-  filterByParty (event) {
+  filterByParty (event, position) {
     const results = this.state.candidateTotals.filter((candidate)=>candidate.party === event.target.name);
-    this.setState({searchResults: results, active:!this.state.active})
+    this.setState({searchResults: results})
+    this.toggleActive(position)
   }
 
-  sortByHighestEarners () {
+  sortByHighestEarners (position) {
     const sortedCandidates = this.state.candidateTotals.sort((a, b) => {
       return b.contributionTotal - a.contributionTotal;
     });
 
-    this.setState({searchResults: sortedCandidates, active:!this.state.active})
+    this.setState({searchResults: sortedCandidates})
+    this.toggleActive(position)
   }
 
-  viewAllCandidates () {
-    this.setState({searchResults: [], active:!this.state.active})
+  viewAllCandidates (position) {
+    this.setState({searchResults: []})
+    this.toggleActive(position)
   }
 
+    toggleActive = (position) => {
+    if (this.state.active === position) {
+      this.setState({active : null })
+     
+    } else {
+      this.setState({active: position})
+    }
+  }
+
+  activeClass = (position) => {
+    if(this.state.active === position) {
+      return 'filter-button active'
+    } return 'filter-button'
+  }
 
 
 
@@ -74,10 +94,10 @@ export class CompareCandidate extends Component {
           <input className = "filter-search"placeholder = 'Search Candidates' onChange = {(event) => this.searchCandidates(event)}/>
           
 
-          <button className= "filter-button" onClick = {(event) => this.filterByParty(event)} name = 'Democrat' >Democrats</button>
-          <button className= "filter-button" onClick = {(event) => this.filterByParty(event)} name= 'Republican'>Republicans</button>
-          <button className="filter-button"  onClick = {() => this.sortByHighestEarners()}>Highest Earnings</button>
-          <button className= "filter-button"  onClick = {() => this.viewAllCandidates()}>All Active Candidates</button>
+          <button className= {this.activeClass(1)} onClick = {(event) => this.filterByParty(event, 1)} name = 'Democrat' >Democrats</button>
+          <button className= {this.activeClass(2)} onClick = {(event) => this.filterByParty(event, 2)} name= 'Republican'>Republicans</button>
+          <button className={this.activeClass(3)} onClick = {(event) => this.sortByHighestEarners(3)}>Highest Earnings</button>
+          <button className= {this.activeClass(4)}  onClick = {(event) => this.viewAllCandidates(4)}>All Active Candidates</button>
         </div>
         <div className='card-container'>
           <div className  = 'card-holder'>
