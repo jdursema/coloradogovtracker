@@ -5,6 +5,8 @@ import * as actions from '../../Actions/';
 import { getSelectedCandidate } from '../../Helper/helper';
 import ContributionContainer from '../../Components/ContributionContainer/ContributionContainer.js'
 import './CandidateDetails.css'
+import Header from '../../Components/Header/Header.js'
+import handshake from '../../images/handshake.png';
 
 class CandidateDetails extends Component {
     constructor(props) {
@@ -28,11 +30,27 @@ setCandidateRoute = (async() => {
 getCandidateInfo = () => {
   if(this.props.selectedCandidate.name) {
   return (
-
-  <div> {this.props.selectedCandidate.name} </div>
+    <div className = "candidate-info">
+      <img class="details-image"src = {this.props.selectedCandidate.image} />
+      <div class = "stat-details">
+          <div className = "stat stat1">
+        <div className = "icon-box icon1">
+          <img src = {handshake} alt = "handshake" />
+        </div>
+        <div className = "numbers">
+          <span className = "big-number">
+            5,896
+          </span>
+          <span className = "number-description">
+            Number of contributions reported
+          </span>
+        </div>
+      </div>
+      </div>
+    </div>
+     
   )
   } else {
-    console.log('setting route')
     this.setCandidateRoute()
   }
 }
@@ -41,15 +59,36 @@ getCandidateInfo = () => {
 render () {
   window.scrollTo(0, 0);
   return (
-    <div className = "candidate-details">  
+    <div className = "candidate-details">
+    <div className = "details-head">
+    
+      <Header />
+      <div className = "name-div">
+       <h1>{this.props.selectedCandidate.name}</h1>
+       </div>
+    </div>
+
+    <div className = "details-content">
+      <div className = "candidate-breakdown">
         {this.getCandidateInfo()}
+      </div>
       { this.props.selectedCandidate.contributions &&
       <ContributionContainer
         contributions = {this.props.selectedCandidate.contributions} />
       }
-      { ! this.props.selectedCandidate.contributions &&
+      { !this.props.selectedCandidate.contributions &&
         <p> This candidate has no recorded contributions </p>
       }
+
+
+
+
+    </div>
+
+    
+      
+      
+    
     </div>
   )
 }

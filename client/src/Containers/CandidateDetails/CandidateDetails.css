@@ -1,0 +1,39 @@
+.details-head {
+  border-bottom: 1px solid gray;
+}
+
+.name-div {
+  background: #184982;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.details-content {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.candidate-breakdown {
+  width: 25%;
+}
+
+.candidate-info {
+  background: #ecebeb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.details-image {
+  width: 150px;
+}

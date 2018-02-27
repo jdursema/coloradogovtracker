@@ -8,7 +8,8 @@ export class CompareCandidate extends Component {
     super(props);
     this.state = {
       candidateTotals: [],
-      searchResults: []
+      searchResults: [],
+      active:false
     }
   }
 
@@ -36,7 +37,7 @@ export class CompareCandidate extends Component {
 
   filterByParty (event) {
     const results = this.state.candidateTotals.filter((candidate)=>candidate.party === event.target.name);
-    this.setState({searchResults: results})
+    this.setState({searchResults: results, active:!this.state.active})
   }
 
   sortByHighestEarners () {
@@ -44,11 +45,11 @@ export class CompareCandidate extends Component {
       return b.contributionTotal - a.contributionTotal;
     });
 
-    this.setState({searchResults: sortedCandidates})
+    this.setState({searchResults: sortedCandidates, active:!this.state.active})
   }
 
   viewAllCandidates () {
-    this.setState({searchResults: []})
+    this.setState({searchResults: [], active:!this.state.active})
   }
 
 
@@ -66,18 +67,17 @@ export class CompareCandidate extends Component {
       })
     }
 
-
-
-    
     return (
       <div className = "compare" id="candidate-compare">
         <h1 className = "center">Compare Candidates</h1>
         <div className = "candidate-sort-bar center">
           <input className = "filter-search"placeholder = 'Search Candidates' onChange = {(event) => this.searchCandidates(event)}/>
-          <button className="filter-button" onClick = {(event) => this.filterByParty(event)} name = 'Democrat' >Democrats</button>
-          <button className="filter-button" onClick = {(event) => this.filterByParty(event)} name= 'Republican'>Republicans</button>
-          <button className="filter-button" onClick = {() => this.sortByHighestEarners()}>Highest Earnings</button>
-          <button className="filter-button" onClick = {() => this.viewAllCandidates()}>All Active Candidates</button>
+          
+
+          <button className= "filter-button" onClick = {(event) => this.filterByParty(event)} name = 'Democrat' >Democrats</button>
+          <button className= "filter-button" onClick = {(event) => this.filterByParty(event)} name= 'Republican'>Republicans</button>
+          <button className="filter-button"  onClick = {() => this.sortByHighestEarners()}>Highest Earnings</button>
+          <button className= "filter-button"  onClick = {() => this.viewAllCandidates()}>All Active Candidates</button>
         </div>
         <div className='card-container'>
           <div className  = 'card-holder'>
