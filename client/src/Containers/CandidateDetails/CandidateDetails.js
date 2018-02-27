@@ -5,7 +5,7 @@ import * as actions from '../../Actions/';
 import { getSelectedCandidate } from '../../Helper/helper';
 import ContributionContainer from '../../Components/ContributionContainer/ContributionContainer.js'
 import './CandidateDetails.css'
-import { VictoryPie } from 'victory';
+import { VictoryPie, VictoryChart } from 'victory';
 
 class CandidateDetails extends Component {
     constructor(props) {
@@ -37,24 +37,19 @@ getCandidateInfo = () => {
   }
 }
 
-candidateTotal = () => { 
-  const foundCandidate = this.props.candidateTotals.find((candidate) => {
-    return this.props.selectedCandidate.id === candidate.candidateId
-  }); 
-}
 
 
 
 
 
 render () {
+  console.log(this.props.selectedCandidate.contributionTotal)
   return (
     <div className = "candidate-details">  
       <div className = 'charts'>
-
           <VictoryPie
           data={[
-          { x: this.props.selectedCandidate.name, y: this.candidateTotal() },
+          { x: this.props.selectedCandidate.name, y: parseInt(this.props.selectedCandidate.contributionTotal) },
           { x: 'total', y: 7401324.15999997}
           ]}
           />
