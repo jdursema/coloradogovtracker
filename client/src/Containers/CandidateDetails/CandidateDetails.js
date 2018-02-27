@@ -6,7 +6,6 @@ import { getSelectedCandidate } from '../../Helper/helper';
 import { VictoryPie, VictoryChart, VictoryBar, VictoryAxis, VictoryLabel } from 'victory';
 import ContributionContainer from '../../Components/ContributionContainer/ContributionContainer.js'
 import './CandidateDetails.css'
-import { VictoryPie, VictoryChart } from 'victory';
 import Header from '../../Components/Header/Header.js'
 import handshake from '../../images/handshake.png';
 import dollar from '../../images/dollar-symbol.png';
@@ -36,7 +35,7 @@ getCandidateInfo = () => {
   if(this.props.selectedCandidate.name) {
   return (
     <div className = "candidate-info">
-      <img class="details-image"src = {this.props.selectedCandidate.image} />
+      <img class="details-image" src = {this.props.selectedCandidate.image} />
       <p> {this.props.selectedCandidate.party}</p>
       <div class = "stat-details">
           <div className = "details-stat details-stat1">
@@ -108,8 +107,7 @@ render () {
     </div>
 
     <div className = "details-content">
-      <div className = "candidate-breakdown">
-    <div className = "candidate-details">  
+      <div className = "candidate-breakdown"> 
       <div className = 'charts'>
           <VictoryPie
           data={[

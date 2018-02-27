@@ -286,10 +286,7 @@ export class BarGraph extends Component {
 
 }
 
-const mapStateToProps = state => ({
-  contributions: state.contributions,
-  expenditures: state.expenditures
-});
+
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -299,4 +296,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BarGraph);
+export default connect(null, mapDispatchToProps)(BarGraph);

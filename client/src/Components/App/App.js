@@ -5,7 +5,7 @@ import CandidateDetails from '../../Containers/CandidateDetails/CandidateDetails
 import CompareCandidate from '../../Containers/CompareCandidate/CompareCandidate'
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {initialCandidatesFetch, getAllContributions, initialExpenditureFetch} from '../../Helper/helper';
+import {initialCandidatesFetch} from '../../Helper/helper';
 import * as actions from '../../Actions/';
 import DataMap from '../../Containers/Map/Map';
 import BarGraph from '../../Containers/BarGraph/BarGraph';
@@ -24,38 +24,10 @@ export class App extends Component {
   }
 
   componentDidMount = async () => {
- 
-    const contributionData = await getAllContributions();
-
-    if(!localStorage.contributions){
-      const contributionData = await getAllContributions();
-      localStorage.setItem('contributions', JSON.stringify(contributionData))
-      this.props.handleContributions(contributionData);
-    } else {
-      const storageContributionData = JSON.parse(localStorage.getItem('contributions')) 
-      this.props.handleContributions(storageContributionData);
-    }
-
-    if(!localStorage.expenditures){
-      const expenditureData = await initialExpenditureFetch();
-      localStorage.setItem('expenditures', JSON.stringify(expenditureData))
-      this.props.handleExpenditures(expenditureData);
-    } else {
-      const storageExpenditureData = JSON.parse(localStorage.getItem('expenditures'))
-      this.props.handleExpenditures(storageExpenditureData);
-    }
-    // const contributionData = await getAllContributions();
     const candidateData = await initialCandidatesFetch();
-  
-
- 
     this.props.handleCandidates(candidateData);
-    // this.props.handleContributions(contributionData);
-    // localStorage.setItem('contributions', contributionData)
-  
-  }
+  };
 
-    //<Route exact path = '/' component = {DataMap} />
            
   render () {
     return (
