@@ -5,12 +5,12 @@ import handshake from '../../images/handshake.png';
 import dollar from '../../images/dollar-symbol.png';
 import profile from '../../images/profile.png';
 import Header from '../Header/Header.js'
-
+import Scrollchor from 'react-scrollchor';
        
 
 const Home = () => {
   return (
-    <div className = "home">
+    <div className = "home" id = "home-id">
     <div className = "header">
       <div className = "header-top">
         <Header />
@@ -24,6 +24,7 @@ const Home = () => {
             <li className = "nav-item"> See where the money is coming from </li> 
           </ul>
           <div className = "button-row">
+           <Scrollchor to= '#container-map' className="button nav-button"> Race </Scrollchor>
             <button className = "button nav-button"> Race Overview</button>
             <button className = "button nav-button"> Compare Candidates</button>
           </div>

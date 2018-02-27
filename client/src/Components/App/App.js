@@ -11,7 +11,7 @@ import BarGraph from '../../Containers/BarGraph/BarGraph';
 import BubbleChart from '../BubbleChart/BubbleChart';
 import Home from '../Home/Home';
 import MapContainer from '../../Containers/MapContainer/MapContainer.js'
-
+import Scrollchor from 'react-scrollchor';
 
 
 
@@ -77,6 +77,8 @@ export class App extends Component {
           return <CandidateDetails />;
           
         }} />
+
+      
     
       </div>
     );
