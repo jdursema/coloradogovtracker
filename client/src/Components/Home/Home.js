@@ -24,9 +24,10 @@ const Home = () => {
             <li className = "nav-item"> See where the money is coming from </li> 
           </ul>
           <div className = "button-row">
-           <Scrollchor to= '#container-map' className="button nav-button"> Race </Scrollchor>
-            <button className = "button nav-button"> Race Overview</button>
-            <button className = "button nav-button"> Compare Candidates</button>
+           <Scrollchor to= '#container-map' className="button nav-button"> Race Overview </Scrollchor>
+            <Scrollchor to= '#candidate-compare' className="button nav-button"> Compare Candidates</Scrollchor>
+
+
           </div>
         </div>
       </div>

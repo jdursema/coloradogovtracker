@@ -70,7 +70,7 @@ export class CompareCandidate extends Component {
 
     
     return (
-      <div>
+      <div className = "compare" id="candidate-compare">
         <h1 className = "center">Compare Candidates</h1>
         <div className = "candidate-sort-bar center">
           <input className = "filter-search"placeholder = 'Search Candidates' onChange = {(event) => this.searchCandidates(event)}/>

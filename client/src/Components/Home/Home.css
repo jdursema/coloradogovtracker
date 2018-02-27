@@ -20,6 +20,10 @@
   margin-top: 10px;
 }
 
+a.button.nav-button {
+    text-decoration: none;
+    padding: 5px;
+}
 
 .header {
   height: 400px;
