@@ -68,6 +68,7 @@ export class BarGraph extends Component {
           <button onClick = {this.sortAverage}>Average Contribution</button>
         </div>
         <div>
+          <h3>Total Contributions ($)</h3>
           <VictoryChart
             domainPadding={10}
             height = {200}
@@ -83,11 +84,9 @@ export class BarGraph extends Component {
             />
             <VictoryAxis
               dependentAxis
-              label = "Total Contributions ($)"
               tickFormat={(x) => (`${x / 1000000}m`)}
               style={{
                 axisLabel: {fontSize: '8px', fontFamily: 'Open Sans', padding: 30},
-                tickLabels: {fontSize: '6px', fontFamily: 'Open Sans'}
               }}
             />
             <VictoryBar 
@@ -140,6 +139,7 @@ export class BarGraph extends Component {
           </VictoryChart>
         </div>
         <div>
+          <h3>Total Contributions (#)</h3>
           <VictoryChart
             domainPadding={10}
             height = {200}
@@ -155,11 +155,7 @@ export class BarGraph extends Component {
             />
             <VictoryAxis
               dependentAxis
-              label = "Total Contributions (#)"
               tickFormat={(x) => (`${x / 1000}k`)}
-              style={{
-                tickLabels: {fontSize: '6px'}
-              }}
             />
             <VictoryBar 
               data = {this.state.candidates}
@@ -213,6 +209,7 @@ export class BarGraph extends Component {
   
   
         <div>
+          <h3>Total Expenditures</h3>
           <VictoryChart
             domainPadding={10}
             height = {200}
@@ -228,11 +225,7 @@ export class BarGraph extends Component {
             />
             <VictoryAxis
               dependentAxis
-              label = "Total Expenditures ($)"
-              tickFormat={(x) => (`${x / 1000000}m`)}
-              style={{
-                tickLabels: {fontSize: '6px'}
-              }}
+              tickFormat={(x) => (`${x / 100000}k`)}
             />
             <VictoryBar 
               data = {this.state.candidates}

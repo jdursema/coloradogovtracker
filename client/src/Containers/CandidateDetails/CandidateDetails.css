@@ -1,3 +1,10 @@
+
+.charts{
+  display: flex;
+  width: 90vw;
+  height: 40vh;
+}
+
 .details-head {
   border-bottom: 1px solid gray;
 }

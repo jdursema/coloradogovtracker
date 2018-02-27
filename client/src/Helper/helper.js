@@ -1,11 +1,12 @@
 
 export const initialCandidatesFetch = async () => {
   try {
-    const initialFetch = await fetch('/api/v1/candidates')
+    const initialFetch = await fetch('/api/v1/candidates');
     const fetchResponse = await initialFetch.json();
-    return fetchResponse.candidates
-  } catch(error) {
-    console.log(error)
+    console.log(fetchResponse)
+    return fetchResponse.candidates;
+  } catch (error) {
+    throw error;
   }
 }
 
