@@ -42,7 +42,7 @@ const Home = () => {
             5,896
           </span>
           <span className = "number-description">
-            Number of contributions reported
+            Contributions reported
           </span>
         </div>
       </div>

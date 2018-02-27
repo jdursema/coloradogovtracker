@@ -22,7 +22,7 @@
 }
 
 .candidate-breakdown {
-  width: 25%;
+  width: 280px;
 }
 
 .candidate-info {
@@ -36,4 +36,30 @@
 
 .details-image {
   width: 150px;
+}
+
+.details-stat {
+  display:flex;
+  flex-direction: row;
+  height: 80px;
+  margin: 15px 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #184982;
+
+}
+
+.stat-details {
+  margin-left: 20px;
+}
+
+.details-icon {
+  align-items: center;
+  background-color: #a2000b;
+  color: #fff;
+  display: flex;
+  font-size: 30px;
+  height: 100%;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
 }

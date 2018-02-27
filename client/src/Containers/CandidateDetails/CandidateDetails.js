@@ -7,6 +7,8 @@ import ContributionContainer from '../../Components/ContributionContainer/Contri
 import './CandidateDetails.css'
 import Header from '../../Components/Header/Header.js'
 import handshake from '../../images/handshake.png';
+import dollar from '../../images/dollar-symbol.png';
+import profile from '../../images/profile.png';
 
 class CandidateDetails extends Component {
     constructor(props) {
@@ -32,20 +34,48 @@ getCandidateInfo = () => {
   return (
     <div className = "candidate-info">
       <img class="details-image"src = {this.props.selectedCandidate.image} />
+      <p> {this.props.selectedCandidate.party}</p>
       <div class = "stat-details">
-          <div className = "stat stat1">
-        <div className = "icon-box icon1">
-          <img src = {handshake} alt = "handshake" />
-        </div>
-        <div className = "numbers">
-          <span className = "big-number">
-            5,896
-          </span>
-          <span className = "number-description">
-            Number of contributions reported
-          </span>
-        </div>
+          <div className = "details-stat details-stat1">
+            <div className = "details-icon">
+              <img src = {dollar} alt = "dollar sign" />
+            </div>
+            <div className = "numbers">
+              <span className = "big-number">
+                5,896
+              </span>
+              <span className = "number-description">
+                Total money raised
+              </span>
+          </div>
       </div>
+      <div className = "details-stat details-stat1">
+            <div className = "details-icon">
+              <img src = {handshake} alt = "handshake" />
+            </div>
+            <div className = "numbers">
+              <span className = "big-number">
+                5,896
+              </span>
+              <span className = "number-description">
+                Contributions reported
+              </span>
+          </div>
+      </div>
+      <div className = "details-stat details-stat1">
+            <div className = "details-icon">
+              <img src = {profile} alt = "handshake" />
+            </div>
+            <div className = "numbers">
+              <span className = "big-number">
+                5,896
+              </span>
+              <span className = "number-description">
+                Average contribution 
+              </span>
+          </div>
+      </div>
+
       </div>
     </div>
      
