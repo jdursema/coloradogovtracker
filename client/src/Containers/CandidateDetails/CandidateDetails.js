@@ -5,10 +5,13 @@ import * as actions from '../../Actions/';
 import { getSelectedCandidate } from '../../Helper/helper';
 import ContributionContainer from '../../Components/ContributionContainer/ContributionContainer.js'
 import './CandidateDetails.css'
+
 import Header from '../../Components/Header/Header.js'
 import handshake from '../../images/handshake.png';
 import dollar from '../../images/dollar-symbol.png';
 import profile from '../../images/profile.png';
+import { VictoryPie } from 'victory';
+
 
 class CandidateDetails extends Component {
     constructor(props) {
@@ -86,9 +89,18 @@ getCandidateInfo = () => {
 }
 
 
+candidateTotal = () => { 
+  const foundCandidate = this.props.candidateTotals.find((candidate) => {
+    return this.props.selectedCandidate.id === candidate.candidateId
+  }); 
+}
+
+
+
 render () {
   window.scrollTo(0, 0);
   return (
+
     <div className = "candidate-details">
     <div className = "details-head">
     
@@ -100,6 +112,19 @@ render () {
 
     <div className = "details-content">
       <div className = "candidate-breakdown">
+    <div className = "candidate-details">  
+      <div className = 'charts'>
+
+          <VictoryPie
+          data={[
+          { x: this.props.selectedCandidate.name, y: this.candidateTotal() },
+          { x: 'total', y: 7401324.15999997}
+          ]}
+          />
+
+      </div>
+
+
         {this.getCandidateInfo()}
       </div>
       { this.props.selectedCandidate.contributions &&
@@ -112,6 +137,8 @@ render () {
 
     </div>
     
+
+   
     </div>
   )
 }
@@ -119,7 +146,8 @@ render () {
 
 const mapStateToProps = state => ({
   selectedCandidate: state.selectedCandidate,
-  candidates: state.candidates
+  candidates: state.candidates,
+  candidateTotals: state.candidateTotals
 })
 
 const mapDispatchToProps = dispatch => {
