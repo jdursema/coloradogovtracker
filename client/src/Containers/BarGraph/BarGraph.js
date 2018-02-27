@@ -12,39 +12,45 @@ export class BarGraph extends Component {
   constructor() {
     super();
     this.state = {
-      candidates: []
-    };
+      candidates: [],
+      active: 2
+    }
   }
   
   componentDidMount = async () => {
     let totalsData = await initialTotalsFetch();
     this.props.handleCandidateTotals(totalsData);
     this.setState({candidates: totalsData});
+    this.sortData(2)
+    this.setState({active:2})
   }
 
-  alphabetizeData = () => {
+  alphabetizeData = (position) => {
     const alphabetizedCandidates = this.state.candidates.sort((a, b) => {
       if (a.name.split(' ')[1] < b.name.split(' ')[1]) return -1;
       if (a.name.split(' ')[1] > b.name.split(' ')[1]) return 1;
       return 0;
     });
     this.setState({candidates: alphabetizedCandidates});
+    this.toggleActive(position)
   }
 
-  sortData = () => {
+  sortData = (position) => {
     const sortedContributions = this.state.candidates.sort((a, b) => {
       return b.contributionTotal - a.contributionTotal;
     });
 
     this.setState({contributions: sortedContributions});
+    this.toggleActive(position)
   }
 
-  sortAverage = () => {
+  sortAverage = (position) => {
     const sortedByAverage = this.state.candidates.sort((a,b) => {
       return b.avgContribution - a.avgContribution;
     });
 
     this.setState({ contributions: sortedByAverage });
+    this.toggleActive(position)
   }
 
   candidateColor = (party) => {
@@ -57,15 +63,29 @@ export class BarGraph extends Component {
     }
   }
 
+   toggleActive = (position) => {
+    if (this.state.active === position) {
+      this.setState({active : null })
+    } else {
+      this.setState({active: position})
+    }
+  }
+
+  activeClass = (position) => {
+    if(this.state.active === position) {
+      return 'filter-button active'
+    } return 'filter-button'
+  }
 
 
   render() {
     return (
       <div>
-        <div className= 'filter-btns'>
-          <button onClick = {this.alphabetizeData}>Aphabetical</button>
-          <button onClick = {this.sortData}>Most Raised</button>
-          <button onClick = {this.sortAverage}>Average Contribution</button>
+        <div className= 'filter-btns center'>
+
+          <button className = {this.activeClass(1)} onClick = {(event) => this.alphabetizeData(1)}>Aphabetical</button>
+          <button className = {this.activeClass(2)} onClick = {(event) => this.sortData(2)}>Most Raised</button>
+          <button className = {this.activeClass(3)} onClick = {(event) => this.sortAverage(3)}>Average Contribution</button>
         </div>
         <div>
           <h3>Total Contributions ($)</h3>
