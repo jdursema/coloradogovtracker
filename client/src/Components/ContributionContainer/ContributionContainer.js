@@ -39,8 +39,11 @@ componentWillReceiveProps(nextProps) {
   searchContributors = (event) => {
     let contributions = this.props.contributions;
     let searchValue = event.toUpperCase();
-    let contributionFilter = contributions.filter(contribution => contribution.donor_last.toUpperCase().includes(searchValue))
-  
+    let contributionFilter = contributions.filter(contribution => contribution.donor_last.toUpperCase().includes(searchValue) ||
+     contribution.donor_occupation.toUpperCase().includes(searchValue) ||
+      contribution.donor_employer.toUpperCase().includes(searchValue) ||
+      contribution.donor_first.toUpperCase().includes(searchValue) ||
+      contribution.donor_state.toUpperCase().includes(searchValue))
     this.setState({currentlyDisplayed: contributionFilter})
   
   }
