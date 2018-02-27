@@ -30,13 +30,21 @@ setCandidateRoute = (async() => {
   }
 });
 
+ formatNumber = (amount) => {
+  let formattedNumber = (amount + "").replace(/\b(\d+)((\.\d+)*)\b/g, function(a, b, c) {
+    return (b.charAt(0) > 0 && !(c || ".").lastIndexOf(".") ? b.replace(/(\d)(?=(\d{3})+$)/g, "$1,") : b) + c;
+  });
+   return formattedNumber;
+ 
+}
 
 getCandidateInfo = () => {
   if(this.props.selectedCandidate.name) {
+   const {name, image, party, contributionTotal, expenditureTotal, contributionNum, avgContribution} = this.props.selectedCandidate
   return (
     <div className = "candidate-info">
-      <img class="details-image"src = {this.props.selectedCandidate.image} />
-      <p> {this.props.selectedCandidate.party}</p>
+      <img class="details-image"src = {image} />
+      <p> {party}</p>
       <div class = "stat-details">
           <div className = "details-stat details-stat1">
             <div className = "details-icon">
@@ -44,7 +52,7 @@ getCandidateInfo = () => {
             </div>
             <div className = "numbers">
               <span className = "big-number">
-                5,896
+              ${this.formatNumber(contributionTotal)}
               </span>
               <span className = "number-description">
                 Total money raised
@@ -57,7 +65,7 @@ getCandidateInfo = () => {
             </div>
             <div className = "numbers">
               <span className = "big-number">
-                5,896
+                {this.formatNumber(contributionNum)}
               </span>
               <span className = "number-description">
                 Contributions reported
@@ -70,7 +78,7 @@ getCandidateInfo = () => {
             </div>
             <div className = "numbers">
               <span className = "big-number">
-                5,896
+               ${this.formatNumber(avgContribution)}
               </span>
               <span className = "number-description">
                 Average contribution 
