@@ -3,6 +3,8 @@ import './Header.css';
 import trackerLogo from '../../images/gov_tracker_logo_dkblue-04.png'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { getSelectedCandidate }from '../../Helper/helper.js';
+import * as actions from '../../Actions/index.js';
 
 class Header extends Component {
   constructor(props) {
@@ -23,8 +25,10 @@ class Header extends Component {
    return mappedCandidates
   }
 
-  selectCandidate = (event, id) =>{
-    console.log(id)
+  selectCandidate = async(event, candidateId) => {
+    const candidateData = await getSelectedCandidate(candidateId)
+    this.props.setCandidate(candidateData)
+    this.props.history.push(`/candidates/${candidateId}`)
   }
 
 
@@ -45,4 +49,12 @@ const mapStateToProps = state => ({
   candidates: state.candidates
 })
 
-export default withRouter(connect(mapStateToProps, null)(Header));
+const mapDispatchToProps = dispatch => {
+  return {
+    setCandidate: candidate => {
+      dispatch(actions.setSelectedCandidate(candidate))
+    }
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
