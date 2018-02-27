@@ -4,13 +4,16 @@ import trackerLogo from '../../images/gov_tracker_logo_dkblue-04.png'
 import handshake from '../../images/handshake.png';
 import dollar from '../../images/dollar-symbol.png';
 import profile from '../../images/profile.png';
+import Header from '../Header/Header.js'
+import Scrollchor from 'react-scrollchor';
+       
 
 const Home = () => {
   return (
-    <div className = "home">
+    <div className = "home" id = "home-id">
     <div className = "header">
       <div className = "header-top">
-        <img src = {trackerLogo} className = "tracker-logo" alt = 'logo' />
+        <Header />
       </div>
       <div className = "header-main">
         <div className = "header-text">
@@ -21,8 +24,10 @@ const Home = () => {
             <li className = "nav-item"> See where the money is coming from </li> 
           </ul>
           <div className = "button-row">
-            <button className = "button nav-button"> Race Overview</button>
-            <button className = "button nav-button"> Compare Candidates</button>
+           <Scrollchor to= '#container-map' className="button nav-button"> Race Overview </Scrollchor>
+            <Scrollchor to= '#candidate-compare' className="button nav-button"> Compare Candidates</Scrollchor>
+
+
           </div>
         </div>
       </div>
@@ -37,7 +42,7 @@ const Home = () => {
             5,896
           </span>
           <span className = "number-description">
-            Number of contributions reported
+            Contributions reported
           </span>
         </div>
       </div>

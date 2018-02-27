@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DataMap from '../Map/Map'
 import './MapContainer.css'
 
+
 class MapContainer extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +10,7 @@ class MapContainer extends Component {
   }
   render(){
     return (
-      <div className = "map-container">
+      <div className = "map-container" id="container-map">
         <h1> Follow the money </h1>
         <h3> Contributions to the 2018 Colorado governor's race have come from every state </h3>
         <div className = "map-container-content">
@@ -28,6 +29,7 @@ class MapContainer extends Component {
             <span className = "small"> *Hover over map to see all totals </span>
           </div>
         </div>
+         
       </div>
     )
   }

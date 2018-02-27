@@ -1,0 +1,19 @@
+.app-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.candidate-select {
+  background: #ecebeb;
+  cursor: pointer;
+  height: 30px;
+  font-weight: bold;
+  margin: 0 auto;
+  outline: none;
+  position: relative;
+  width: 200px;
+}
+
