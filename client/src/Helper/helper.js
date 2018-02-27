@@ -47,7 +47,7 @@ export const getCandidateContributions = async (candidateId) => {
 
   const contributionFetch = await fetch (`/api/v1/candidates/${candidateId}/contributions`);
   const contributionResponse = await contributionFetch.json();
-  return contributionResponse.contribution;
+  return contributionResponse.contributors;
 
 };
 
