@@ -34,12 +34,14 @@ class Header extends Component {
 
   render() {
   return (
-    <div> 
-        <img src = {trackerLogo} className = "tracker-logo" alt = 'logo' />
-        <select onChange = {(event) => this.selectCandidate(event, event.target.value)}>
-          <option> Select a candidate </option>
-          {this.mapCandidateSelect()}
-        </select>
+    <div className = "app-header"> 
+        <div className = "logo-div"><img src = {trackerLogo} className = "tracker-logo" alt = 'logo' /> </div>
+        <div className = "header-select">
+          <select className = "candidate-select" onChange = {(event) => this.selectCandidate(event, event.target.value)}>
+            <option> Select a candidate </option>
+            {this.mapCandidateSelect()}
+          </select>
+        </div>
     </div>
   )
   }

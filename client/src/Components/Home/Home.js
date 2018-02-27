@@ -4,13 +4,16 @@ import trackerLogo from '../../images/gov_tracker_logo_dkblue-04.png'
 import handshake from '../../images/handshake.png';
 import dollar from '../../images/dollar-symbol.png';
 import profile from '../../images/profile.png';
+import Header from '../Header/Header.js'
+
+       
 
 const Home = () => {
   return (
     <div className = "home">
     <div className = "header">
       <div className = "header-top">
-        <img src = {trackerLogo} className = "tracker-logo" alt = 'logo' />
+        <Header />
       </div>
       <div className = "header-main">
         <div className = "header-text">
