@@ -12,7 +12,8 @@ class ContributionContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentlyDisplayed: []
+      currentlyDisplayed: [],
+      active: 1
     }
   }
 
@@ -36,6 +37,22 @@ componentWillReceiveProps(nextProps) {
   }
 }
 
+
+  toggleActive = (position) => {
+    if (this.state.active === position) {
+      this.setState({active : null })
+      console.log(this.state)
+    } else {
+      this.setState({active: position})
+    }
+  }
+
+  activeClass = (position) => {
+    if(this.state.active === position) {
+      return 'filter-button active'
+    } return 'filter-button'
+  }
+
   searchContributors = (event) => {
     let contributions = this.props.contributions;
     let searchValue = event.toUpperCase();
@@ -48,21 +65,24 @@ componentWillReceiveProps(nextProps) {
   
   }
 
-    sortHighContributions = () => {
+    sortHighContributions = (position) => {
     const sortedContributions = this.state.currentlyDisplayed.sort((a, b) => {
       return b.contribution_amount - a.contribution_amount;
     });
     this.setState({currentlyDisplayed: sortedContributions});
+    this.toggleActive(position)
+  
   }
 
-  sortLowContributions = () => {
+  sortLowContributions = (position) => {
      const sortedContributions = this.state.currentlyDisplayed.sort((a, b) => {
       return a.contribution_amount - b.contribution_amount;
     });
-    this.setState({currentlyDisplayed: sortedContributions});
+    this.setState({currentlyDisplayed: sortedContributions, active:position});
+    this.toggleActive(position)
   }
 
-  alphabetizContributors = () => {
+  alphabetizContributors = (position) => {
 
     const alphabetizedContributors = this.state.currentlyDisplayed.sort((a, b) => {
       if(a.donor_last.split(' ')[0] === null) return 0;
@@ -72,10 +92,11 @@ componentWillReceiveProps(nextProps) {
     });
 
     this.setState({currentlyDisplayed: alphabetizedContributors});
+    this.toggleActive(position)
     
   }
 
-    deAlphabetizContributors = () => {
+    deAlphabetizContributors = (position) => {
       const alphabetizedContributors = this.state.currentlyDisplayed.sort((a, b) => {
       
         if (a.donor_last.split(' ')[0] > b.donor_last.split(' ')[0]) return -1;
@@ -84,6 +105,7 @@ componentWillReceiveProps(nextProps) {
       });
 
       this.setState({currentlyDisplayed: alphabetizedContributors});
+      this.toggleActive(position)
     }
 
 
@@ -110,16 +132,18 @@ componentWillReceiveProps(nextProps) {
     }
   }
 
+     
+         
   render () {
     return (
       <div className = "contribution-container">
         <h2 className = "center"> Contributions </h2>
         <div className = "candidate-sort-bar center">
-          <button className= "filter-button" onClick = {this.sortHighContributions}>Highest Contributions</button>
-          <button className= "filter-button" onClick = {this.sortLowContributions}>Lowest Contributions</button>
-          <button className= "filter-button" onClick = {this.alphabetizContributors}> Donors A to Z </button>
-          <button className= "filter-button" onClick = {this.deAlphabetizContributors}> Donors Z to A </button> 
-           
+          <button className= {this.activeClass(1)} onClick = {(event) => this.sortHighContributions(1)}>Highest Contributions</button>
+           <button className= {this.activeClass(2)} onClick = {(event) =>this.sortLowContributions(2)}>Lowest Contributions</button> 
+          <button className= {this.activeClass(3)}onClick = {(event) => this.alphabetizContributors(3)}> Donors A to Z </button>
+          <button className= {this.activeClass(4)} onClick = {(event)=> this.deAlphabetizContributors(4)}> Donors Z to A </button> 
+          
             <input 
               className = "filter-search"
               onChange = {event => this.searchContributors(event.target.value)}
