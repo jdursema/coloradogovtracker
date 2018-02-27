@@ -151,7 +151,7 @@ componentWillReceiveProps(nextProps) {
               placeholder = "Search Contributors" />
           
         </div>
-         <h3 class="center"> Click on the card to see more donor details </h3> 
+         <h3 class="center instructions"> Click on the card to see donor details </h3> 
         <div className = 'contribution-card-container'>
 
           <div className = 'contribution-card-holder'>
