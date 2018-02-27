@@ -6,7 +6,6 @@ import { getSelectedCandidate } from '../../Helper/helper';
 import { VictoryPie, VictoryChart, VictoryBar, VictoryAxis, VictoryLabel } from 'victory';
 import ContributionContainer from '../../Components/ContributionContainer/ContributionContainer.js'
 import './CandidateDetails.css'
-import { VictoryPie, VictoryChart } from 'victory';
 import Header from '../../Components/Header/Header.js'
 import handshake from '../../images/handshake.png';
 import dollar from '../../images/dollar-symbol.png';
@@ -31,13 +30,21 @@ setCandidateRoute = (async() => {
   }
 });
 
+ formatNumber = (amount) => {
+  let formattedNumber = (amount + "").replace(/\b(\d+)((\.\d+)*)\b/g, function(a, b, c) {
+    return (b.charAt(0) > 0 && !(c || ".").lastIndexOf(".") ? b.replace(/(\d)(?=(\d{3})+$)/g, "$1,") : b) + c;
+  });
+   return formattedNumber;
+ 
+}
 
 getCandidateInfo = () => {
   if(this.props.selectedCandidate.name) {
+   const {name, image, party, contributionTotal, expenditureTotal, contributionNum, avgContribution} = this.props.selectedCandidate
   return (
     <div className = "candidate-info">
-      <img class="details-image"src = {this.props.selectedCandidate.image} />
-      <p> {this.props.selectedCandidate.party}</p>
+      <img class="details-image"src = {image} />
+      <p> {party}</p>
       <div class = "stat-details">
           <div className = "details-stat details-stat1">
             <div className = "details-icon">
@@ -45,7 +52,7 @@ getCandidateInfo = () => {
             </div>
             <div className = "numbers">
               <span className = "big-number">
-                5,896
+              ${this.formatNumber(contributionTotal)}
               </span>
               <span className = "number-description">
                 Total money raised
@@ -58,7 +65,7 @@ getCandidateInfo = () => {
             </div>
             <div className = "numbers">
               <span className = "big-number">
-                5,896
+                {this.formatNumber(contributionNum)}
               </span>
               <span className = "number-description">
                 Contributions reported
@@ -71,7 +78,7 @@ getCandidateInfo = () => {
             </div>
             <div className = "numbers">
               <span className = "big-number">
-                5,896
+               ${this.formatNumber(avgContribution)}
               </span>
               <span className = "number-description">
                 Average contribution 
@@ -102,15 +109,21 @@ render () {
     <div className = "details-head">
     
       <Header />
-      <div className = "name-div">
+      <div className = "details-name-div">
        <h1>{this.props.selectedCandidate.name}</h1>
        </div>
     </div>
 
     <div className = "details-content">
       <div className = "candidate-breakdown">
-    <div className = "candidate-details">  
-      <div className = 'charts'>
+  
+     
+
+        {this.getCandidateInfo()}
+      </div>
+
+      <div className = "main-details-container">
+       <div className = 'charts'>
           <VictoryPie
           data={[
           { x: this.props.selectedCandidate.name, y: parseInt(this.props.selectedCandidate.contributionTotal) },
@@ -158,9 +171,6 @@ render () {
 
       </div>
 
-
-        {this.getCandidateInfo()}
-      </div>
       { this.props.selectedCandidate.contributions &&
       <ContributionContainer
         contributions = {this.props.selectedCandidate.contributions} />
@@ -168,7 +178,7 @@ render () {
       { !this.props.selectedCandidate.contributions &&
         <p> This candidate has no recorded contributions </p>
       }
-
+    </div>
     </div>
     
 

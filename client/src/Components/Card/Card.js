@@ -11,12 +11,9 @@ class Card extends Component {
     }
   }
   
-
-  
   toggleDetails = (async(recordId) => {
 
     const cardDetails = await fetchIndividualContribution(recordId)
-    // this.setContributionState(cardDetails)
     this.setState({contributionDetails: cardDetails})
     this.setState({showDetails: !this.state.showDetails})
   })
@@ -66,24 +63,51 @@ class Card extends Component {
 }
 
   render () {
-  const {id, firstName, lastName, amount, date, occupation, recordId} = this.props
+  const {id, firstName, lastName, amount, date, occupation, recordId, type} = this.props
 
-  // const {donor_city} = this.state.contributionDetails[0]
+
   return (
-    <div className = "card" onClick = {() => {this.toggleDetails(recordId)}}> 
+    <div className = "contribution-card" onClick = {() => {this.toggleDetails(recordId)}}> 
      { 
       !this.state.showDetails &&
-      <div>
-       <p><strong>{firstName} {this.checkEmpty(lastName)}</strong></p> 
-      <p> ${this.formatAmount(amount)} </p>
+      <div className = "donation-side">
+      <div className = "donor-row">
+        <div className = "card-row-small-text">{this.label(lastName, 'DONOR')} </div>
+        <div className = "card-row-medium-text">{firstName} {lastName}</div> 
       </div>
+      <div className = "donation-money-row">
+        <div className = "card-row-small-text">CONTRIBUTION</div>
+       <div className = "card-row-big-number"> ${this.formatAmount(amount)} </div>
+      </div>
+      <div className = "donor-row">
+          <div className = "card-row-small-text">CONTRIBUTION TYPE </div>
+        <div className = "card-row-medium-text">{type}</div> 
+      </div>
+      </div>
+
      }
      {
       this.state.showDetails &&
       <div>
-      <p> {this.formatDate(this.state.contributionDetails[0].contribution_date)} </p>
-      <p> {this.state.contributionDetails[0].donor_city}, {this.state.contributionDetails[0].donor_state} {this.state.contributionDetails[0].donor_zip}</p>
-      <p> <span className = "label-span"> {this.label(this.state.contributionDetails[0].donor_employer, 'Employer:')}</span> {this.titleCase(this.state.contributionDetails[0].donor_employer)} </p>
+        <div className = "card-back-row">
+          <div className = "card-row-small-text"> DONATION DATE </div>
+          <div className = "card-row-medium-text">{this.formatDate(this.state.contributionDetails[0].contribution_date)} </div>
+        </div>
+          <div className = "card-back-row">
+          <div className = "card-row-small-text"> DONOR ADDRESS </div>
+          <div className = "card-row-medium-text">{this.state.contributionDetails[0].donor_city}, {this.state.contributionDetails[0].donor_state} {this.state.contributionDetails[0].donor_zip} </div>
+        </div>
+        <div className = "card-back-row">
+          <div className = "card-row-small-text"> {this.label(this.state.contributionDetails[0].donor_employer, 'DONOR EMPLOYER:')} </div>
+          <div className = "card-row-medium-text">{this.titleCase(this.state.contributionDetails[0].donor_employer)}</div>
+        </div>
+        <div className = "card-back-row">
+          <div className = "card-row-small-text"> {this.label(this.state.contributionDetails[0].donor_occupation, 'DONOR OCCUPATION:')} </div>
+          <div className = "card-row-medium-text">{this.titleCase(this.state.contributionDetails[0].donor_occupation)}</div>
+        </div>
+      
+     
+    
       </div>
      }
 
