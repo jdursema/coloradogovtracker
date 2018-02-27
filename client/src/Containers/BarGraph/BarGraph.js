@@ -67,6 +67,7 @@ export class BarGraph extends Component {
           <button onClick = {this.sortAverage}>Average Contribution</button>
         </div>
         <div>
+          <h3>Total Contributions ($)</h3>
           <VictoryChart
             domainPadding={10}
             height = {200}
@@ -82,11 +83,9 @@ export class BarGraph extends Component {
             />
             <VictoryAxis
               dependentAxis
-              label = "Total Contributions ($)"
               tickFormat={(x) => (`${x / 1000000}m`)}
               style={{
                 axisLabel: {fontSize: '8px', fontFamily: 'Open Sans', padding: 30},
-                tickLabels: {fontSize: '6px', fontFamily: 'Open Sans'}
               }}
             />
             <VictoryBar 
@@ -139,6 +138,7 @@ export class BarGraph extends Component {
           </VictoryChart>
         </div>
         <div>
+          <h3>Total Contributions (#)</h3>
           <VictoryChart
             domainPadding={10}
             height = {200}
@@ -150,15 +150,11 @@ export class BarGraph extends Component {
               style={{
                 tickLabels: {fontSize: '6px'}
               }}
-              tickLabelComponent= {<VictoryLabel angle={45} offsetX = {10}/>}
+              tickLabelComponent= {<VictoryLabel angle={45} dx={12}/>}
             />
             <VictoryAxis
               dependentAxis
-              label = "Total Contributions (#)"
-              tickFormat={(x) => (`${x / 1000000}m`)}
-              style={{
-                tickLabels: {fontSize: '6px'}
-              }}
+              tickFormat={(x) => (`${x / 1000}k`)}
             />
             <VictoryBar 
               data = {this.state.candidates}
@@ -184,7 +180,7 @@ export class BarGraph extends Component {
                       {
                         target: 'labels',
                         mutation: (props) => {
-                          return props.text === props.datum.contributionNum ? null : {text: props.datum.contributionNum };
+                          return props.text === props.datum.contributionNum.toLocaleString() ? null : {text: props.datum.contributionNum.toLocaleString() };
                         }
                       }
 
@@ -212,6 +208,7 @@ export class BarGraph extends Component {
   
   
         <div>
+          <h3>Total Expenditures</h3>
           <VictoryChart
             domainPadding={10}
             height = {200}
@@ -223,15 +220,11 @@ export class BarGraph extends Component {
               style={{
                 tickLabels: {fontSize: '6px'}
               }}
-              tickLabelComponent= {<VictoryLabel angle={45} offsetX = {10}/>}
+              tickLabelComponent= {<VictoryLabel angle={45} dx={12}/>}
             />
             <VictoryAxis
               dependentAxis
-              label = "Total Expenditures ($)"
-              tickFormat={(x) => (`${x / 1000000}m`)}
-              style={{
-                tickLabels: {fontSize: '6px'}
-              }}
+              tickFormat={(x) => (`${x / 100000}k`)}
             />
             <VictoryBar 
               data = {this.state.candidates}
@@ -257,7 +250,7 @@ export class BarGraph extends Component {
                       {
                         target: 'labels',
                         mutation: (props) => {
-                          return props.text === props.datum.expenditureTotal ? null : {text: props.datum.expenditureTotal };
+                          return props.text === props.datum.expenditureTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) ? null : {text: props.datum.expenditureTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) };
                         }
                       }
 

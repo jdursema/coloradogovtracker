@@ -7,6 +7,7 @@
     "babel": "^6.23.0",
     "bubble-chart": "^0.1.0",
     "d3": "^3.5.13",
+    "enzyme": "^3.3.0",
     "react": "^16.2.0",
     "react-bubble-chart": "^0.4.0",
     "react-bubble-chart-wi": "^0.3.10",

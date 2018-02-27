@@ -109,6 +109,7 @@ app.get('/api/v1/expenditures', (request, response) => {
   database('expenditures').select()
 
     .then(expenditures => {
+      
       return response.status(200).json({
         expenditures
       });
@@ -134,6 +135,21 @@ app.get('/api/v1/totals', (request, response) => {
     return response.status(500).json({error})
   })
 })
+
+app.get('/api/v1/totals/:id', (request, response) => {
+  database('candidatetotals').where('candidateId', request.params.id).select()
+  .then(candidate => {
+    if (candidate.length) {
+      return response.status(200).json({candidate});
+    } else {
+      return response.status(404).json({error: `Could not find candidate totals for id ${request.params.id}`});
+    }
+  })
+  .catch(error => {
+      return response.status(500).json({error})
+    })
+  })
+
 
 //get state totals
 
