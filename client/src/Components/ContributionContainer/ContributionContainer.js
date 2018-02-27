@@ -98,7 +98,7 @@ componentWillReceiveProps(nextProps) {
             amount = {contribution.contribution_amount}
             recordId = {contribution.record_id}
             date = {contribution.contribution_date}
-          
+            type = {contribution.contribution_type}
             occupation = {contribution.donor_occupation}
             />
         )
@@ -110,21 +110,26 @@ componentWillReceiveProps(nextProps) {
   render () {
     return (
       <div className = "contribution-container">
-        <button onClick = {this.sortHighContributions}>Highest Contributions</button>
-        <button onClick = {this.sortLowContributions}>Lowest Contributions</button>
-        <button onClick = {this.alphabetizContributors}> Donors A to Z </button>
-        <button onClick = {this.deAlphabetizContributors}> Donors Z to A </button> 
-         <div className = "search-bar">
-          <input 
-            className = "search-field"
-            onChange = {event => this.searchContributors(event.target.value)}
-            type = "text"
-            placeholder = "Search Contributors" />
+        <h2 className = "center"> Contributions </h2>
+        <div className = "candidate-sort-bar center">
+          <button className= "filter-button" onClick = {this.sortHighContributions}>Highest Contributions</button>
+          <button className= "filter-button" onClick = {this.sortLowContributions}>Lowest Contributions</button>
+          <button className= "filter-button" onClick = {this.alphabetizContributors}> Donors A to Z </button>
+          <button className= "filter-button" onClick = {this.deAlphabetizContributors}> Donors Z to A </button> 
+           
+            <input 
+              className = "filter-search"
+              onChange = {event => this.searchContributors(event.target.value)}
+              type = "text"
+              placeholder = "Search Contributors" />
+          
         </div>
+         <h3 class="center"> Click on the card to see more donor details </h3> 
         <div className = 'contribution-card-container'>
-         <div className = 'contribution-card-holder'>
-        {this.mapContributions(this.state.currentlyDisplayed)}
-        </div> 
+
+          <div className = 'contribution-card-holder'>
+            {this.mapContributions(this.state.currentlyDisplayed)}
+          </div> 
         </div>
       </div>
     )

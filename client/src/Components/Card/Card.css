@@ -8,9 +8,21 @@
   display: flex;
   flex-direction: column;
 
-
   }
 
+.contribution-card {
+  background: #fff;
+  border-radius: 2px;
+  height: 200px;
+  width: 210px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+  }
+  
   .card-head {
     display: -ms-flexbox;
     display: flex;
@@ -43,7 +55,6 @@
 }
 
 
-
 .card-head-text h3 {
   text-align: right;
 }
@@ -67,6 +78,10 @@
   padding: 2px;
 }
 
+.card-row-medium-text {
+  font-size: 16px;
+}
+
 .card-row-small-text {
   font-weight: 300;
   font-size: 10px;
@@ -81,7 +96,32 @@
 
 }
 
+.donor-row {
+  margin-top: 10px;
+  height: 60px;
+  overflow:hidden;
+}
 
+.card-back-row{
+  height: 45px;
+  overflow:hidden;
+}
+
+.card-row-big-number {
+  font-size: 30px;
+  padding: 2px;
+  color: #6a6768;
+}
+
+
+.donation-money-row {
+  align-items:center;
+  background: #f8f8f8;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  margin-top: 10px;
+}
 
 .get-candidate-button {
   background: #a2000b;
