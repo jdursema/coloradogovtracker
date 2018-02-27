@@ -4,6 +4,7 @@ import { withRouter} from 'react-router-dom';
 import * as actions from '../../Actions/';
 import { getSelectedCandidate } from '../../Helper/helper';
 import Card from '../Card/Card.js'
+import './ContributionContainer.css'
 
 
 
@@ -120,8 +121,8 @@ componentWillReceiveProps(nextProps) {
             type = "text"
             placeholder = "Search Contributors" />
         </div>
-        <div className = 'card-container'>
-         <div className = 'card-holder'>
+        <div className = 'contribution-card-container'>
+         <div className = 'contribution-card-holder'>
         {this.mapContributions(this.state.currentlyDisplayed)}
         </div> 
         </div>
