@@ -8,6 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './Reducers';
 import thunk from 'redux-thunk';
+import 'font-awesome/css/font-awesome.min.css';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
 && window.__REDUX_DEVTOOLS_EXTENSION__();

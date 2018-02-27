@@ -7,7 +7,8 @@ module.exports = [
     "contributionTotal": 698797.97,
     "contributionNum": 983,
     "avgContribution": 710.88,
-    "active": true
+    "active": true,
+    "image":"http://msantray.fatcow.com/governor_photos/noel_ginsburg.jpeg"
   },
   {
     "candidateId": "20175031889",
@@ -17,7 +18,8 @@ module.exports = [
     "contributionTotal": 1520183.11,
     "contributionNum": 6794,
     "avgContribution": 223.75,
-    "active": true
+    "active": true,
+    "image": "http://msantray.fatcow.com/governor_photos/michael_johnston.jpg"
   },
   {
     "candidateId": "20175031909",
@@ -27,7 +29,8 @@ module.exports = [
     "contributionTotal": 31769.59,
     "contributionNum": 442,
     "avgContribution": 71.88,
-    "active": true
+    "active": true,
+    "image": "http://msantray.fatcow.com/governor_photos/victor_mitchell_.jpg"
   },
   {
     "candidateId": 20175031933,
@@ -35,9 +38,10 @@ module.exports = [
     "party": "American Constitution",
     "expenditureTotal": 0,
     "contributionTotal": 0,
-    "contributionNum": 1,
+    "contributionNum": 0,
     "avgContribution": 0,
-    "active": true
+    "active": true,
+    "image":"http://msantray.fatcow.com/governor_photos/no_avatar.jpg"
   },
   {
     "candidateId": 20175031962,
@@ -47,7 +51,8 @@ module.exports = [
     "contributionTotal": 11111.27,
     "contributionNum": 38,
     "avgContribution": 292.40,
-     "active": true
+     "active": true,
+      "image":"http://msantray.fatcow.com/governor_photos/lew_gaiter.jpg"
   },
   {
     "candidateId": 20175032022,
@@ -57,7 +62,8 @@ module.exports = [
     "contributionTotal": 321687.96,
     "contributionNum": 1528,
     "avgContribution": 210.53,
-    "active": false
+    "active": false,
+    "image":"http://msantray.fatcow.com/governor_photos/george_brauchler.jpg"
   },
   {
     "candidateId": 20175032027,
@@ -67,7 +73,8 @@ module.exports = [
     "contributionTotal": 169927.52,
     "contributionNum": 2336,
     "avgContribution": 72.74,
-    "active": false
+    "active": false,
+    "image":"http://msantray.fatcow.com/governor_photos/ed_perlmutter.jpg"
   },
   {
     "candidateId": 20175032028,
@@ -77,7 +84,8 @@ module.exports = [
     "contributionTotal": 853085.45,
     "contributionNum": 5658,
     "avgContribution": 150.77,
-    "active": true
+    "active": true,
+    "image":"http://msantray.fatcow.com/governor_photos/cary_kennedy.jpeg"
   },
   {
     "candidateId": 20175032055,
@@ -87,7 +95,8 @@ module.exports = [
     "contributionTotal": 360763.18,
     "contributionNum": 644,
     "avgContribution": 560.19,
-    "active": true
+    "active": true,
+    "image":"http://msantray.fatcow.com/governor_photos/doug_robinson.jpg"
   },
   {
     "candidateId": 20175032085,
@@ -97,7 +106,8 @@ module.exports = [
     "contributionTotal": 11,
     "contributionNum": 3,
     "avgContribution": 3.67,
-    "active": true
+    "active": true,
+     "image":"http://msantray.fatcow.com/governor_photos/no_avatar.jpg"
   },
   {
     "candidateId": 20175032123,
@@ -107,7 +117,8 @@ module.exports = [
     "contributionTotal": 9748,
     "contributionNum": 53,
     "avgContribution": 183.92,
-    "active": true
+    "active": true,
+    "image":"http://msantray.fatcow.com/governor_photos/greg_lopez.jpg"
   },
   {
     "candidateId": 20175032139,
@@ -117,7 +128,8 @@ module.exports = [
     "contributionTotal": 1534817.33,
     "contributionNum": 4456,
     "avgContribution": 344.44,
-    "active": true
+    "active": true,
+    "image": "http://msantray.fatcow.com/governor_photos/jared_polis.jpg"
   },
   {
     "candidateId": 20175032188,
@@ -127,7 +139,8 @@ module.exports = [
     "contributionTotal": 5836.31,
     "contributionNum": 45,
     "avgContribution": 129.69,
-    "active": true
+    "active": true,
+    "image": "http://msantray.fatcow.com/governor_photos/steve_barlock.metro.jpg"
   },
   {
     "candidateId": 20175032283,
@@ -137,7 +150,8 @@ module.exports = [
     "contributionTotal": 685467.34,
     "contributionNum": 1667,
     "avgContribution": 411.20,
-    "active": true
+    "active": true,
+     "image":"http://msantray.fatcow.com/governor_photos/Donna_lynne.jpg"
   },
   {
     "candidateId": 20175032292,
@@ -145,9 +159,10 @@ module.exports = [
     "party": "Democrat",
     "expenditureTotal": 0,
     "contributionTotal": 0,
-    "contributionNum": 1,
+    "contributionNum": 0,
     "avgContribution": 0,
-    "active": true
+    "active": true,
+    "image":"http://msantray.fatcow.com/governor_photos/erik_underwood.jpg"
   },
   {
     "candidateId": 20175033116,
@@ -157,7 +172,8 @@ module.exports = [
     "contributionTotal": 1023297.49,
     "contributionNum": 1085,
     "avgContribution": 943.13,
-    "active": true
+    "active": true,
+     "image":"http://msantray.fatcow.com/governor_photos/walker_stapleton.png"
   },
   {
     "candidateId": 20175033185,
@@ -165,9 +181,10 @@ module.exports = [
     "party": "Unity",
     "expenditureTotal": 0,
     "contributionTotal": 0,
-    "contributionNum": 1,
+    "contributionNum": 0,
     "avgContribution": 0,
-    "active": true
+    "active": true,
+    "image":"http://msantray.fatcow.com/governor_photos/bill_hammons.jpg"
   },
   {
     "candidateId": 20175033254,
@@ -177,7 +194,8 @@ module.exports = [
     "contributionTotal": 74480.33,
     "contributionNum": 828,
     "avgContribution": 89.95,
-    "active": false
+    "active": false,
+     "image":"http://msantray.fatcow.com/governor_photos/tom_tancredo.jpg"
   },
   {
     "candidateId": 20175033290,
@@ -187,7 +205,8 @@ module.exports = [
     "contributionTotal": 100008.65,
     "contributionNum": 119,
     "avgContribution": 840.41,
-    "active": true
+    "active": true,
+     "image":"http://msantray.fatcow.com/governor_photos/cynthia_coffmann.jpg"
   },
   {
     "candidateId": 20185033589,
@@ -195,9 +214,10 @@ module.exports = [
     "party": "Unaffiliated",
     "expenditureTotal": 0,
     "contributionTotal": 0,
-    "contributionNum": 1,
+    "contributionNum": 0,
     "avgContribution": 0,
-    "active": true
+    "active": true,
+     "image":"http://msantray.fatcow.com/governor_photos/no_avatar.jpg"
   },
   {
     "candidateId": 20135025390,
@@ -207,7 +227,8 @@ module.exports = [
     "contributionTotal": 331.66,
     "contributionNum": 1,
     "avgContribution": 331.66,
-    "active": true
+    "active": true,
+    "image":"http://msantray.fatcow.com/governor_photos/jim_rundberg.jpg"
   },
   {
     "candidateId": 20165031873,
@@ -215,9 +236,10 @@ module.exports = [
     "party": "Green",
     "expenditureTotal": 0,
     "contributionTotal": 0,
-    "contributionNum": 1,
+    "contributionNum": 0,
     "avgContribution": 0,
-    "active": false
+    "active": false,
+    "image":"http://msantray.fatcow.com/governor_photos/veronique_bellamy.jpg"
   },
   {
     "candidateId": 20165031882,
@@ -225,8 +247,9 @@ module.exports = [
     "party": "Unaffiliated",
     "expenditureTotal": 0,
     "contributionTotal": 0,
-    "contributionNum": 1,
+    "contributionNum": 0,
     "avgContribution": 0,
-    "active": true
+    "active": true,
+    "image":"http://msantray.fatcow.com/governor_photos/no_avatar.jpg"
   }
 ]

@@ -37,6 +37,7 @@ getCandidateInfo = () => {
   }
 }
 
+
 candidateTotal = () => { 
   const foundCandidate = this.props.candidateTotals.find((candidate) => {
     return this.props.selectedCandidate.id === candidate.candidateId
@@ -45,9 +46,8 @@ candidateTotal = () => {
 
 
 
-
-
 render () {
+  window.scrollTo(0, 0);
   return (
     <div className = "candidate-details">  
       <div className = 'charts'>

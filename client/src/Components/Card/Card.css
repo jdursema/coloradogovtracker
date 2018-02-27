@@ -1,27 +1,102 @@
 .card {
   background: #fff;
   border-radius: 2px;
-  height: 300px;
+  height: 330px;
   width: 230px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   margin: 10px;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+
+
+  }
 
   .card-head {
-    display:flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -ms-flex-pack: justify;
     justify-content: space-between;
-    margin: 5px;
-  }
+    align-items: center;
+    padding: 5px;
+    height: 60px;
+    border-bottom: 1px solid gray;
+}
 
   .candidate-card-img {
     width: 60px;
     height: 60px;
-    border-radius: 50%
+    border-radius: 50%;
+    margin-right: 11px;
   }
 
-  .card-head-text {
-    display:flex;
-    flex-direction:column;
-  }
+.center {
+  text-align: center;
+}
+
+.card-row {
+  display:flex;
+  flex-direction: row;
+  background: #ecebeb;
+  margin-bottom: 10px;
+}
+
+
+
+.card-head-text h3 {
+  text-align: right;
+}
+
+.card-icon {
+  align-items: center;
+  display: flex;
+  height: 35px;
+  justify-content: center;
+  width: 35px;
+}
+
+.card-row-text {
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+}
+.card-row-big-text {
+  margin:auto;
+  font-size: 20px;
+  padding: 2px;
+}
+
+.card-row-small-text {
+  font-weight: 300;
+  font-size: 10px;
+  margin:auto;
+  padding: 2px;
+}
+
+.party {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-transform: uppercase;
+
+}
+
+
+
+.get-candidate-button {
+  background: #a2000b;
+  color: #fff;
+  width: 90%;
+  margin: auto 10px;
+  cursor: pointer;
+}
+
+.get-candidate-button a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+}
+
+.get-candidate-button:hover{
+  background: #8c010a;
+}

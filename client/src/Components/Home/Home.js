@@ -1,9 +1,9 @@
 import React from 'react';
 import './Home.css'
 import trackerLogo from '../../images/gov_tracker_logo_dkblue-04.png'
-import Trophy from 'react-icons/lib/fa/trophy';
-import Dollar from 'react-icons/lib/fa/dollar';
-import User from 'react-icons/lib/fa/user'
+import handshake from '../../images/handshake.png';
+import dollar from '../../images/dollar-symbol.png';
+import profile from '../../images/profile.png';
 
 const Home = () => {
   return (
@@ -30,7 +30,7 @@ const Home = () => {
     <div className = "stat-bar">
       <div className = "stat stat1">
         <div className = "icon-box icon1">
-          <Trophy />
+          <img src = {handshake} alt = "handshake" />
         </div>
         <div className = "numbers">
           <span className = "big-number">
@@ -43,7 +43,7 @@ const Home = () => {
       </div>
       <div className = "stat stat2">
         <div className = "icon-box icon2">
-          <Dollar />
+          <img src = {dollar} alt = "dollar" />
         </div>
         <div className = "numbers">
           <span className = "big-number">
@@ -56,7 +56,9 @@ const Home = () => {
       </div>
       <div className = "stat stat3">
         <div className = "icon-box icon3">
-          <User />
+          <img src = {profile} alt = "profile-icon" />
+
+        
         </div>
          <div className = "numbers">
           <span className = "big-number">

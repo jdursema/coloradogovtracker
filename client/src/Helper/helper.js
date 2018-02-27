@@ -133,6 +133,7 @@ const cleanExpenditures = async (expendituresArray) => {
 }
 
 export const initialTotalsFetch = async () => {
+  try {
   const initialFetch = await fetch('/api/v1/totals')
   const fetchResponse = await initialFetch.json()
 
@@ -144,6 +145,9 @@ export const initialTotalsFetch = async () => {
       avgContribution: Math.floor(candidate.avgContribution*100)/100}
   })
   return cleanData
+} catch(error) {
+  console.log(error)
+}
 }
 
 
