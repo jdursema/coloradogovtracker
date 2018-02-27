@@ -43,6 +43,7 @@ getCandidateInfo = () => {
    const {name, image, party, contributionTotal, expenditureTotal, contributionNum, avgContribution} = this.props.selectedCandidate
   return (
     <div className = "candidate-info">
+
       <img class="details-image"src = {image} />
       <p> {party}</p>
       <div class = "stat-details">
@@ -115,6 +116,7 @@ render () {
     </div>
 
     <div className = "details-content">
+
       <div className = "candidate-breakdown">
   
      
