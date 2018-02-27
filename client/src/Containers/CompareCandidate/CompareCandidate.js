@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CandidateCard from '../../Components/CandidateCard/CandidateCard';
+import './CompareCandidate.css'
 
 export class CompareCandidate extends Component {
   constructor (props) {
     super(props);
     this.state = {
       candidateTotals: [],
-      searchResults: []
+      searchResults: [],
+      active:false
     }
   }
 
 
   componentWillReceiveProps (nextProps) {
-    console.log(nextProps.candidates)
     if(nextProps.candidateTotals.length){
       const activeCandidates = nextProps.candidateTotals.filter(candidate => candidate.active === 'true')
       activeCandidates.map(candidate => {
@@ -21,7 +22,6 @@ export class CompareCandidate extends Component {
           candidateObj.committee_id
           === candidate.candidateId
         })
-        console.log(foundCandidate)
 
       })
 
@@ -37,7 +37,7 @@ export class CompareCandidate extends Component {
 
   filterByParty (event) {
     const results = this.state.candidateTotals.filter((candidate)=>candidate.party === event.target.name);
-    this.setState({searchResults: results})
+    this.setState({searchResults: results, active:!this.state.active})
   }
 
   sortByHighestEarners () {
@@ -45,11 +45,11 @@ export class CompareCandidate extends Component {
       return b.contributionTotal - a.contributionTotal;
     });
 
-    this.setState({searchResults: sortedCandidates})
+    this.setState({searchResults: sortedCandidates, active:!this.state.active})
   }
 
   viewAllCandidates () {
-    this.setState({searchResults: []})
+    this.setState({searchResults: [], active:!this.state.active})
   }
 
 
@@ -67,19 +67,22 @@ export class CompareCandidate extends Component {
       })
     }
 
-
-
-    
     return (
-      <div>
-        <h1>Compare Candidates</h1>
-        <input placeholder = 'Search Candidates' onChange = {(event) => this.searchCandidates(event)}/>
-        <button onClick = {(event) => this.filterByParty(event)} name = 'Democrat' >Democrats</button>
-        <button onClick = {(event) => this.filterByParty(event)} name= 'Republican'>Republicans</button>
-        <button onClick = {() => this.sortByHighestEarners()}>Highest Earnings</button>
-        <button onClick = {() => this.viewAllCandidates()}>View All</button>
-        <div class='candidate-container'>
-        {mappedCandidates}
+      <div className = "compare" id="candidate-compare">
+        <h1 className = "center">Compare Candidates</h1>
+        <div className = "candidate-sort-bar center">
+          <input className = "filter-search"placeholder = 'Search Candidates' onChange = {(event) => this.searchCandidates(event)}/>
+          
+
+          <button className= "filter-button" onClick = {(event) => this.filterByParty(event)} name = 'Democrat' >Democrats</button>
+          <button className= "filter-button" onClick = {(event) => this.filterByParty(event)} name= 'Republican'>Republicans</button>
+          <button className="filter-button"  onClick = {() => this.sortByHighestEarners()}>Highest Earnings</button>
+          <button className= "filter-button"  onClick = {() => this.viewAllCandidates()}>All Active Candidates</button>
+        </div>
+        <div className='card-container'>
+          <div className  = 'card-holder'>
+            {mappedCandidates}
+          </div>
         </div>
       </div>
     )

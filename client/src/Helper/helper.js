@@ -137,14 +137,21 @@ const cleanExpenditures = async (expendituresArray) => {
 }
 
 export const initialTotalsFetch = async () => {
+  try {
   const initialFetch = await fetch('/api/v1/totals')
   const fetchResponse = await initialFetch.json()
 
   const cleanData = fetchResponse.candidate.map((candidate) => {
     return {...candidate, 
-      expenditureTotal: Math.floor(candidate.expenditureTotal*100)/100, contributionTotal: Math.floor(candidate.contributionTotal*100)/100, contributionNum: Math.floor(candidate.contributionNum*100)/100, avgContribution: Math.floor(candidate.avgContribution*100)/100}
+      expenditureTotal: Math.floor(candidate.expenditureTotal*100)/100,
+      contributionTotal: Math.floor(candidate.contributionTotal*100)/100,
+      contributionNum: Math.floor(candidate.contributionNum*100)/100, 
+      avgContribution: Math.floor(candidate.avgContribution*100)/100}
   })
   return cleanData
+} catch(error) {
+  console.log(error)
+}
 }
 
 

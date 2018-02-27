@@ -4,6 +4,7 @@ import * as actions from '../../Actions';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryLabel } from 'victory';
 import './BarGraph.css';
 import { initialTotalsFetch } from '../../Helper/helper';
+import Scrollchor from 'react-scrollchor';
 
 
 
@@ -282,7 +283,9 @@ export class BarGraph extends Component {
               }]}/>
           </VictoryChart>
         </div>
-        
+        <div className = "scroll-top">
+          <Scrollchor to= '#home-id' className="top-button"> Top </Scrollchor>
+        </div>
       </div>
       
     );

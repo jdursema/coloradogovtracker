@@ -1,16 +1,19 @@
 import React from 'react';
 import './Home.css'
 import trackerLogo from '../../images/gov_tracker_logo_dkblue-04.png'
-import Trophy from 'react-icons/lib/fa/trophy';
-import Dollar from 'react-icons/lib/fa/dollar';
-import User from 'react-icons/lib/fa/user'
+import handshake from '../../images/handshake.png';
+import dollar from '../../images/dollar-symbol.png';
+import profile from '../../images/profile.png';
+import Header from '../Header/Header.js'
+import Scrollchor from 'react-scrollchor';
+       
 
 const Home = () => {
   return (
-    <div className = "home">
+    <div className = "home" id = "home-id">
     <div className = "header">
       <div className = "header-top">
-        <img src = {trackerLogo} className = "tracker-logo" alt = 'logo' />
+        <Header />
       </div>
       <div className = "header-main">
         <div className = "header-text">
@@ -21,8 +24,10 @@ const Home = () => {
             <li className = "nav-item"> See where the money is coming from </li> 
           </ul>
           <div className = "button-row">
-            <button className = "button nav-button"> Race Overview</button>
-            <button className = "button nav-button"> Compare Candidates</button>
+           <Scrollchor to= '#container-map' className="button nav-button"> Race Overview </Scrollchor>
+            <Scrollchor to= '#candidate-compare' className="button nav-button"> Compare Candidates</Scrollchor>
+
+
           </div>
         </div>
       </div>
@@ -30,20 +35,20 @@ const Home = () => {
     <div className = "stat-bar">
       <div className = "stat stat1">
         <div className = "icon-box icon1">
-          <Trophy />
+          <img src = {handshake} alt = "handshake" />
         </div>
         <div className = "numbers">
           <span className = "big-number">
             5,896
           </span>
           <span className = "number-description">
-            Number of contributions reported
+            Contributions reported
           </span>
         </div>
       </div>
       <div className = "stat stat2">
         <div className = "icon-box icon2">
-          <Dollar />
+          <img src = {dollar} alt = "dollar" />
         </div>
         <div className = "numbers">
           <span className = "big-number">
@@ -56,7 +61,9 @@ const Home = () => {
       </div>
       <div className = "stat stat3">
         <div className = "icon-box icon3">
-          <User />
+          <img src = {profile} alt = "profile-icon" />
+
+        
         </div>
          <div className = "numbers">
           <span className = "big-number">
