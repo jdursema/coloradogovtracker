@@ -5,6 +5,7 @@ import * as actions from '../../Actions/';
 import { getSelectedCandidate } from '../../Helper/helper';
 import ContributionContainer from '../../Components/ContributionContainer/ContributionContainer.js'
 import './CandidateDetails.css'
+import { VictoryPie } from 'victory';
 
 class CandidateDetails extends Component {
     constructor(props) {
@@ -32,16 +33,34 @@ getCandidateInfo = () => {
   <div> {this.props.selectedCandidate.name} </div>
   )
   } else {
-    console.log('setting route')
     this.setCandidateRoute()
   }
 }
+
+
+candidateTotal = () => { 
+  const foundCandidate = this.props.candidateTotals.find((candidate) => {
+    return this.props.selectedCandidate.id === candidate.candidateId
+  }); 
+}
+
 
 
 render () {
   window.scrollTo(0, 0);
   return (
     <div className = "candidate-details">  
+      <div className = 'charts'>
+
+          <VictoryPie
+          data={[
+          { x: this.props.selectedCandidate.name, y: this.candidateTotal() },
+          { x: 'total', y: 7401324.15999997}
+          ]}
+          />
+
+      </div>
+
         {this.getCandidateInfo()}
       { this.props.selectedCandidate.contributions &&
       <ContributionContainer
@@ -50,6 +69,8 @@ render () {
       { ! this.props.selectedCandidate.contributions &&
         <p> This candidate has no recorded contributions </p>
       }
+      
+
     </div>
   )
 }
@@ -57,7 +78,8 @@ render () {
 
 const mapStateToProps = state => ({
   selectedCandidate: state.selectedCandidate,
-  candidates: state.candidates
+  candidates: state.candidates,
+  candidateTotals: state.candidateTotals
 })
 
 const mapDispatchToProps = dispatch => {

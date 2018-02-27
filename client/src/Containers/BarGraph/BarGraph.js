@@ -48,11 +48,11 @@ export class BarGraph extends Component {
 
   candidateColor = (party) => {
     if( party === 'Republican'){
-      return 'red'
+      return '#a2000b'
     } else if (party === 'Democrat'){
-      return 'blue'
+      return '#184982'
     } else {
-      return 'gray'
+      return '#ecebeb'
     }
   }
 
@@ -76,16 +76,17 @@ export class BarGraph extends Component {
               tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]}
               tickFormat={this.state.candidates.map(candidate => candidate.name.split(' ')[1] )}
               style={{
-                tickLabels: {fontSize: '6px'}
+                tickLabels: {fontSize: '6px', fontFamily: 'Open Sans'}
               }}
-              tickLabelComponent= {<VictoryLabel angle={45} offsetX = {10}/>}
+              tickLabelComponent= {<VictoryLabel angle={45} dx = {12}/>}
             />
             <VictoryAxis
               dependentAxis
               label = "Total Contributions ($)"
               tickFormat={(x) => (`${x / 1000000}m`)}
               style={{
-                tickLabels: {fontSize: '6px'}
+                axisLabel: {fontSize: '8px', fontFamily: 'Open Sans', padding: 30},
+                tickLabels: {fontSize: '6px', fontFamily: 'Open Sans'}
               }}
             />
             <VictoryBar 
@@ -106,7 +107,7 @@ export class BarGraph extends Component {
                         target: "data",
                         mutation: (props) => {
                           const fill = props.style && props.style.fill;
-                          return fill === "yellow" ? null : { style: { fill: "yellow" } };
+                          return fill === "#ffcd2f" ? null : { style: { fill: "#ffcd2f" } };
                         }
                       },
                       {
