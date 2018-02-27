@@ -13,9 +13,14 @@ export const getSelectedCandidate = async (id) => {
   try {
     const candidateFetch = await fetch(`/api/v1/candidates/${id}`)
     const candidateResponse = await candidateFetch.json()
-      return cleanCandidateInfo(candidateResponse.candidates)
+    const cleanData = await cleanCandidateInfo(candidateResponse.candidates)
+    const candidateTotalFetch = await fetch(`/api/v1/totals/${id}`)
+    const candidateTotalsResponse = await candidateTotalFetch.json()
+    return Object.assign({}, cleanData, candidateTotalsResponse.candidate[0])
+
+
   } catch (error) {
-      console.log(error)
+    throw error;
   }
 }
 
@@ -25,8 +30,7 @@ const cleanCandidateInfo = (async(candidate) => {
 
   // const contributionPromises = await getContributions(candidateObject.committee_id)
   return {
-    id: candidate[0].committee_id,
-    
+      id: candidate[0].committee_id,
       name: candidate[0].full_name,
       lastName: candidate[0].last_name,
       image:candidate[0].image,

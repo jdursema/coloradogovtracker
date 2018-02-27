@@ -5,12 +5,13 @@ import * as actions from '../../Actions/';
 import { getSelectedCandidate } from '../../Helper/helper';
 import ContributionContainer from '../../Components/ContributionContainer/ContributionContainer.js'
 import './CandidateDetails.css'
-
+import { VictoryPie, VictoryChart } from 'victory';
 import Header from '../../Components/Header/Header.js'
 import handshake from '../../images/handshake.png';
 import dollar from '../../images/dollar-symbol.png';
 import profile from '../../images/profile.png';
 import { VictoryPie } from 'victory';
+
 
 
 class CandidateDetails extends Component {
@@ -89,12 +90,6 @@ getCandidateInfo = () => {
 }
 
 
-candidateTotal = () => { 
-  const foundCandidate = this.props.candidateTotals.find((candidate) => {
-    return this.props.selectedCandidate.id === candidate.candidateId
-  }); 
-}
-
 
 
 render () {
@@ -114,10 +109,9 @@ render () {
       <div className = "candidate-breakdown">
     <div className = "candidate-details">  
       <div className = 'charts'>
-
           <VictoryPie
           data={[
-          { x: this.props.selectedCandidate.name, y: this.candidateTotal() },
+          { x: this.props.selectedCandidate.name, y: parseInt(this.props.selectedCandidate.contributionTotal) },
           { x: 'total', y: 7401324.15999997}
           ]}
           />

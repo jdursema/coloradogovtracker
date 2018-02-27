@@ -151,12 +151,12 @@ export class BarGraph extends Component {
               style={{
                 tickLabels: {fontSize: '6px'}
               }}
-              tickLabelComponent= {<VictoryLabel angle={45} offsetX = {10}/>}
+              tickLabelComponent= {<VictoryLabel angle={45} dx={12}/>}
             />
             <VictoryAxis
               dependentAxis
               label = "Total Contributions (#)"
-              tickFormat={(x) => (`${x / 1000000}m`)}
+              tickFormat={(x) => (`${x / 1000}k`)}
               style={{
                 tickLabels: {fontSize: '6px'}
               }}
@@ -185,7 +185,7 @@ export class BarGraph extends Component {
                       {
                         target: 'labels',
                         mutation: (props) => {
-                          return props.text === props.datum.contributionNum ? null : {text: props.datum.contributionNum };
+                          return props.text === props.datum.contributionNum.toLocaleString() ? null : {text: props.datum.contributionNum.toLocaleString() };
                         }
                       }
 
@@ -224,7 +224,7 @@ export class BarGraph extends Component {
               style={{
                 tickLabels: {fontSize: '6px'}
               }}
-              tickLabelComponent= {<VictoryLabel angle={45} offsetX = {10}/>}
+              tickLabelComponent= {<VictoryLabel angle={45} dx={12}/>}
             />
             <VictoryAxis
               dependentAxis
@@ -258,7 +258,7 @@ export class BarGraph extends Component {
                       {
                         target: 'labels',
                         mutation: (props) => {
-                          return props.text === props.datum.expenditureTotal ? null : {text: props.datum.expenditureTotal };
+                          return props.text === props.datum.expenditureTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) ? null : {text: props.datum.expenditureTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) };
                         }
                       }
 
