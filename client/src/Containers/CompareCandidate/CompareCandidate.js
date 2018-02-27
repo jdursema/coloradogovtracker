@@ -71,12 +71,14 @@ export class CompareCandidate extends Component {
     
     return (
       <div>
-        <h1>Compare Candidates</h1>
-        <input placeholder = 'Search Candidates' onChange = {(event) => this.searchCandidates(event)}/>
-        <button onClick = {(event) => this.filterByParty(event)} name = 'Democrat' >Democrats</button>
-        <button onClick = {(event) => this.filterByParty(event)} name= 'Republican'>Republicans</button>
-        <button onClick = {() => this.sortByHighestEarners()}>Highest Earnings</button>
-        <button onClick = {() => this.viewAllCandidates()}>View All</button>
+        <h1 className = "center">Compare Candidates</h1>
+        <div className = "candidate-sort-bar center">
+          <input className = "filter-search"placeholder = 'Search Candidates' onChange = {(event) => this.searchCandidates(event)}/>
+          <button className="filter-button" onClick = {(event) => this.filterByParty(event)} name = 'Democrat' >Democrats</button>
+          <button className="filter-button" onClick = {(event) => this.filterByParty(event)} name= 'Republican'>Republicans</button>
+          <button className="filter-button" onClick = {() => this.sortByHighestEarners()}>Highest Earnings</button>
+          <button className="filter-button" onClick = {() => this.viewAllCandidates()}>All Active Candidates</button>
+        </div>
         <div className='card-container'>
           <div className  = 'card-holder'>
             {mappedCandidates}
