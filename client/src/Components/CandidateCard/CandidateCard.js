@@ -66,10 +66,6 @@ export const CandidateCard = (props) => {
           <div className = "card-row-small-text"> NUMBER OF CONTRIBUTIONS </div>
         </div>
     </div>
-
-    
-  
-    
      <button className = "get-candidate-button" 
         onClick = {() => selectCandidate(props.info.candidateId)}>
        <Link className = 'candidate-link' to = {`/candidates/${props.info.candidateId}`}> 

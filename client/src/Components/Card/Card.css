@@ -81,3 +81,22 @@
 
 }
 
+
+
+.get-candidate-button {
+  background: #a2000b;
+  color: #fff;
+  width: 90%;
+  margin: auto 10px;
+  cursor: pointer;
+}
+
+.get-candidate-button a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+}
+
+.get-candidate-button:hover{
+  background: #8c010a;
+}
