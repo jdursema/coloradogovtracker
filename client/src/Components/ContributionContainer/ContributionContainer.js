@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter} from 'react-router-dom';
 import * as actions from '../../Actions/';
-import { getSelectedCandidate } from '../../Helper/helper';
-import Card from '../Card/Card.js'
-import './ContributionContainer.css'
+import Card from '../Card/Card.js';
+import './ContributionContainer.css';
+import PropTypes from 'prop-types';
 
 
 
@@ -17,23 +15,22 @@ class ContributionContainer extends Component {
     }
   }
 
-
 componentWillMount() {
   if(this.props.contributions){
      const sortedContributions = this.props.contributions.sort((a, b) => {
       return b.contribution_amount - a.contribution_amount;
     });
-    this.setState({currentlyDisplayed:this.props.contributions})
+    this.setState({currentlyDisplayed:sortedContributions})
   }
 }
 
 componentWillReceiveProps(nextProps) {
-  if(this.props != nextProps) {
+  if(this.props !== nextProps) {
  
      const sortedContributions = nextProps.contributions.sort((a, b) => {
       return b.contribution_amount - a.contribution_amount;
     });
-    this.setState({currentlyDisplayed: nextProps.contributions})
+    this.setState({currentlyDisplayed: sortedContributions})
   }
 }
 
@@ -120,7 +117,6 @@ componentWillReceiveProps(nextProps) {
             amount = {contribution.contribution_amount}
             firstName = {contribution.donor_first}
             lastName = {contribution.donor_last}
-            amount = {contribution.contribution_amount}
             recordId = {contribution.record_id}
             date = {contribution.contribution_date}
             type = {contribution.contribution_type}
