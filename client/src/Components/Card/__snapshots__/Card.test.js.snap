@@ -26,23 +26,58 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <div>
-          <p>
-                    <strong>
+        <div
+          className="donation-side"
+>
+          <div
+                    className="donor-row"
+          >
+                    <div
+                              className="card-row-small-text"
+                    >
+                              DONOR
+                               
+                    </div>
+                    <div
+                              className="card-row-medium-text"
+                    >
                               Tommy
                                
                               Pickles
-                    </strong>
-          </p>
-          <p>
-                     $
-                    43
-                     
-          </p>
+                    </div>
+          </div>
+          <div
+                    className="donation-money-row"
+          >
+                    <div
+                              className="card-row-small-text"
+                    >
+                              CONTRIBUTION
+                    </div>
+                    <div
+                              className="card-row-big-number"
+                    >
+                               $
+                              43
+                               
+                    </div>
+          </div>
+          <div
+                    className="donor-row"
+          >
+                    <div
+                              className="card-row-small-text"
+                    >
+                              CONTRIBUTION TYPE 
+                    </div>
+                    <div
+                              className="card-row-medium-text"
+                    />
+          </div>
 </div>,
         false,
       ],
-      "className": "card",
+      "className": "contribution-card",
       "onClick": [Function],
     },
     "ref": null,
@@ -53,19 +88,53 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <p>
-              <strong>
+            <div
+              className="donor-row"
+>
+              <div
+                            className="card-row-small-text"
+              >
+                            DONOR
+                             
+              </div>
+              <div
+                            className="card-row-medium-text"
+              >
                             Tommy
                              
                             Pickles
-              </strong>
-</p>,
-            <p>
-               $
-              43
-               
-</p>,
+              </div>
+</div>,
+            <div
+              className="donation-money-row"
+>
+              <div
+                            className="card-row-small-text"
+              >
+                            CONTRIBUTION
+              </div>
+              <div
+                            className="card-row-big-number"
+              >
+                             $
+                            43
+                             
+              </div>
+</div>,
+            <div
+              className="donor-row"
+>
+              <div
+                            className="card-row-small-text"
+              >
+                            CONTRIBUTION TYPE 
+              </div>
+              <div
+                            className="card-row-medium-text"
+              />
+</div>,
           ],
+          "className": "donation-side",
         },
         "ref": null,
         "rendered": Array [
@@ -74,33 +143,65 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <strong>
-                Tommy
-                 
-                Pickles
-</strong>,
+              "children": Array [
+                <div
+                  className="card-row-small-text"
+>
+                  DONOR
+                   
+</div>,
+                <div
+                  className="card-row-medium-text"
+>
+                  Tommy
+                   
+                  Pickles
+</div>,
+              ],
+              "className": "donor-row",
             },
             "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "DONOR",
+                    " ",
+                  ],
+                  "className": "card-row-small-text",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "DONOR",
+                  " ",
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Tommy",
+                    " ",
+                    "Pickles",
+                  ],
+                  "className": "card-row-medium-text",
+                },
+                "ref": null,
+                "rendered": Array [
                   "Tommy",
                   " ",
                   "Pickles",
                 ],
+                "type": "div",
               },
-              "ref": null,
-              "rendered": Array [
-                "Tommy",
-                " ",
-                "Pickles",
-              ],
-              "type": "strong",
-            },
-            "type": "p",
+            ],
+            "type": "div",
           },
           Object {
             "instance": null,
@@ -108,18 +209,103 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                " $",
-                "43",
-                " ",
+                <div
+                  className="card-row-small-text"
+>
+                  CONTRIBUTION
+</div>,
+                <div
+                  className="card-row-big-number"
+>
+                   $
+                  43
+                   
+</div>,
               ],
+              "className": "donation-money-row",
             },
             "ref": null,
             "rendered": Array [
-              " $",
-              "43",
-              " ",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "CONTRIBUTION",
+                  "className": "card-row-small-text",
+                },
+                "ref": null,
+                "rendered": "CONTRIBUTION",
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    " $",
+                    "43",
+                    " ",
+                  ],
+                  "className": "card-row-big-number",
+                },
+                "ref": null,
+                "rendered": Array [
+                  " $",
+                  "43",
+                  " ",
+                ],
+                "type": "div",
+              },
             ],
-            "type": "p",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="card-row-small-text"
+>
+                  CONTRIBUTION TYPE 
+</div>,
+                <div
+                  className="card-row-medium-text"
+/>,
+              ],
+              "className": "donor-row",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "CONTRIBUTION TYPE ",
+                  "className": "card-row-small-text",
+                },
+                "ref": null,
+                "rendered": "CONTRIBUTION TYPE ",
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": undefined,
+                  "className": "card-row-medium-text",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
+            ],
+            "type": "div",
           },
         ],
         "type": "div",
@@ -135,23 +321,58 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <div>
-            <p>
-                        <strong>
+          <div
+            className="donation-side"
+>
+            <div
+                        className="donor-row"
+            >
+                        <div
+                                    className="card-row-small-text"
+                        >
+                                    DONOR
+                                     
+                        </div>
+                        <div
+                                    className="card-row-medium-text"
+                        >
                                     Tommy
                                      
                                     Pickles
-                        </strong>
-            </p>
-            <p>
-                         $
-                        43
-                         
-            </p>
+                        </div>
+            </div>
+            <div
+                        className="donation-money-row"
+            >
+                        <div
+                                    className="card-row-small-text"
+                        >
+                                    CONTRIBUTION
+                        </div>
+                        <div
+                                    className="card-row-big-number"
+                        >
+                                     $
+                                    43
+                                     
+                        </div>
+            </div>
+            <div
+                        className="donor-row"
+            >
+                        <div
+                                    className="card-row-small-text"
+                        >
+                                    CONTRIBUTION TYPE 
+                        </div>
+                        <div
+                                    className="card-row-medium-text"
+                        />
+            </div>
 </div>,
           false,
         ],
-        "className": "card",
+        "className": "contribution-card",
         "onClick": [Function],
       },
       "ref": null,
@@ -162,19 +383,53 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <p>
-                <strong>
+              <div
+                className="donor-row"
+>
+                <div
+                                className="card-row-small-text"
+                >
+                                DONOR
+                                 
+                </div>
+                <div
+                                className="card-row-medium-text"
+                >
                                 Tommy
                                  
                                 Pickles
-                </strong>
-</p>,
-              <p>
-                 $
-                43
-                 
-</p>,
+                </div>
+</div>,
+              <div
+                className="donation-money-row"
+>
+                <div
+                                className="card-row-small-text"
+                >
+                                CONTRIBUTION
+                </div>
+                <div
+                                className="card-row-big-number"
+                >
+                                 $
+                                43
+                                 
+                </div>
+</div>,
+              <div
+                className="donor-row"
+>
+                <div
+                                className="card-row-small-text"
+                >
+                                CONTRIBUTION TYPE 
+                </div>
+                <div
+                                className="card-row-medium-text"
+                />
+</div>,
             ],
+            "className": "donation-side",
           },
           "ref": null,
           "rendered": Array [
@@ -183,33 +438,65 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <strong>
-                  Tommy
-                   
-                  Pickles
-</strong>,
+                "children": Array [
+                  <div
+                    className="card-row-small-text"
+>
+                    DONOR
+                     
+</div>,
+                  <div
+                    className="card-row-medium-text"
+>
+                    Tommy
+                     
+                    Pickles
+</div>,
+                ],
+                "className": "donor-row",
               },
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "DONOR",
+                      " ",
+                    ],
+                    "className": "card-row-small-text",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "DONOR",
+                    " ",
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Tommy",
+                      " ",
+                      "Pickles",
+                    ],
+                    "className": "card-row-medium-text",
+                  },
+                  "ref": null,
+                  "rendered": Array [
                     "Tommy",
                     " ",
                     "Pickles",
                   ],
+                  "type": "div",
                 },
-                "ref": null,
-                "rendered": Array [
-                  "Tommy",
-                  " ",
-                  "Pickles",
-                ],
-                "type": "strong",
-              },
-              "type": "p",
+              ],
+              "type": "div",
             },
             Object {
               "instance": null,
@@ -217,18 +504,103 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  " $",
-                  "43",
-                  " ",
+                  <div
+                    className="card-row-small-text"
+>
+                    CONTRIBUTION
+</div>,
+                  <div
+                    className="card-row-big-number"
+>
+                     $
+                    43
+                     
+</div>,
                 ],
+                "className": "donation-money-row",
               },
               "ref": null,
               "rendered": Array [
-                " $",
-                "43",
-                " ",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "CONTRIBUTION",
+                    "className": "card-row-small-text",
+                  },
+                  "ref": null,
+                  "rendered": "CONTRIBUTION",
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " $",
+                      "43",
+                      " ",
+                    ],
+                    "className": "card-row-big-number",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " $",
+                    "43",
+                    " ",
+                  ],
+                  "type": "div",
+                },
               ],
-              "type": "p",
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div
+                    className="card-row-small-text"
+>
+                    CONTRIBUTION TYPE 
+</div>,
+                  <div
+                    className="card-row-medium-text"
+/>,
+                ],
+                "className": "donor-row",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "CONTRIBUTION TYPE ",
+                    "className": "card-row-small-text",
+                  },
+                  "ref": null,
+                  "rendered": "CONTRIBUTION TYPE ",
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "className": "card-row-medium-text",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+              ],
+              "type": "div",
             },
           ],
           "type": "div",

@@ -1,4 +1,5 @@
 /*eslint-disable max-len*/
+/*eslint-disable no-unused-vars*/
 process.env.NODE_ENV = 'test';
 const chai = require('chai');
 const should = chai.should();
@@ -31,38 +32,7 @@ describe('Client routes', function() {
 });
 
 
-describe('authentication', () => {
-  it.skip('should get a token if the user has @turing.io email', () => {
-    return chai.request(server)
-      .post('/api/v1/tokens')
-      .send({
-        name: 'maria',
-        email: 'maria@turing.io'
-      })
-      .then(response => {
-        response.should.have.status(201);
-        response.body.should.be.a('object');
-        response.body.should.have.property('token');
-      })
-      .catch(error => {
-        throw error;
-      });
-  });
 
-  it.skip('should have an error if the email does not end with turing.io', () => {
-    return chai.request(server)
-      .post('/api/v1/tokens')
-      .send({
-        name: 'maria',
-        email: 'maria@maria.com'
-      })
-      .then(() => {
-      })
-      .catch(error => {
-        error.should.have.status(403);
-      });
-  });
-});
 
 describe('API Routes', () => {
 
@@ -211,7 +181,6 @@ describe('API Routes', () => {
         .get('/api/v1/totals')
         .then(response => {
           response.should.have.status(200);
-          console.log(response.body.candidate)
         })
         .catch(error => {
           throw error;
@@ -254,28 +223,28 @@ describe('API Routes', () => {
   describe('GET /api/v1/candidates/:committeeId/expenditures', () => {
     it('should return all of the expenditures with a record id', () => {
       return chai.request(server)
-      .get('/api/v1/candidates/20165031883/expenditures')
-      .then(response => {
-        response.should.have.status(200)
-        response.body.expenditures[0].committee_id.should.equal('20165031883')
-        response.body.expenditures.length.should.equal(3)
+        .get('/api/v1/candidates/20165031883/expenditures')
+        .then(response => {
+          response.should.have.status(200);
+          response.body.expenditures[0].committee_id.should.equal('20165031883');
+          response.body.expenditures.length.should.equal(3);
         
-      })
-      .catch(error => {
-        throw error
-      })
-    })
+        })
+        .catch(error => {
+          throw error;
+        });
+    });
     it('should return a 404 error if their is no expenditures under the candidate id', () => {
       return chai.request(server)
-      .get('/api/v1/candidates/20165031888/expenditures')
-      .then(response => {
+        .get('/api/v1/candidates/20165031888/expenditures')
+        .then(() => {
     
-      })
-      .catch(error => {
-        error.should.have.status(404)
-      })
-    })
-  })
+        })
+        .catch(error => {
+          error.should.have.status(404);
+        });
+    });
+  });
 
 
   describe('GET /api/v1/contributions/:contributionID', () => {
@@ -387,7 +356,7 @@ describe('API Routes', () => {
           website: "https://www.noelforcolorado.com/",
           image: "https://media1.britannica.com/eb-media/81/191581-004-95328E05.jpg"
         })
-        .then(response => {
+        .then(() => {
         })
         .catch(error => {
           error.should.have.status(422);
