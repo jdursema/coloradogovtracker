@@ -1,5 +1,4 @@
 
-// import d3 from 'd3';
 import topojson from 'topojson';
 import Datamap from 'datamaps/dist/datamaps.usa.min'
 import React from 'react';
@@ -9,7 +8,6 @@ import statesDefaults from '../../data/states-defaults';
 import {getStateTotals} from '../../Helper/helper'
 import * as d3 from "d3";
 import scale from 'd3';
-// import { scaleLinear } from "d3-scale"; 
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './Map.css'
@@ -111,10 +109,10 @@ renderMap(){
   }
 }
 
-const mapStateToProps = state => ({
-  stateTotals: state.stateTotals
-})
+// const mapStateToProps = state => ({
+//   stateTotals: state.stateTotals
+// })
 
-export default withRouter(connect(mapStateToProps, null)(DataMap));
+// export default withRouter(connect(mapStateToProps, null)(DataMap));
 
-
+export default DataMap

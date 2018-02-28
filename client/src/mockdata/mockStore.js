@@ -1,5 +1,6 @@
-export cost candidates = [
-{id: 521,
+export const candidates =[
+ {
+id: 521,
 committee_id: "20175033290",
 last_name: "Coffman",
 full_name: "Cynthia Coffman",
@@ -8,7 +9,8 @@ committee_name: "Cynthia Coffman for Governor",
 party: "Republican",
 active: true,
 website: "http://cynthia2018.com/",
-image: "http://msantray.fatcow.com/governor_photos/cynthia_coffmann.jpg"},
+image: "http://msantray.fatcow.com/governor_photos/cynthia_coffmann.jpg"
+},
 {id: 528,
 committee_id: "20175032028",
 last_name: "Kennedy",
@@ -44,7 +46,7 @@ active: true,
 image: "http://msantray.fatcow.com/governor_photos/michael_johnston.jpg"}
 ]
 
-selectedCandidate = {
+export const selectedCandidate = {
 id: 44,
 name: "Jim Rundberg",
 lastName: "Rundberg",
@@ -57,7 +59,7 @@ candidateId: "20135025390",
 expenditureTotal: "0.00",
 contributionTotal: "331.66",
 contributionNum: 1,
-avgContribution: "331.66"
+avgContribution: "331.66",
 contributions: [
 {id: 531735,
 committee_id: "20135025390",
