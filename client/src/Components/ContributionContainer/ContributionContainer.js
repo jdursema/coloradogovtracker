@@ -113,6 +113,7 @@ componentWillReceiveProps(nextProps) {
       const contributionMap = contributions.map((contribution, index) => {
         return (
           <Card 
+            key = {contribution.index}
             id = {contribution.id}
             amount = {contribution.contribution_amount}
             firstName = {contribution.donor_first}
@@ -147,7 +148,7 @@ componentWillReceiveProps(nextProps) {
               placeholder = "Search Contributors" />
           
         </div>
-         <h3 class="center instructions"> Click on the card to see donor details </h3> 
+         <h3 className="center instructions"> Click on the card to see donor details </h3> 
         <div className = 'contribution-card-container'>
 
           <div className = 'contribution-card-holder'>
