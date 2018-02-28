@@ -1,0 +1,481 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contribution container tests should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ContributionContainer />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h2
+          className="center"
+>
+           Contributions 
+</h2>,
+        <div
+          className="candidate-sort-bar center"
+>
+          <button
+                    className="filter-button active"
+                    onClick={[Function]}
+          >
+                    Highest Contributions
+          </button>
+          <button
+                    className="filter-button"
+                    onClick={[Function]}
+          >
+                    Lowest Contributions
+          </button>
+          <button
+                    className="filter-button"
+                    onClick={[Function]}
+          >
+                     Donors A to Z 
+          </button>
+          <button
+                    className="filter-button"
+                    onClick={[Function]}
+          >
+                     Donors Z to A 
+          </button>
+          <input
+                    className="filter-search"
+                    onChange={[Function]}
+                    placeholder="Search Contributors"
+                    type="text"
+          />
+</div>,
+        <h3
+          className="center instructions"
+>
+           Click on the card to see donor details 
+</h3>,
+        <div
+          className="contribution-card-container"
+>
+          <div
+                    className="contribution-card-holder"
+          >
+                    
+          </div>
+</div>,
+      ],
+      "className": "contribution-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": " Contributions ",
+          "className": "center",
+        },
+        "ref": null,
+        "rendered": " Contributions ",
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <button
+              className="filter-button active"
+              onClick={[Function]}
+>
+              Highest Contributions
+</button>,
+            <button
+              className="filter-button"
+              onClick={[Function]}
+>
+              Lowest Contributions
+</button>,
+            <button
+              className="filter-button"
+              onClick={[Function]}
+>
+               Donors A to Z 
+</button>,
+            <button
+              className="filter-button"
+              onClick={[Function]}
+>
+               Donors Z to A 
+</button>,
+            <input
+              className="filter-search"
+              onChange={[Function]}
+              placeholder="Search Contributors"
+              type="text"
+/>,
+          ],
+          "className": "candidate-sort-bar center",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Highest Contributions",
+              "className": "filter-button active",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Highest Contributions",
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Lowest Contributions",
+              "className": "filter-button",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Lowest Contributions",
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": " Donors A to Z ",
+              "className": "filter-button",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": " Donors A to Z ",
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": " Donors Z to A ",
+              "className": "filter-button",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": " Donors Z to A ",
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "filter-search",
+              "onChange": [Function],
+              "placeholder": "Search Contributors",
+              "type": "text",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": " Click on the card to see donor details ",
+          "className": "center instructions",
+        },
+        "ref": null,
+        "rendered": " Click on the card to see donor details ",
+        "type": "h3",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="contribution-card-holder"
+>
+            
+</div>,
+          "className": "contribution-card-container",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [],
+            "className": "contribution-card-holder",
+          },
+          "ref": null,
+          "rendered": Array [],
+          "type": "div",
+        },
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h2
+            className="center"
+>
+             Contributions 
+</h2>,
+          <div
+            className="candidate-sort-bar center"
+>
+            <button
+                        className="filter-button active"
+                        onClick={[Function]}
+            >
+                        Highest Contributions
+            </button>
+            <button
+                        className="filter-button"
+                        onClick={[Function]}
+            >
+                        Lowest Contributions
+            </button>
+            <button
+                        className="filter-button"
+                        onClick={[Function]}
+            >
+                         Donors A to Z 
+            </button>
+            <button
+                        className="filter-button"
+                        onClick={[Function]}
+            >
+                         Donors Z to A 
+            </button>
+            <input
+                        className="filter-search"
+                        onChange={[Function]}
+                        placeholder="Search Contributors"
+                        type="text"
+            />
+</div>,
+          <h3
+            className="center instructions"
+>
+             Click on the card to see donor details 
+</h3>,
+          <div
+            className="contribution-card-container"
+>
+            <div
+                        className="contribution-card-holder"
+            >
+                        
+            </div>
+</div>,
+        ],
+        "className": "contribution-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": " Contributions ",
+            "className": "center",
+          },
+          "ref": null,
+          "rendered": " Contributions ",
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <button
+                className="filter-button active"
+                onClick={[Function]}
+>
+                Highest Contributions
+</button>,
+              <button
+                className="filter-button"
+                onClick={[Function]}
+>
+                Lowest Contributions
+</button>,
+              <button
+                className="filter-button"
+                onClick={[Function]}
+>
+                 Donors A to Z 
+</button>,
+              <button
+                className="filter-button"
+                onClick={[Function]}
+>
+                 Donors Z to A 
+</button>,
+              <input
+                className="filter-search"
+                onChange={[Function]}
+                placeholder="Search Contributors"
+                type="text"
+/>,
+            ],
+            "className": "candidate-sort-bar center",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Highest Contributions",
+                "className": "filter-button active",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Highest Contributions",
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Lowest Contributions",
+                "className": "filter-button",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Lowest Contributions",
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " Donors A to Z ",
+                "className": "filter-button",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": " Donors A to Z ",
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " Donors Z to A ",
+                "className": "filter-button",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": " Donors Z to A ",
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "filter-search",
+                "onChange": [Function],
+                "placeholder": "Search Contributors",
+                "type": "text",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": " Click on the card to see donor details ",
+            "className": "center instructions",
+          },
+          "ref": null,
+          "rendered": " Click on the card to see donor details ",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="contribution-card-holder"
+>
+              
+</div>,
+            "className": "contribution-card-container",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [],
+              "className": "contribution-card-holder",
+            },
+            "ref": null,
+            "rendered": Array [],
+            "type": "div",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

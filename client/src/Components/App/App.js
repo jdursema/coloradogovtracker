@@ -24,6 +24,7 @@ export class App extends Component {
 
   componentDidMount = async () => {
     const candidateData = await initialCandidatesFetch();
+    console.log(candidateData)
     this.props.handleCandidates(candidateData);
 
   };
@@ -49,9 +50,6 @@ export class App extends Component {
           return <CandidateDetails />;
           
         }} />
-
-      
-    
       </div>
     );
   }
@@ -67,13 +65,6 @@ const mapDispatchToProps = dispatch => {
   return {
     handleCandidates: candidates => {
       dispatch(actions.addCandidatesToStore(candidates))
-    },
-    handleContributions: contributions => {
-      dispatch(actions.addContributionsToStore(contributions))
-    },
-    handleExpenditures: expenditures => {
-      dispatch(actions.addExpendituresToStore(expenditures))
-
     }
   }
 }

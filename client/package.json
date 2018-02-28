@@ -8,6 +8,7 @@
     "bubble-chart": "^0.1.0",
     "d3": "^3.5.13",
     "enzyme": "^3.3.0",
+    "error": "^7.0.2",
     "har-validator": "^5.1.0",
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
