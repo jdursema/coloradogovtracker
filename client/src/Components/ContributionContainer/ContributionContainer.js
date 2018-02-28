@@ -11,42 +11,41 @@ class ContributionContainer extends Component {
     this.state = {
       currentlyDisplayed: [],
       active: 1
+    };
+  }
+
+  componentWillMount() {
+    if (this.props.contributions){
+      const sortedContributions = this.props.contributions.sort((a, b) => {
+        return b.contribution_amount - a.contribution_amount;
+      });
+      this.setState({currentlyDisplayed:sortedContributions});
     }
   }
 
-componentWillMount() {
-  if(this.props.contributions){
-     const sortedContributions = this.props.contributions.sort((a, b) => {
-      return b.contribution_amount - a.contribution_amount;
-    });
-    this.setState({currentlyDisplayed:sortedContributions})
-  }
-}
-
-componentWillReceiveProps(nextProps) {
-  if(this.props !== nextProps) {
+  componentWillReceiveProps(nextProps) {
+    if (this.props !== nextProps) {
  
-     const sortedContributions = nextProps.contributions.sort((a, b) => {
-      return b.contribution_amount - a.contribution_amount;
-    });
-    this.setState({currentlyDisplayed: sortedContributions})
+      const sortedContributions = nextProps.contributions.sort((a, b) => {
+        return b.contribution_amount - a.contribution_amount;
+      });
+      this.setState({currentlyDisplayed: sortedContributions});
+    }
   }
-}
 
 
   toggleActive = (position) => {
     if (this.state.active === position) {
-      this.setState({active : null })
-      console.log(this.state)
+      this.setState({active : null });
     } else {
-      this.setState({active: position})
+      this.setState({active: position});
     }
   }
 
   activeClass = (position) => {
-    if(this.state.active === position) {
-      return 'filter-button active'
-    } return 'filter-button'
+    if (this.state.active === position) {
+      return 'filter-button active';
+    } return 'filter-button';
   }
 
   searchContributors = (event) => {
@@ -56,39 +55,39 @@ componentWillReceiveProps(nextProps) {
      contribution.donor_occupation.toUpperCase().includes(searchValue) ||
       contribution.donor_employer.toUpperCase().includes(searchValue) ||
       contribution.donor_first.toUpperCase().includes(searchValue) ||
-      contribution.donor_state.toUpperCase().includes(searchValue))
-    this.setState({currentlyDisplayed: contributionFilter})
+      contribution.donor_state.toUpperCase().includes(searchValue));
+    this.setState({currentlyDisplayed: contributionFilter});
   
   }
 
     sortHighContributions = (position) => {
-    const sortedContributions = this.state.currentlyDisplayed.sort((a, b) => {
-      return b.contribution_amount - a.contribution_amount;
-    });
-    this.setState({currentlyDisplayed: sortedContributions});
-    this.toggleActive(position)
+      const sortedContributions = this.state.currentlyDisplayed.sort((a, b) => {
+        return b.contribution_amount - a.contribution_amount;
+      });
+      this.setState({currentlyDisplayed: sortedContributions});
+      this.toggleActive(position);
   
-  }
+    }
 
   sortLowContributions = (position) => {
-     const sortedContributions = this.state.currentlyDisplayed.sort((a, b) => {
+    const sortedContributions = this.state.currentlyDisplayed.sort((a, b) => {
       return a.contribution_amount - b.contribution_amount;
     });
     this.setState({currentlyDisplayed: sortedContributions, active:position});
-    this.toggleActive(position)
+    this.toggleActive(position);
   }
 
   alphabetizContributors = (position) => {
 
     const alphabetizedContributors = this.state.currentlyDisplayed.sort((a, b) => {
-      if(a.donor_last.split(' ')[0] === null) return 0;
+      if (a.donor_last.split(' ')[0] === null) return 0;
       if (a.donor_last.split(' ')[0] < b.donor_last.split(' ')[0]) return -1;
       if (a.donor_last.split(' ')[0] > b.donor_last.split(' ')[0]) return 1;
       return 0;
     });
 
     this.setState({currentlyDisplayed: alphabetizedContributors});
-    this.toggleActive(position)
+    this.toggleActive(position);
     
   }
 
@@ -97,22 +96,22 @@ componentWillReceiveProps(nextProps) {
       
         if (a.donor_last.split(' ')[0] > b.donor_last.split(' ')[0]) return -1;
         if (a.donor_last.split(' ')[0] < b.donor_last.split(' ')[0]) return 1;
-          return 0;
+        return 0;
       });
 
       this.setState({currentlyDisplayed: alphabetizedContributors});
-      this.toggleActive(position)
+      this.toggleActive(position);
     }
 
 
-  mapContributions = (contributions, index) => {
-    if(contributions) {
+  mapContributions = (contributions) => {
+    if (contributions) {
       
 
       const contributionMap = contributions.map((contribution, index) => {
         return (
           <Card 
-            key = {contribution.index}
+            key = {index}
             id = {contribution.id}
             amount = {contribution.contribution_amount}
             firstName = {contribution.donor_first}
@@ -121,10 +120,10 @@ componentWillReceiveProps(nextProps) {
             date = {contribution.contribution_date}
             type = {contribution.contribution_type}
             occupation = {contribution.donor_occupation}
-            />
-        )
-      })
-        return contributionMap;
+          />
+        );
+      });
+      return contributionMap;
     }
   }
 
@@ -135,19 +134,19 @@ componentWillReceiveProps(nextProps) {
       <div className = "contribution-container">
         <h2 className = "center"> Contributions </h2>
         <div className = "candidate-sort-bar center">
-          <button className= {this.activeClass(1)} onClick = {(event) => this.sortHighContributions(1)}>Highest Contributions</button>
-           <button className= {this.activeClass(2)} onClick = {(event) =>this.sortLowContributions(2)}>Lowest Contributions</button> 
-          <button className= {this.activeClass(3)}onClick = {(event) => this.alphabetizContributors(3)}> Donors A to Z </button>
-          <button className= {this.activeClass(4)} onClick = {(event)=> this.deAlphabetizContributors(4)}> Donors Z to A </button> 
+          <button className= {this.activeClass(1)} onClick = {() => this.sortHighContributions(1)}>Highest Contributions</button>
+          <button className= {this.activeClass(2)} onClick = {() =>this.sortLowContributions(2)}>Lowest Contributions</button> 
+          <button className= {this.activeClass(3)}onClick = {() => this.alphabetizContributors(3)}> Donors A to Z </button>
+          <button className= {this.activeClass(4)} onClick = {()=> this.deAlphabetizContributors(4)}> Donors Z to A </button> 
           
-            <input 
-              className = "filter-search"
-              onChange = {event => this.searchContributors(event.target.value)}
-              type = "text"
-              placeholder = "Search Contributors" />
+          <input 
+            className = "filter-search"
+            onChange = {event => this.searchContributors(event.target.value)}
+            type = "text"
+            placeholder = "Search Contributors" />
           
         </div>
-         <h3 className="center instructions"> Click on the card to see donor details </h3> 
+        <h3 className="center instructions"> Click on the card to see donor details </h3> 
         <div className = 'contribution-card-container'>
 
           <div className = 'contribution-card-holder'>
@@ -155,12 +154,12 @@ componentWillReceiveProps(nextProps) {
           </div> 
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default (ContributionContainer)
+export default (ContributionContainer);
 
 ContributionContainer.propTypes = {
   contributions: PropTypes.array
-}
+};

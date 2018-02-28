@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CandidateCard from '../../Components/CandidateCard/CandidateCard';
-import './CompareCandidate.css'
+import './CompareCandidate.css';
 
 export class CompareCandidate extends Component {
   constructor (props) {
@@ -10,38 +10,38 @@ export class CompareCandidate extends Component {
       candidateTotals: [],
       searchResults: [],
       active: 3
-    }
+    };
   }
 
 
   componentWillReceiveProps (nextProps) {
-    if(nextProps.candidateTotals.length){
-      const activeCandidates = nextProps.candidateTotals.filter(candidate => candidate.active === 'true')
+    if (nextProps.candidateTotals.length){
+      const activeCandidates = nextProps.candidateTotals.filter(candidate => candidate.active === 'true');
       activeCandidates.map(candidate => {
         const foundCandidate = nextProps.candidates.find((candidateObj) => {
           candidateObj.committee_id
-          === candidate.candidateId
-        })
+          === candidate.candidateId;
+        });
 
-      })
-      this.setState({candidateTotals: activeCandidates}) 
-      this.sortByHighestEarners()
+      });
+      this.setState({candidateTotals: activeCandidates}); 
+      this.sortByHighestEarners();
     }
-    this.setState({active:3})
+    this.setState({active:3});
   }
 
 
 
   searchCandidates (event) {
-    const searchRequest = (event.target.value).toUpperCase()
+    const searchRequest = (event.target.value).toUpperCase();
     const results = this.state.candidateTotals.filter((candidate)=>candidate.name.toUpperCase().includes(searchRequest));
-    this.setState({searchResults: results})
+    this.setState({searchResults: results});
   }
 
   filterByParty (event, position) {
     const results = this.state.candidateTotals.filter((candidate)=>candidate.party === event.target.name);
-    this.setState({searchResults: results})
-    this.toggleActive(position)
+    this.setState({searchResults: results});
+    this.toggleActive(position);
   }
 
   sortByHighestEarners (position) {
@@ -49,42 +49,43 @@ export class CompareCandidate extends Component {
       return b.contributionTotal - a.contributionTotal;
     });
 
-    this.setState({searchResults: sortedCandidates})
-    this.toggleActive(position)
+    this.setState({searchResults: sortedCandidates});
+    this.toggleActive(position);
   }
 
   viewAllCandidates (position) {
-    this.setState({searchResults: []})
-    this.toggleActive(position)
+    this.setState({searchResults: []});
+    this.toggleActive(position);
   }
 
     toggleActive = (position) => {
-    if (this.state.active === position) {
-      this.setState({active : null })
+      if (this.state.active === position) {
+        this.setState({active : null });
      
-    } else {
-      this.setState({active: position})
+      } else {
+        this.setState({active: position});
+      }
     }
-  }
 
   activeClass = (position) => {
-    if(this.state.active === position) {
-      return 'filter-button active'
-    } return 'filter-button'
+    if (this.state.active === position) {
+      return 'filter-button active';
+    } return 'filter-button';
   }
 
 
 
   render() {
 
-    let mappedCandidates
-    if(this.state.searchResults.length){
+    let mappedCandidates;
+    if (this.state.searchResults.length){
       mappedCandidates = this.state.searchResults.map((candidate)=> {
-      return <CandidateCard info = {candidate}/>})
-    }else if(!this.state.searchResults.length &&this.state.candidateTotals.length){
+        return <CandidateCard info = {candidate}/>;
+      });
+    } else if (!this.state.searchResults.length &&this.state.candidateTotals.length){
       mappedCandidates = this.state.candidateTotals.map((candidate)=> {
-        return <CandidateCard info = {candidate}/>
-      })
+        return <CandidateCard info = {candidate}/>;
+      });
     }
 
     return (
@@ -105,13 +106,13 @@ export class CompareCandidate extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = state => ({
   candidateTotals : state.candidateTotals,
   candidates: state.candidates
-})
+});
 
-export default connect(mapStateToProps, null)(CompareCandidate)
+export default connect(mapStateToProps, null)(CompareCandidate);

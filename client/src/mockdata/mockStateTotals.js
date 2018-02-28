@@ -235,4 +235,4 @@ export const mockStateTotals = [
     "state": "BC",
     "total": 21
   }
-]
+];

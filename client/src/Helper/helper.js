@@ -45,7 +45,7 @@ const cleanCandidateInfo = (async(candidate) => {
 
 export const getCandidateContributions = async (candidateId) => {
 
-  const contributionFetch = await fetch (`/api/v1/candidates/${candidateId}/contributions`);
+  const contributionFetch = await fetch(`/api/v1/candidates/${candidateId}/contributions`);
   const contributionResponse = await contributionFetch.json();
   return contributionResponse.contributors;
 
@@ -54,7 +54,7 @@ export const getCandidateContributions = async (candidateId) => {
 
 export const getStateTotals = async() => {
   try {
-    const stateFetch = await fetch ('/api/v1/state');
+    const stateFetch = await fetch('/api/v1/state');
     const fetchResponse = await stateFetch.json();
     return fetchResponse.state;
 
@@ -79,13 +79,13 @@ export const initialTotalsFetch = async () => {
     });
     return cleanData;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
 
 
 export const fetchIndividualContribution = async(contributionId) => {
-  const initialFetch = await fetch (`/api/v1/contributions/${contributionId}`);
+  const initialFetch = await fetch(`/api/v1/contributions/${contributionId}`);
   const fetchResponse = await initialFetch.json();
   return fetchResponse.contributors;
 };

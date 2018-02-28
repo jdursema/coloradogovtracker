@@ -33,7 +33,7 @@ describe('initialCandidatesFetch', () => {
               party: "Republican",
               website: "https://www.barlockforgovernor.com/"}
           ]
-        }
+          }
         )
       }));
   });
@@ -62,11 +62,11 @@ describe('initialCandidatesFetch', () => {
         last_name: "Barlock",
         party: "Republican",
         website: "https://www.barlockforgovernor.com/"}
-    ]
+    ];
 
     expect(fetch).toEqual(mockCandidatesArray);
-  })
-})
+  });
+});
 
 describe('getCandidateContributions', () => {
   beforeEach(() => {
@@ -119,7 +119,7 @@ describe('getCandidateContributions', () => {
               record_id:"4684383"
             }
           ]
-        }
+          }
         )
       }));
   });
@@ -168,11 +168,11 @@ describe('getCandidateContributions', () => {
         id:130276,
         record_id:"4684383"
       }
-    ]
+    ];
 
     expect(fetch).toEqual(mockContributionsArray);
-  })
-})
+  });
+});
 
 
 
@@ -184,7 +184,7 @@ describe('getStateTotals', () => {
         status: 200,
         json: () => Promise.resolve(
           { state:
-            [ { 
+            [{ 
               id: 1,
               state: 'CO',
               total: "5579829.05"
@@ -199,14 +199,14 @@ describe('getStateTotals', () => {
               state: 'NY',
               total: "317925.02"
             }
-          ]
-        }
+            ]
+          }
         )
       }));
   });
   it('should return a contributors object', async() => {
     const fetch = await getStateTotals();
-    const mockStateTotalsArray = [ { 
+    const mockStateTotalsArray = [{ 
       id: 1,
       state: 'CO',
       total: "5579829.05"
@@ -221,10 +221,10 @@ describe('getStateTotals', () => {
       state: 'NY',
       total: "317925.02"
     }
-  ]
+    ];
     expect(fetch).toEqual(mockStateTotalsArray);
-  })
-})
+  });
+});
 
 
 describe('initialTotalsFetch', () => {
@@ -256,7 +256,7 @@ describe('initialTotalsFetch', () => {
               name:"Victor Mitchell",
               party:"Republican"}
           ]
-        }
+          }
         )
       }));
   });
@@ -283,11 +283,11 @@ describe('initialTotalsFetch', () => {
         id: 4,
         name:"Victor Mitchell",
         party:"Republican"}
-    ]
+    ];
 
     expect(fetch).toEqual(mockCandidateTotalsArray);
-  })
-})
+  });
+});
 
 
 describe('fetchIndividualContribution', () => {
@@ -320,7 +320,7 @@ describe('fetchIndividualContribution', () => {
               record_id:"4684383"
             }
           ]
-        }
+          }
         )
       }));
   });
@@ -348,8 +348,8 @@ describe('fetchIndividualContribution', () => {
         id:130276,
         record_id:"4684383"
       }
-    ]
+    ];
 
     expect(fetch).toEqual(mockContributorResponse);
-  })
-})
+  });
+});

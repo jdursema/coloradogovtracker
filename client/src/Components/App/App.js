@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import CandidateDetails from '../../Containers/CandidateDetails/CandidateDetails';
-import CompareCandidate from '../../Containers/CompareCandidate/CompareCandidate'
+import CompareCandidate from '../../Containers/CompareCandidate/CompareCandidate';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {initialCandidatesFetch} from '../../Helper/helper';
 import * as actions from '../../Actions/';
-import DataMap from '../../Containers/Map/Map';
 import BarGraph from '../../Containers/BarGraph/BarGraph';
-import BubbleChart from '../BubbleChart/BubbleChart';
 import Home from '../Home/Home';
-import MapContainer from '../../Containers/MapContainer/MapContainer.js'
-import Scrollchor from 'react-scrollchor';
-
+import MapContainer from '../../Containers/MapContainer/MapContainer.js';
+import PropTypes from 'prop-types';
 
 
 
@@ -24,7 +21,6 @@ export class App extends Component {
 
   componentDidMount = async () => {
     const candidateData = await initialCandidatesFetch();
-    console.log(candidateData)
     this.props.handleCandidates(candidateData);
 
   };
@@ -45,8 +41,9 @@ export class App extends Component {
           const {id} = match.params;
 
           const candidateDetail = 
+          /* eslint-disable */
           Object.keys(candidateObject).find(candidate => candidateObject[candidate].committee_id === id);
-        
+        /* eslint-enable */
           return <CandidateDetails />;
           
         }} />
@@ -59,14 +56,19 @@ export class App extends Component {
 const mapStateToProps = state => ({
   candidates: state.candidates,
   candidateTotals: state.candidateTotals
-})
+});
 
 const mapDispatchToProps = dispatch => {
   return {
     handleCandidates: candidates => {
-      dispatch(actions.addCandidatesToStore(candidates))
+      dispatch(actions.addCandidatesToStore(candidates));
     }
-  }
-}
+  };
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+
+App.propTypes = {
+  handleCandidates: PropTypes.func,
+  candidates: PropTypes.array
+};

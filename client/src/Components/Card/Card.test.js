@@ -1,6 +1,6 @@
 import Card from './Card';
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 
 
 
@@ -22,6 +22,6 @@ describe('card', () => {
   });
 
 
-})
+});
 
   
