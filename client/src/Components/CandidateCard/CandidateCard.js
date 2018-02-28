@@ -38,7 +38,7 @@ export const CandidateCard = (props) => {
   return (
   <div className = "card">
     <div className = "card-head">
-     <img className="candidate-card-img" src={`${props.info.image}`} alt= {`${props.info.name}`} />
+     <img className="candidate-card-img" src={props.info.image} alt= {props.info.name} />
      <div className = "card-head-text">
         {nameSplit(props.info.name)}
       </div>
@@ -78,7 +78,6 @@ export const CandidateCard = (props) => {
   </div>
   )
 }
-
 
 const mapDispatchToProps = dispatch => {
   return {
