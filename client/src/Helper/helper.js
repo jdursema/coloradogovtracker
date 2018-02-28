@@ -79,7 +79,7 @@ export const initialTotalsFetch = async () => {
     });
     return cleanData;
   } catch (error) {
-    throw error;
+    console.log(error)
   }
 };
 
