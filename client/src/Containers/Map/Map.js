@@ -1,16 +1,17 @@
 
-import topojson from 'topojson';
+// import topojson from 'topojson';
 import Datamap from 'datamaps/dist/datamaps.usa.min'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import statesData from '../../data/states-data'
+// import statesData from '../../data/states-data'
 import statesDefaults from '../../data/states-defaults';
 import {getStateTotals} from '../../Helper/helper'
 import * as d3 from "d3";
-import scale from 'd3';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import './Map.css'
+// import scale from 'd3';
+// import { connect } from 'react-redux';
+// import { withRouter } from 'react-router-dom';
+import './Map.css';
+import PropTypes from 'prop-types';
 
 
 class DataMap extends React.Component {
@@ -64,9 +65,11 @@ renderMap(){
             return (b.charAt(0) > 0 && !(c || ".").lastIndexOf(".") ? b.replace(/(\d)(?=(\d{3})+$)/g, "$1,") : b) + c;
           });
           if (data && data.value) {
-            return '<div class="hoverinfo">' + geography.properties.name + ': ' +'<strong>' + '$' + formattedNumber + '</strong></div>';
+            return `<div class="hoverinfo"> ${geography.properties.name}:<strong> $ ${formattedNumber}</strong></div>`;
+            // return '<div class="hoverinfo">' + geography.properties.name + ': ' +'<strong>' + '$' + formattedNumber + '</strong></div>';
           } else {
-            return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
+            return `<div class="hoverinfo"><strong> ${geography.properties.name} </strong></div>`;
+            //return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
           }
         }
       }
@@ -109,10 +112,10 @@ renderMap(){
   }
 }
 
-// const mapStateToProps = state => ({
-//   stateTotals: state.stateTotals
-// })
 
-// export default withRouter(connect(mapStateToProps, null)(DataMap));
 
 export default DataMap
+
+DataMap.propTypes = {
+  totals: PropTypes.array
+}
