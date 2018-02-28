@@ -1,6 +1,7 @@
 
 .charts{
   display: flex;
+  justify-content: space-around;
   width: 70vw;
   height: 40vh;
 }
@@ -78,4 +79,8 @@
 
 .instructions {
   color: #a2000b;
+}
+
+.candidate-graph-title{
+  font-size: 24px;
 }
