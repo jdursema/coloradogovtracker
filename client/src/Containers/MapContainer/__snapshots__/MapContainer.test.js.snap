@@ -1,0 +1,1111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map container should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MapContainer />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1>
+           Follow the money 
+</h1>,
+        <h3>
+           Contributions to the 2018 Colorado governor's race have come from every state 
+</h3>,
+        <div
+          className="map-container-content"
+>
+          <div
+                    className="map"
+          >
+                    <DataMap />
+          </div>
+          <div
+                    className="map-totals"
+          >
+                    <h3
+                              className="fund-head"
+                    >
+                               Top Fundraising States 
+                    </h3>
+                    <ul
+                              className="top-states"
+                    >
+                              <li>
+                                         
+                                        <span
+                                                  className="light"
+                                        >
+                                                  Colorado:
+                                        </span>
+                                         $5,579,829 
+                              </li>
+                              <li>
+                                         
+                                        <span
+                                                  className="light"
+                                        >
+                                                  California:
+                                        </span>
+                                         $345,014 
+                              </li>
+                              <li>
+                                         
+                                        <span
+                                                  className="light"
+                                        >
+                                                  New York:
+                                        </span>
+                                         $317,925
+                              </li>
+                              <li>
+                                         
+                                        <span
+                                                  className="light"
+                                        >
+                                                  Connecticut:
+                                        </span>
+                                         $142,720
+                              </li>
+                              <li>
+                                         
+                                        <span
+                                                  className="light"
+                                        >
+                                                  Massachussets:
+                                        </span>
+                                         $105,922
+                              </li>
+                    </ul>
+                    <span
+                              className="small"
+                    >
+                               *Hover over map to see all totals 
+                    </span>
+          </div>
+</div>,
+      ],
+      "className": "map-container",
+      "id": "container-map",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": " Follow the money ",
+        },
+        "ref": null,
+        "rendered": " Follow the money ",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": " Contributions to the 2018 Colorado governor's race have come from every state ",
+        },
+        "ref": null,
+        "rendered": " Contributions to the 2018 Colorado governor's race have come from every state ",
+        "type": "h3",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="map"
+>
+              <DataMap />
+</div>,
+            <div
+              className="map-totals"
+>
+              <h3
+                            className="fund-head"
+              >
+                             Top Fundraising States 
+              </h3>
+              <ul
+                            className="top-states"
+              >
+                            <li>
+                                           
+                                          <span
+                                                        className="light"
+                                          >
+                                                        Colorado:
+                                          </span>
+                                           $5,579,829 
+                            </li>
+                            <li>
+                                           
+                                          <span
+                                                        className="light"
+                                          >
+                                                        California:
+                                          </span>
+                                           $345,014 
+                            </li>
+                            <li>
+                                           
+                                          <span
+                                                        className="light"
+                                          >
+                                                        New York:
+                                          </span>
+                                           $317,925
+                            </li>
+                            <li>
+                                           
+                                          <span
+                                                        className="light"
+                                          >
+                                                        Connecticut:
+                                          </span>
+                                           $142,720
+                            </li>
+                            <li>
+                                           
+                                          <span
+                                                        className="light"
+                                          >
+                                                        Massachussets:
+                                          </span>
+                                           $105,922
+                            </li>
+              </ul>
+              <span
+                            className="small"
+              >
+                             *Hover over map to see all totals 
+              </span>
+</div>,
+          ],
+          "className": "map-container-content",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <DataMap />,
+              "className": "map",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h3
+                  className="fund-head"
+>
+                   Top Fundraising States 
+</h3>,
+                <ul
+                  className="top-states"
+>
+                  <li>
+                                     
+                                    <span
+                                                      className="light"
+                                    >
+                                                      Colorado:
+                                    </span>
+                                     $5,579,829 
+                  </li>
+                  <li>
+                                     
+                                    <span
+                                                      className="light"
+                                    >
+                                                      California:
+                                    </span>
+                                     $345,014 
+                  </li>
+                  <li>
+                                     
+                                    <span
+                                                      className="light"
+                                    >
+                                                      New York:
+                                    </span>
+                                     $317,925
+                  </li>
+                  <li>
+                                     
+                                    <span
+                                                      className="light"
+                                    >
+                                                      Connecticut:
+                                    </span>
+                                     $142,720
+                  </li>
+                  <li>
+                                     
+                                    <span
+                                                      className="light"
+                                    >
+                                                      Massachussets:
+                                    </span>
+                                     $105,922
+                  </li>
+</ul>,
+                <span
+                  className="small"
+>
+                   *Hover over map to see all totals 
+</span>,
+              ],
+              "className": "map-totals",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " Top Fundraising States ",
+                  "className": "fund-head",
+                },
+                "ref": null,
+                "rendered": " Top Fundraising States ",
+                "type": "h3",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <li>
+                       
+                      <span
+                                            className="light"
+                      >
+                                            Colorado:
+                      </span>
+                       $5,579,829 
+</li>,
+                    <li>
+                       
+                      <span
+                                            className="light"
+                      >
+                                            California:
+                      </span>
+                       $345,014 
+</li>,
+                    <li>
+                       
+                      <span
+                                            className="light"
+                      >
+                                            New York:
+                      </span>
+                       $317,925
+</li>,
+                    <li>
+                       
+                      <span
+                                            className="light"
+                      >
+                                            Connecticut:
+                      </span>
+                       $142,720
+</li>,
+                    <li>
+                       
+                      <span
+                                            className="light"
+                      >
+                                            Massachussets:
+                      </span>
+                       $105,922
+</li>,
+                  ],
+                  "className": "top-states",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        <span
+                          className="light"
+>
+                          Colorado:
+</span>,
+                        " $5,579,829 ",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Colorado:",
+                          "className": "light",
+                        },
+                        "ref": null,
+                        "rendered": "Colorado:",
+                        "type": "span",
+                      },
+                      " $5,579,829 ",
+                    ],
+                    "type": "li",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        <span
+                          className="light"
+>
+                          California:
+</span>,
+                        " $345,014 ",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "California:",
+                          "className": "light",
+                        },
+                        "ref": null,
+                        "rendered": "California:",
+                        "type": "span",
+                      },
+                      " $345,014 ",
+                    ],
+                    "type": "li",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        <span
+                          className="light"
+>
+                          New York:
+</span>,
+                        " $317,925",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "New York:",
+                          "className": "light",
+                        },
+                        "ref": null,
+                        "rendered": "New York:",
+                        "type": "span",
+                      },
+                      " $317,925",
+                    ],
+                    "type": "li",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        <span
+                          className="light"
+>
+                          Connecticut:
+</span>,
+                        " $142,720",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Connecticut:",
+                          "className": "light",
+                        },
+                        "ref": null,
+                        "rendered": "Connecticut:",
+                        "type": "span",
+                      },
+                      " $142,720",
+                    ],
+                    "type": "li",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        <span
+                          className="light"
+>
+                          Massachussets:
+</span>,
+                        " $105,922",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Massachussets:",
+                          "className": "light",
+                        },
+                        "ref": null,
+                        "rendered": "Massachussets:",
+                        "type": "span",
+                      },
+                      " $105,922",
+                    ],
+                    "type": "li",
+                  },
+                ],
+                "type": "ul",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " *Hover over map to see all totals ",
+                  "className": "small",
+                },
+                "ref": null,
+                "rendered": " *Hover over map to see all totals ",
+                "type": "span",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+             Follow the money 
+</h1>,
+          <h3>
+             Contributions to the 2018 Colorado governor's race have come from every state 
+</h3>,
+          <div
+            className="map-container-content"
+>
+            <div
+                        className="map"
+            >
+                        <DataMap />
+            </div>
+            <div
+                        className="map-totals"
+            >
+                        <h3
+                                    className="fund-head"
+                        >
+                                     Top Fundraising States 
+                        </h3>
+                        <ul
+                                    className="top-states"
+                        >
+                                    <li>
+                                                 
+                                                <span
+                                                            className="light"
+                                                >
+                                                            Colorado:
+                                                </span>
+                                                 $5,579,829 
+                                    </li>
+                                    <li>
+                                                 
+                                                <span
+                                                            className="light"
+                                                >
+                                                            California:
+                                                </span>
+                                                 $345,014 
+                                    </li>
+                                    <li>
+                                                 
+                                                <span
+                                                            className="light"
+                                                >
+                                                            New York:
+                                                </span>
+                                                 $317,925
+                                    </li>
+                                    <li>
+                                                 
+                                                <span
+                                                            className="light"
+                                                >
+                                                            Connecticut:
+                                                </span>
+                                                 $142,720
+                                    </li>
+                                    <li>
+                                                 
+                                                <span
+                                                            className="light"
+                                                >
+                                                            Massachussets:
+                                                </span>
+                                                 $105,922
+                                    </li>
+                        </ul>
+                        <span
+                                    className="small"
+                        >
+                                     *Hover over map to see all totals 
+                        </span>
+            </div>
+</div>,
+        ],
+        "className": "map-container",
+        "id": "container-map",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": " Follow the money ",
+          },
+          "ref": null,
+          "rendered": " Follow the money ",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": " Contributions to the 2018 Colorado governor's race have come from every state ",
+          },
+          "ref": null,
+          "rendered": " Contributions to the 2018 Colorado governor's race have come from every state ",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="map"
+>
+                <DataMap />
+</div>,
+              <div
+                className="map-totals"
+>
+                <h3
+                                className="fund-head"
+                >
+                                 Top Fundraising States 
+                </h3>
+                <ul
+                                className="top-states"
+                >
+                                <li>
+                                                 
+                                                <span
+                                                                className="light"
+                                                >
+                                                                Colorado:
+                                                </span>
+                                                 $5,579,829 
+                                </li>
+                                <li>
+                                                 
+                                                <span
+                                                                className="light"
+                                                >
+                                                                California:
+                                                </span>
+                                                 $345,014 
+                                </li>
+                                <li>
+                                                 
+                                                <span
+                                                                className="light"
+                                                >
+                                                                New York:
+                                                </span>
+                                                 $317,925
+                                </li>
+                                <li>
+                                                 
+                                                <span
+                                                                className="light"
+                                                >
+                                                                Connecticut:
+                                                </span>
+                                                 $142,720
+                                </li>
+                                <li>
+                                                 
+                                                <span
+                                                                className="light"
+                                                >
+                                                                Massachussets:
+                                                </span>
+                                                 $105,922
+                                </li>
+                </ul>
+                <span
+                                className="small"
+                >
+                                 *Hover over map to see all totals 
+                </span>
+</div>,
+            ],
+            "className": "map-container-content",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <DataMap />,
+                "className": "map",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h3
+                    className="fund-head"
+>
+                     Top Fundraising States 
+</h3>,
+                  <ul
+                    className="top-states"
+>
+                    <li>
+                                         
+                                        <span
+                                                            className="light"
+                                        >
+                                                            Colorado:
+                                        </span>
+                                         $5,579,829 
+                    </li>
+                    <li>
+                                         
+                                        <span
+                                                            className="light"
+                                        >
+                                                            California:
+                                        </span>
+                                         $345,014 
+                    </li>
+                    <li>
+                                         
+                                        <span
+                                                            className="light"
+                                        >
+                                                            New York:
+                                        </span>
+                                         $317,925
+                    </li>
+                    <li>
+                                         
+                                        <span
+                                                            className="light"
+                                        >
+                                                            Connecticut:
+                                        </span>
+                                         $142,720
+                    </li>
+                    <li>
+                                         
+                                        <span
+                                                            className="light"
+                                        >
+                                                            Massachussets:
+                                        </span>
+                                         $105,922
+                    </li>
+</ul>,
+                  <span
+                    className="small"
+>
+                     *Hover over map to see all totals 
+</span>,
+                ],
+                "className": "map-totals",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " Top Fundraising States ",
+                    "className": "fund-head",
+                  },
+                  "ref": null,
+                  "rendered": " Top Fundraising States ",
+                  "type": "h3",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <li>
+                         
+                        <span
+                                                className="light"
+                        >
+                                                Colorado:
+                        </span>
+                         $5,579,829 
+</li>,
+                      <li>
+                         
+                        <span
+                                                className="light"
+                        >
+                                                California:
+                        </span>
+                         $345,014 
+</li>,
+                      <li>
+                         
+                        <span
+                                                className="light"
+                        >
+                                                New York:
+                        </span>
+                         $317,925
+</li>,
+                      <li>
+                         
+                        <span
+                                                className="light"
+                        >
+                                                Connecticut:
+                        </span>
+                         $142,720
+</li>,
+                      <li>
+                         
+                        <span
+                                                className="light"
+                        >
+                                                Massachussets:
+                        </span>
+                         $105,922
+</li>,
+                    ],
+                    "className": "top-states",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          " ",
+                          <span
+                            className="light"
+>
+                            Colorado:
+</span>,
+                          " $5,579,829 ",
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        " ",
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Colorado:",
+                            "className": "light",
+                          },
+                          "ref": null,
+                          "rendered": "Colorado:",
+                          "type": "span",
+                        },
+                        " $5,579,829 ",
+                      ],
+                      "type": "li",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          " ",
+                          <span
+                            className="light"
+>
+                            California:
+</span>,
+                          " $345,014 ",
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        " ",
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "California:",
+                            "className": "light",
+                          },
+                          "ref": null,
+                          "rendered": "California:",
+                          "type": "span",
+                        },
+                        " $345,014 ",
+                      ],
+                      "type": "li",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          " ",
+                          <span
+                            className="light"
+>
+                            New York:
+</span>,
+                          " $317,925",
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        " ",
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "New York:",
+                            "className": "light",
+                          },
+                          "ref": null,
+                          "rendered": "New York:",
+                          "type": "span",
+                        },
+                        " $317,925",
+                      ],
+                      "type": "li",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          " ",
+                          <span
+                            className="light"
+>
+                            Connecticut:
+</span>,
+                          " $142,720",
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        " ",
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Connecticut:",
+                            "className": "light",
+                          },
+                          "ref": null,
+                          "rendered": "Connecticut:",
+                          "type": "span",
+                        },
+                        " $142,720",
+                      ],
+                      "type": "li",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          " ",
+                          <span
+                            className="light"
+>
+                            Massachussets:
+</span>,
+                          " $105,922",
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        " ",
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Massachussets:",
+                            "className": "light",
+                          },
+                          "ref": null,
+                          "rendered": "Massachussets:",
+                          "type": "span",
+                        },
+                        " $105,922",
+                      ],
+                      "type": "li",
+                    },
+                  ],
+                  "type": "ul",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " *Hover over map to see all totals ",
+                    "className": "small",
+                  },
+                  "ref": null,
+                  "rendered": " *Hover over map to see all totals ",
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

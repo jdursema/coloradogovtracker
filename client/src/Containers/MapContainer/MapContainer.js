@@ -3,12 +3,9 @@ import DataMap from '../Map/Map'
 import './MapContainer.css'
 
 
-class MapContainer extends Component {
-  constructor(props) {
-    super(props);
-    
-  }
-  render(){
+const MapContainer = () => {
+
+ 
     return (
       <div className = "map-container" id="container-map">
         <h1> Follow the money </h1>
@@ -32,7 +29,6 @@ class MapContainer extends Component {
          
       </div>
     )
-  }
 }
 
 export default MapContainer;
