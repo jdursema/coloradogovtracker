@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CandidateCard from '../../Components/CandidateCard/CandidateCard';
 import './CompareCandidate.css';
+import PropTypes from 'prop-types';
 
 export class CompareCandidate extends Component {
   constructor (props) {
@@ -79,12 +80,12 @@ export class CompareCandidate extends Component {
 
     let mappedCandidates;
     if (this.state.searchResults.length){
-      mappedCandidates = this.state.searchResults.map((candidate)=> {
-        return <CandidateCard info = {candidate}/>;
+      mappedCandidates = this.state.searchResults.map((candidate, index)=> {
+        return <CandidateCard info = {candidate} key= {index}/>;
       });
     } else if (!this.state.searchResults.length &&this.state.candidateTotals.length){
-      mappedCandidates = this.state.candidateTotals.map((candidate)=> {
-        return <CandidateCard info = {candidate}/>;
+      mappedCandidates = this.state.candidateTotals.map((candidate, index)=> {
+        return <CandidateCard info = {candidate} key = {index}/>;
       });
     }
 
@@ -97,8 +98,8 @@ export class CompareCandidate extends Component {
 
           <button className= {this.activeClass(1)} onClick = {(event) => this.filterByParty(event, 1)} name = 'Democrat' >Democrats</button>
           <button className= {this.activeClass(2)} onClick = {(event) => this.filterByParty(event, 2)} name= 'Republican'>Republicans</button>
-          <button className={this.activeClass(3)} onClick = {(event) => this.sortByHighestEarners(3)}>Highest Earnings</button>
-          <button className= {this.activeClass(4)}  onClick = {(event) => this.viewAllCandidates(4)}>All Active Candidates</button>
+          <button className={this.activeClass(3)} onClick = {() => this.sortByHighestEarners(3)}>Highest Earnings</button>
+          <button className= {this.activeClass(4)}  onClick = {() => this.viewAllCandidates(4)}>All Active Candidates</button>
         </div>
         <div className='card-container'>
           <div className  = 'card-holder'>
@@ -116,3 +117,8 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, null)(CompareCandidate);
+
+CompareCandidate.PropTypes = {
+  candidateTotals:PropTypes.array,
+  candidates: PropTypes.object
+};
