@@ -19,8 +19,8 @@ const store = createStore(rootReducer, devTools, applyMiddleware(thunk));
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-    <App store={store} />
+      <App store={store} />
     </BrowserRouter>
   </Provider>,
-  document.getElementById('root'))
+  document.getElementById('root'));
 registerServiceWorker();

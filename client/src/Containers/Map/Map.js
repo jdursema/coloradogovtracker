@@ -1,9 +1,10 @@
+/* eslint-disable */
 
-import Datamap from 'datamaps/dist/datamaps.usa.min'
+import Datamap from 'datamaps/dist/datamaps.usa.min';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import statesDefaults from '../../data/states-defaults';
-import {getStateTotals} from '../../Helper/helper'
+import {getStateTotals} from '../../Helper/helper';
 import * as d3 from "d3";
 import './Map.css';
 import PropTypes from 'prop-types';
@@ -14,40 +15,40 @@ class DataMap extends Component {
     super(props);
     this.state = {
       totals: []
-    }
+    };
     this.datamap = null;
   }
   linearPalleteScale(value){
-     const stateTotals = this.state.totals
+    const stateTotals = this.state.totals;
 
-    const dataValues = stateTotals.map(function(data) { return data.total });
+    const dataValues = stateTotals.map(function(data) { return data.total; });
     const minVal = Math.min(...dataValues);
     const maxVal = Math.max(...dataValues);
     
     let sortedArray = dataValues.sort((a, b) => a - b);
-    let half = Math.floor(sortedArray.length/2)
+    let half = Math.floor(sortedArray.length/2);
     let medianVal;
 
-    if(sortedArray.length % 2) {
-      medianVal = sortedArray[half]
+    if (sortedArray.length % 2) {
+      medianVal = sortedArray[half];
     } else {
-      medianVal = (sortedArray[half-1] + sortedArray[half])/2
+      medianVal = (sortedArray[half-1] + sortedArray[half])/2;
     }
 
-    return d3.scale.linear().domain([minVal, medianVal, maxVal]).range(["#deebf7","#9ecae1", "#4292c6"])(value);
+    return d3.scale.linear().domain([minVal, medianVal, maxVal]).range(["#deebf7", "#9ecae1", "#4292c6"])(value);
   }
   
   redducedData(){
     if (this.state.totals) {
-    const stateTotals = this.state.totals
-    const newData = stateTotals.reduce((object, data) => {
-      object[data.state] = { value: data.total, fillColor: this.linearPalleteScale(data.total) };
-      return object;
-    }, {});
-    return Object.assign({}, statesDefaults, newData);
+      const stateTotals = this.state.totals;
+      const newData = stateTotals.reduce((object, data) => {
+        object[data.state] = { value: data.total, fillColor: this.linearPalleteScale(data.total) };
+        return object;
+      }, {});
+      return Object.assign({}, statesDefaults, newData);
     }
   }
-renderMap(){
+  renderMap(){
     return new Datamap({
       element: ReactDOM.findDOMNode(this),
       scope: 'usa',
@@ -74,18 +75,17 @@ renderMap(){
         document.body.clientWidth;
   }
   componentDidMount = async () => {
-   let stateTotals = await getStateTotals()
-   this.setState({totals: stateTotals})
+    let stateTotals = await getStateTotals();
+    this.setState({totals: stateTotals});
    
 
-   d3.select('#datamap-container')
+    d3.select('#datamap-container');
     this.datamap = this.renderMap();
     window.addEventListener('resize', () => {
       if (this.currentScreenWidth() > 600) {
         d3.select('svg').remove();
         this.datamap = this.renderMap();
-      }
-      else if (this.currentScreenWidth() <= 600) {
+      } else if (this.currentScreenWidth() <= 600) {
         d3.select('svg').remove();
         this.datamap = this.renderMap();
       }
@@ -106,8 +106,8 @@ renderMap(){
 }
 
 
-export default DataMap
+export default DataMap;
 
 DataMap.propTypes = {
   totals: PropTypes.array
-}
+};

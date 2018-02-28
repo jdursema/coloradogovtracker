@@ -4,12 +4,13 @@ import { withRouter} from 'react-router-dom';
 import * as actions from '../../Actions/';
 import { getSelectedCandidate } from '../../Helper/helper';
 import { VictoryPie, VictoryChart, VictoryBar, VictoryAxis, VictoryLabel } from 'victory';
-import ContributionContainer from '../../Components/ContributionContainer/ContributionContainer.js'
-import './CandidateDetails.css'
-import Header from '../../Components/Header/Header.js'
+import ContributionContainer from '../../Components/ContributionContainer/ContributionContainer.js';
+import './CandidateDetails.css';
+import Header from '../../Components/Header/Header.js';
 import handshake from '../../images/handshake.png';
 import dollar from '../../images/dollar-symbol.png';
 import profile from '../../images/profile.png';
+import PropTypes from 'prop-types';
 
 
 
@@ -39,15 +40,15 @@ setCandidateRoute = (async() => {
  }
 
 getCandidateInfo = () => {
-  if(this.props.selectedCandidate.name) {
-    const {name, image, party, contributionTotal, expenditureTotal, contributionNum, avgContribution} = this.props.selectedCandidate
+  if (this.props.selectedCandidate.name) {
+    const { image, party, contributionTotal, contributionNum, avgContribution} = this.props.selectedCandidate;
     return (
       <div className = "candidate-info">
 
 
-      <img className="details-image"src = {image} />
-      <p> {party}</p>
-      <div className = "stat-details">
+        <img className="details-image"src = {image} />
+        <p> {party}</p>
+        <div className = "stat-details">
 
           <div className = "details-stat details-stat1">
             <div className = "details-icon">
@@ -92,9 +93,9 @@ getCandidateInfo = () => {
         </div>
       </div>
      
-    )
+    );
   } else {
-    this.setCandidateRoute()
+    this.setCandidateRoute();
   }
 }
 
@@ -135,7 +136,7 @@ render () {
                   { x: this.props.selectedCandidate.name, y: parseInt(this.props.selectedCandidate.contributionTotal) },
                   { x: 'Total', y: 7401324.15999997}
                 ]}
-                colorScale={["#184982", "#ecebeb" ]}
+                colorScale={["#184982", "#ecebeb"]}
                 width={200}
                 height={200}
                 style = {{
@@ -171,7 +172,7 @@ render () {
                   ]}
                   style = {{
                     data: {
-                      fill: (d) => d.x === "Overall Average" ? "#ecebeb" : "#a2000b",
+                      fill: (d) => d.x === "Overall Average" ? "#ecebeb" : "#a2000b"
                     }
                   }}
                 />
@@ -189,11 +190,8 @@ render () {
           }
         </div>
       </div>
-    
-
-   
     </div>
-  )
+  );
 }
 }
 
@@ -201,17 +199,22 @@ const mapStateToProps = state => ({
   selectedCandidate: state.selectedCandidate,
   candidates: state.candidates,
   candidateTotals: state.candidateTotals
-})
+});
 
 const mapDispatchToProps = dispatch => {
   return {
     setCandidate: candidate => {
-      dispatch(actions.setSelectedCandidate(candidate))
+      dispatch(actions.setSelectedCandidate(candidate));
     }
-  }
-}
+  };
+};
 
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CandidateDetails));
 
-// export default CandidateDetails;
+CandidateDetails.propTypes = {
+  match: PropTypes.object,
+  setCandidate: PropTypes.func,
+  selectedCandidate: PropTypes.object
+
+};
