@@ -203,6 +203,24 @@ describe('API Routes', () => {
   });
 
 
+  
+
+  describe('GET /api/v1/totals', () => {
+    it('should return all of the candidate totals', () => {
+      return chai.request(server)
+        .get('/api/v1/totals')
+        .then(response => {
+          response.should.have.status(200);
+          console.log(response.body.candidate)
+        })
+        .catch(error => {
+          throw error;
+        });
+    });
+
+  });
+
+
  
 
   describe('GET /api/v1/candidates/:committeeId/expenditures', () => {
