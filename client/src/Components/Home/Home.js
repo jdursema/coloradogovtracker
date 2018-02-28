@@ -38,7 +38,7 @@ const Home = () => {
           </div>
           <div className = "numbers">
             <span className = "big-number">
-            5,896
+            26,686
             </span>
             <span className = "number-description">
             Contributions reported
@@ -51,7 +51,7 @@ const Home = () => {
           </div>
           <div className = "numbers">
             <span className = "big-number">
-            $5,567,678
+            $7,401,324.16
             </span>
             <span className = "number-description">
             Total money raised
@@ -66,7 +66,7 @@ const Home = () => {
           </div>
           <div className = "numbers">
             <span className = "big-number">
-            $345,678
+            $321,796.70
             </span>
             <span className = "number-description">
             Average raised per candidate
