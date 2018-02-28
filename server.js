@@ -8,7 +8,7 @@ const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
 const jwt = require('jsonwebtoken');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 6000;
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
