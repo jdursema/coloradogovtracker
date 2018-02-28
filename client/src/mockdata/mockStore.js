@@ -82,3 +82,25 @@ donor_occupation: "",
 Jurisdiction: "STATEWIDE"}
 ]
 }
+
+export const contributions = [
+{id: 531735,
+committee_id: "20135025390",
+committee_name: "RUNDBERG FOR COLORADO GOVERNOR",
+contribution_amount: "331.66",
+contribution_date: "2017-03-09T07:00:00.000Z",
+donor_last: "RUNDBERG",
+donor_first: "JIM",
+donor_address: "56571 EWING RD",
+donor_city: "MOFFAT",
+donor_state: "CO",
+donor_zip: "81143",
+record_id: "4500073",
+contribution_type: "Monetary (Itemized)",
+donor_type: "Candidate",
+committee_type: "Candidate Committee",
+candidate_name: "JIM LENNART RUNDBERG",
+donor_employer: "",
+donor_occupation: "",
+Jurisdiction: "STATEWIDE"}
+]

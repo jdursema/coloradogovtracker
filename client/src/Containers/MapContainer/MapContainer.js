@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import DataMap from '../Map/Map'
 import './MapContainer.css'
 
 
 const MapContainer = () => {
-
- 
     return (
       <div className = "map-container" id="container-map">
         <h1> Follow the money </h1>

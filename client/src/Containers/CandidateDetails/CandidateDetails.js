@@ -44,9 +44,9 @@ getCandidateInfo = () => {
   return (
     <div className = "candidate-info">
 
-      <img class="details-image"src = {image} />
+      <img className="details-image"src = {image} />
       <p> {party}</p>
-      <div class = "stat-details">
+      <div className = "stat-details">
           <div className = "details-stat details-stat1">
             <div className = "details-icon">
               <img src = {dollar} alt = "dollar sign" />
@@ -102,7 +102,7 @@ getCandidateInfo = () => {
 
 render () {
   window.scrollTo(0, 0);
-  console.log(this.props.selectedCandidate.contributionTotal)
+
 
   return (
 

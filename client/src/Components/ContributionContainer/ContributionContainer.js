@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as actions from '../../Actions/';
 import Card from '../Card/Card.js';
 import './ContributionContainer.css';
 import PropTypes from 'prop-types';
@@ -161,3 +160,7 @@ componentWillReceiveProps(nextProps) {
 }
 
 export default (ContributionContainer)
+
+ContributionContainer.propTypes = {
+  contributions: PropTypes.array
+}
