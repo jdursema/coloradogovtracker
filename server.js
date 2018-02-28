@@ -1,5 +1,6 @@
 /*eslint-disable no-unused-vars*/
 /*eslint-disable no-console*/
+/*eslint-disable max-len*/
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -126,44 +127,44 @@ app.get('/api/v1/expenditures', (request, response) => {
 
 app.get('/api/v1/totals', (request, response) => {
   database('candidatetotals').select()
-  .then(candidate => {
-    return response.status(200).json({
-      candidate
+    .then(candidate => {
+      return response.status(200).json({
+        candidate
+      });
     })
-  })
-  .catch(error => {
-    return response.status(500).json({error})
-  })
-})
+    .catch(error => {
+      return response.status(500).json({error});
+    });
+});
 
 app.get('/api/v1/totals/:id', (request, response) => {
   database('candidatetotals').where('candidateId', request.params.id).select()
-  .then(candidate => {
-    if (candidate.length) {
-      return response.status(200).json({candidate});
-    } else {
-      return response.status(404).json({error: `Could not find candidate totals for id ${request.params.id}`});
-    }
-  })
-  .catch(error => {
-      return response.status(500).json({error})
+    .then(candidate => {
+      if (candidate.length) {
+        return response.status(200).json({candidate});
+      } else {
+        return response.status(404).json({error: `Could not find candidate totals for id ${request.params.id}`});
+      }
     })
-  })
+    .catch(error => {
+      return response.status(500).json({error});
+    });
+});
 
 
 //get state totals
 
 app.get('/api/v1/state', (request, response) => {
   database('statetotals').select()
-  .then(state => {
-    return response.status(200).json({
-      state
+    .then(state => {
+      return response.status(200).json({
+        state
+      });
     })
-  })
-  .catch(error => {
-    return response.status(500).json({error})
-  })
-})
+    .catch(error => {
+      return response.status(500).json({error});
+    });
+});
 
 
 

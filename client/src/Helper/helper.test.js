@@ -75,7 +75,7 @@ describe('getCandidateContributions', () => {
       Promise.resolve({
         status: 200,
         json: () => Promise.resolve(
-          {contribution:[
+          {contributors:[
             {
               Jurisdiction:"STATEWIDE",
               candidate_name:"JARED S. POLIS",

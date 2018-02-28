@@ -2,7 +2,7 @@ const contributionsData = require('../../../data/allContributions.js');
 const candidatesData = require('../../../data/candidateLookup');
 const expenditureData = require('../../../data/allExpenditures.js');
 const candidateTotalData = require('../../../data/totals.js');
-const stateTotalData = require('../../../data/stateTotals.js')
+const stateTotalData = require('../../../data/stateTotals.js');
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
@@ -28,14 +28,19 @@ exports.seed = function(knex, Promise) {
       expenditureData.forEach((expenditure) => {
         expenditurePromises.push(createExpenditure(knex, expenditure));
       });
-       candidateTotalData.forEach((candidate) => {
+      candidateTotalData.forEach((candidate) => {
         candidateTotalPromises.push(createTotal(knex, candidate));
       });
-       stateTotalData.forEach((state) => {
+      stateTotalData.forEach((state) => {
         stateTotalPromises.push(createStateTotal(knex, state));
       });
 
-      return Promise.all([...candidatePromises, ...contributionPromises, ...expenditurePromises,...candidateTotalPromises,...stateTotalPromises]);
+      return Promise.all(
+        [...candidatePromises,
+          ...contributionPromises,
+          ...expenditurePromises,
+          ...candidateTotalPromises,
+          ...stateTotalPromises]);
     });
 };
 
