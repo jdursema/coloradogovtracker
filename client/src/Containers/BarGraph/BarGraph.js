@@ -80,25 +80,25 @@ export class BarGraph extends Component {
 
   render() {
     return (
-      <div>
+      <div className = 'all-bar-graphs'>
         <div className= 'filter-btns center'>
 
           <button className = {this.activeClass(1)} onClick = {(event) => this.alphabetizeData(1)}>Aphabetical</button>
           <button className = {this.activeClass(2)} onClick = {(event) => this.sortData(2)}>Most Raised</button>
           <button className = {this.activeClass(3)} onClick = {(event) => this.sortAverage(3)}>Average Contribution</button>
         </div>
-        <div>
-          <h3>Total Contributions ($)</h3>
+        <div class='bar-graph'>
+          <h3 className='graph-title'>Total Contributions ($)</h3>
           <VictoryChart
             domainPadding={10}
-            height = {200}
-            width = {500}
+            height = {400}
+            width = {1000}
             >
             <VictoryAxis
               tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]}
               tickFormat={this.state.candidates.map(candidate => candidate.name.split(' ')[1] )}
               style={{
-                tickLabels: {fontSize: '6px', fontFamily: 'Open Sans'}
+                tickLabels: {fontSize: '12px', fontFamily: 'Open Sans'}
               }}
               tickLabelComponent= {<VictoryLabel angle={45} dx = {12}/>}
             />
@@ -158,18 +158,18 @@ export class BarGraph extends Component {
               }]}/>
           </VictoryChart>
         </div>
-        <div>
-          <h3>Total Contributions (#)</h3>
+        <div class='bar-graph'>
+          <h3 className='graph-title'>Total Contributions (#)</h3>
           <VictoryChart
             domainPadding={10}
-            height = {200}
-            width = {500}
+            height = {400}
+            width = {1000}
             >
             <VictoryAxis
               tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]}
               tickFormat={this.state.candidates.map(candidate => candidate.name.split(' ')[1] )}
               style={{
-                tickLabels: {fontSize: '6px'}
+                tickLabels: {fontSize: '12px'}
               }}
               tickLabelComponent= {<VictoryLabel angle={45} dx={12}/>}
             />
@@ -228,18 +228,18 @@ export class BarGraph extends Component {
         </div>
   
   
-        <div>
-          <h3>Total Expenditures</h3>
+        <div class='bar-graph'>
+          <h3 className='graph-title'>Total Expenditures ($)</h3>
           <VictoryChart
             domainPadding={10}
-            height = {200}
-            width = {500}
+            height = {400}
+            width = {1000}
             >
             <VictoryAxis
               tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]}
               tickFormat={this.state.candidates.map(candidate => candidate.name.split(' ')[1] )}
               style={{
-                tickLabels: {fontSize: '6px'}
+                tickLabels: {fontSize: '12px'}
               }}
               tickLabelComponent= {<VictoryLabel angle={45} dx={12}/>}
             />
