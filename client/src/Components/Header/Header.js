@@ -36,7 +36,11 @@ class Header extends Component {
   render() {
     return (
       <div className = "app-header"> 
-        <div className = "logo-div"><img src = {trackerLogo} className = "tracker-logo" alt = 'logo' /> </div>
+        <div className = "logo-div" onClick= {() => {
+          this.props.history.push('/')
+        }}>
+        <img src = {trackerLogo} className = "tracker-logo" alt = 'logo' />
+        </div>
         <div className = "header-select">
           <select className = "candidate-select" onChange = {(event) => this.selectCandidate(event, event.target.value)}>
             <option> Select a candidate </option>

@@ -40,6 +40,9 @@
   justify-content: center;
   align-items: center;
   padding-top: 20px;
+  position: sticky;
+  top: 0;
+
 }
 
 .details-image {
@@ -83,4 +86,14 @@
 
 .candidate-graph-title{
   font-size: 24px;
+}
+
+.webpage-btn{
+  background-color: #a2000b;
+  color: #fff;
+  padding: 10px 30px;
+  margin: 10px 30px;
+  font-size: 18px;
+  font-weight: 700;
+  align-self: center;
 }

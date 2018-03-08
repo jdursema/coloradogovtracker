@@ -88,7 +88,9 @@ getCandidateInfo = () => {
                 Average contribution 
               </span>
             </div>
+            
           </div>
+          <button className='webpage-btn' onClick={()=> window.open(this.props.selectedCandidate.website, "_blank")}>Candidate Site</button>
 
         </div>
       </div>
@@ -104,6 +106,7 @@ getCandidateInfo = () => {
 
 
 render () {
+  console.log(this.props.selectedCandidate.website)
   window.scrollTo(0, 0);
 
 
@@ -121,11 +124,10 @@ render () {
       <div className = "details-content">
 
         <div className = "candidate-breakdown">
-  
-     
-
           {this.getCandidateInfo()}
+          
         </div>
+        
 
         <div className = "main-details-container">
           <div className = 'charts'>
