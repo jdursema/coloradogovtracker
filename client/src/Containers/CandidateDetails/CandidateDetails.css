@@ -2,7 +2,7 @@
 .charts{
   display: flex;
   justify-content: space-around;
-  width: 70vw;
+/*  width: 70vw;*/
   height: 40vh;
 }
 
@@ -83,4 +83,21 @@
 
 .candidate-graph-title{
   font-size: 24px;
+}
+
+@media screen and (max-width: 800px) {
+  
+  .charts {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .details-content {
+    flex-direction: column;
+  }
 }

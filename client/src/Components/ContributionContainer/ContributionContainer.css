@@ -15,11 +15,23 @@
   color: white;
 }
 
+.contribution-sort-bar{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 1045px) {
   .contribution-card-container {
     width: 500px; }
 }
 
+@media screen and (max-width: 985px) {
+  .contribution-sort-bar {
+    flex-direction: column;
+  }
+}
 
 @media screen and (max-width: 840px) {
   .contribution-card-container {

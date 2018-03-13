@@ -133,7 +133,7 @@ class ContributionContainer extends Component {
     return (
       <div className = "contribution-container">
         <h2 className = "center"> Contributions </h2>
-        <div className = "candidate-sort-bar center">
+        <div className = "contribution-sort-bar center">
           <button className= {this.activeClass(1)} onClick = {() => this.sortHighContributions(1)}>Highest Contributions</button>
           <button className= {this.activeClass(2)} onClick = {() =>this.sortLowContributions(2)}>Lowest Contributions</button> 
           <button className= {this.activeClass(3)}onClick = {() => this.alphabetizContributors(3)}> Donors A to Z </button>
