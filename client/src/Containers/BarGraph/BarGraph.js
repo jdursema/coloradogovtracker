@@ -80,6 +80,7 @@ export class BarGraph extends Component {
 
 
   render() {
+    
     return (
       <div className = 'all-bar-graphs'>
         <div className= 'filter-btns center'>
