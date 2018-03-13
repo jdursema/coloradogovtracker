@@ -111,12 +111,12 @@ class Card extends Component {
 export default Card;
 
 Card.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.number,
   firstName: PropTypes.string,
   lastName: PropTypes.string,
-  amount: PropTypes.string,
+  amount: PropTypes.number,
   type: PropTypes.string,
-  recordId: PropTypes.string
+  recordId: PropTypes.number
 
 
 };

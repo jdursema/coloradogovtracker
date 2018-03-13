@@ -111,3 +111,54 @@ a.button.nav-button {
   justify-content: center;
   width: 20%;
 }
+
+
+@media screen and (max-width: 760px) {
+  .button-row {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .app-header {
+    flex-direction: column;
+    justify-content:center;
+  }
+
+  .header-top {
+    height: 130px;
+    margin-top: 0;
+  }
+
+  .header {
+  height: 400px;
+  background: no-repeat center url("../../images/coloCapitalMobile.jpg");
+  background-size: cover;
+  display:flex;
+  flex-direction: column;
+  }
+
+  .header-text{
+    width: 90%;
+  }
+
+  .stat-bar {
+    flex-direction: column;
+    height: 200px;
+    align-items: center;
+  }
+
+  .icon-box {
+    height: auto;
+  }
+
+  .stat {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .stat {
+    width: 80%;
+  }
+}
