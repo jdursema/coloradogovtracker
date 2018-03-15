@@ -88,6 +88,19 @@
   font-size: 24px;
 }
 
+.webpage-btn{
+  background-color: #a2000b;
+  color: #fff;
+  padding: 10px 30px;
+  margin: 10px 30px;
+  font-size: 18px;
+  font-weight: 700;
+  align-self: center;
+  text-decoration: underline;
+}
+
+
+
 
 @media screen and (max-width: 800px) {
   
