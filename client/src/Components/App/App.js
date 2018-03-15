@@ -20,8 +20,13 @@ export class App extends Component {
   }
 
   componentDidMount = async () => {
-    const candidateData = await initialCandidatesFetch();
+    try{
+      const candidateData = await initialCandidatesFetch();
     this.props.handleCandidates(candidateData);
+    } catch (error) {
+      throw error;
+    }
+    
 
   };
 
